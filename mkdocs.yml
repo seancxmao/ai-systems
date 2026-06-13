@@ -1,0 +1,13 @@
+site_name: AI Systems
+
+theme:
+  name: material
+
+plugins:
+  - search
+
+nav:
+  - Home: index.md
+
+  - AI Infra:
+      - vLLM: ai-infra/vllm.md

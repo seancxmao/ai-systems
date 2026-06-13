@@ -1,0 +1,21 @@
+# Python virtual environment
+.venv/
+
+# MkDocs build output
+site/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# pytest
+.pytest_cache/
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# JetBrains
+.idea/
