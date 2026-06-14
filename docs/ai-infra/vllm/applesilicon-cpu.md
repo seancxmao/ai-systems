@@ -1,7 +1,27 @@
-# vLLM Quickstart on Apple silicon CPU
+# vLLM on Apple silicon CPU
 
 ## Background
 
+### Apple silicon
+Apple silicon is a series of system on a chip (SoC) and system in a package (SiP) processors designed by Apple Inc., mainly using the ARM architecture.
+
+### Apple M3 Pro
+The M3 Pro is a more powerful version of the M3, with five or six performance cores, six efficiency cores, 14 to 18 GPU cores, 16 Neural Engine cores, up to 36 GB unified RAM with 150 GB/s memory bandwidth, and 48% more transistors. It is used in the 14- and 16-inch MacBook Pro and operates at a clock frequency of up to about 4.1 GHz. Apple claims the CPU performance is 30 percent faster than the M1 Pro and the GPU is 40 percent faster than the M1 Pro.
+
+### Python-only vs Full Build
+
+vLLM官网如是说：
+
+vLLM has experimental support for macOS with Apple Silicon. For now, users must build from source to natively run on macOS. For GPU-accelerated inference on Apple Silicon using Metal, check out vllm-metal, a community-maintained hardware plugin that uses MLX as the compute backend. Currently, there are no pre-built Apple silicon CPU wheels.
+
+vLLM 官方提供两种从源码安装的方式：
+
+* Python-only Build (without compilation)
+* Full Build (with compilation)
+
+对于Linux x86_64平台，Python-only Build通常可以正常工作；而对于 macOS Apple Silicon（M1/M2/M3/M4）平台，官方文档明确指出：Currently, there are no pre-built Apple silicon CPU wheels. 因此，Apple Silicon 用户目前只能采用 Full Build 方案。
+
+Python-only Build的本质是，核心原生扩展（native extensions）已经由官方预先编译并打包为wheel文件，安装过程只需要处理Python层代码，而不需要重新编译底层运行时组件。Python-only Build的主要价值就是提高开发迭代效率，避免每次修改Python代码都重新编译整个Native Runtime，因为Full Build的成本很高。
 
 ## Build from source
 
@@ -48,7 +68,7 @@ ERROR 06-13 18:37:32 [multiproc_executor.py:890] ValueError: Available memory on
 
 启动过程涉及几个进程：APIServer、EngineCore和Worker。Worker进程启动失败，导致整个启动失败。gpu-memory-utilization默认值是0.92，所以`18.0*0.92=16.56`，而Available memory只有4.85了，所以启动失败。虽然参数gpu-memory-utilization名字里是gpu，但是在CPU backend的情况，指的是与预留的CPU memory。应当降低预留内存，使其小于Available memory（比如当前是4.85）。
 
-### 将gpu-memory-utilization降低至0.2
+### 降低CPU Memory
 
 预留CPU内存为18 * 0.2 = 3.6
 
@@ -76,17 +96,18 @@ vllm serve Qwen/Qwen2.5-1.5B-Instruct --gpu-memory-utilization 0.2
 之前的错误发生在启动前的内存检查。这里Worker进程已经启动，加载模型权重也已经成功，开始kv cache allocation，但是发现内存不够，所以失败了。从日志看，预留的CPU内存（3.6），减去模型权重使用的内存，留给kv cache已经是负的了（-0.39）。
 
 vLLM CPU模式下整个系统内存组成：
+
 * 非vLLM
-  * 操作系统
-  * 其他程序
+    * 操作系统
+    * 其他程序
 * vLLM
-  * 模型权重
-  * KV Cache
-  * 运行时开销
+    * 模型权重
+    * KV Cache
+    * 运行时开销
 
 Qwen2.5-1.5B的参数量1.54B，如果是默认FP16/BF16，内存占用1.54B * 2 bytes=3.08 GiB，再加上其他一些开销，实际模型加载后通常会更多，以至于超过预留的3.6了。有一个解决办法是预留更多的内存。
 
-### 将gpu-memory-utilization提高到0.3
+### 提高CPU Memory
 
 预留更多的内存，启动成功。
 
@@ -206,6 +227,7 @@ ValueError: To serve at least one request with the model's max seq len (40960), 
 为什么0.6B的模型，需要4.38GiB的KV cache呢？
 
 对于标准Transformer：
+
 * 如果context length是40960，意味着要为40960个token缓存K和V
 * K和V意味着token数量的2倍
 * K和V分别是用1024长的向量表示（Qwen3-0.6B使用类似的数量级）
@@ -267,8 +289,11 @@ vllm serve Qwen/Qwen3-0.6B --gpu-memory-utilization 0.2 --max_model_len 4096
 * 就内存而言，Training时代，参数量决定成本；Inference时代，KV Cache决定成本。
 * 启动成功后，能够看到本地部署的进程模型，APIServer、EngineCore、Worker。
 
-# References
+## References
 
 * https://docs.vllm.ai/en/latest/getting_started/installation/cpu/
 * https://en.wikipedia.org/wiki/Apple_silicon
 * https://huggingface.co/Qwen/Qwen2.5-1.5B
+* https://huggingface.co/Qwen/Qwen3-0.6B
+* gpu_memory_utilization defaults to 0.92 in the source code. https://github.com/vllm-project/vllm/blob/releases/v0.23.0/vllm/config/cache.py#L67-L74
+* BF16, bfloat16, brain floating point. https://en.wikipedia.org/wiki/Bfloat16_floating-point_format

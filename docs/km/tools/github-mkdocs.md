@@ -75,14 +75,6 @@ nav:
       - vLLM: ai-infra/vllm.md
 ```
 
-使用3层导航比较合理：
-
-```
-Level 1: Domain
-Level 2: Topic
-Level 3: Article
-```
-
 ### 8. 本地预览
 
 ```
@@ -163,5 +155,26 @@ Copying 'ai-systems/site' to 'gh-pages' branch and pushing to GitHub.
 Your documentation should shortly be available at: https://seancxmao.github.io/ai-systems/
 ```
 
-## 总结
+## Best Practices
+
+### 层次结构
+
+使用3层导航比较合理：
+
+```
+Level 1: Domain
+Level 2: Topic
+Level 3: Article
+```
+
+### 工具
+
+直接用VS Code，不要折腾专门的 Markdown 编辑器。
+
+安装必要的插件：
+
+* Markdown All in One
+* Markdown Preview Enhanced
+* YAML
+* GitLens
 
