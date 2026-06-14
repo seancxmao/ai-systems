@@ -10,7 +10,22 @@ nav:
   - Home: index.md
 
   - AI Infra:
-      - vLLM Apple silicon CPU: ai-infra/vllm/quickstart-applesilicon-cpu.md
+      - vLLM:
+          - Apple silicon CPU: ai-infra/vllm/applesilicon-cpu.md
+          - Apple silicon GPU: ai-infra/vllm/applesilicon-gpu.md
+
+  - Models:
+      - Transformers:
+          - Tokenizers: models/transformers/tokenizers.md
+
+  - Workloads:
+      - Agents & Applications:
+          - Overview: workloads/agents-applications/agents-apps-overview.md
+
+  - Foundation:
+      - Math:
+          - Math for ML: foundation/math/math-for-ml.md
 
   - KM:
-      - GitHub MkDocs: km/github-mkdocs.md
+      - Tools:
+          - GitHub MkDocs: km/tools/github-mkdocs.md

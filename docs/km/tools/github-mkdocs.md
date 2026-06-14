@@ -1,6 +1,6 @@
 # GitHub Pages + MkDocs Material
 
-## 背景
+## Background
 
 GitHub Pages + MkDocs Material是当前技术圈非常主流、非常成熟的一种方案。
 
@@ -75,6 +75,14 @@ nav:
       - vLLM: ai-infra/vllm.md
 ```
 
+使用3层导航比较合理：
+
+```
+Level 1: Domain
+Level 2: Topic
+Level 3: Article
+```
+
 ### 8. 本地预览
 
 ```
@@ -143,6 +151,16 @@ git push
 
 ```
 mkdocs gh-deploy
+```
+
+从日志可以看到实际上做了什么：
+
+```
+Cleaning site directory
+Building documentation to directory: ai-systems/site
+Documentation built in 0.12 seconds
+Copying 'ai-systems/site' to 'gh-pages' branch and pushing to GitHub.
+Your documentation should shortly be available at: https://seancxmao.github.io/ai-systems/
 ```
 
 ## 总结
