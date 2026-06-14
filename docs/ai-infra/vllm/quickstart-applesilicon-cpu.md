@@ -1,4 +1,7 @@
-# vLLM on Apple silicon CPU
+# vLLM Quickstart on Apple silicon CPU
+
+## Background
+
 
 ## Build from source
 
@@ -7,6 +10,12 @@ uv venv --python 3.12 --seed --managed-python
 source .venv/bin/activate
 ```
 
+```
+git clone https://github.com/vllm-project/vllm.git
+cd vllm
+uv pip install -r requirements/cpu.txt --index-strategy unsafe-best-match
+uv pip install -e .
+```
 
 ## Start
 
@@ -230,11 +239,6 @@ context_length  // 40960
 
 (40960 * 2 * 8 * 128 * 2 * 28) / (1024 * 1024 * 1024) = 4.38 GiB
 
-这次参数调整，能够看到一个很有意思的情况：
-
-* Training时代，参数量决定成本
-* Inference时代，KV Cache决定成本
-
 ### 降低上下文长度
 
 使用报错信息中推荐的长度12288.
@@ -248,6 +252,20 @@ vllm serve Qwen/Qwen3-0.6B --gpu-memory-utilization 0.2 --max_model_len 12288
 ```
 vllm serve Qwen/Qwen3-0.6B --gpu-memory-utilization 0.2 --max_model_len 4096
 ```
+
+## Summary
+
+启动过程中碰到3类问题：
+
+* 系统可用内存不够，小于vLLM预留内存 -> 增大系统可用内存，或者降低vLLM预留内存
+* vLLM拿到了预留内存，但是模型权重占用太多，KV cache不够 -> 调大vLLM预留内存，或者使用更小的模型
+* 使用小的模型，但是上下文很长，权重加载成功，KV cache不够 -> 调小上下文长度
+
+几点收获：
+
+* 这三类问题都是内存相关的，可以粗粗地一窥看到vLLM的内存。
+* 就内存而言，Training时代，参数量决定成本；Inference时代，KV Cache决定成本。
+* 启动成功后，能够看到本地部署的进程模型，APIServer、EngineCore、Worker。
 
 # References
 
