@@ -11,3 +11,6 @@ nav:
 
   - AI Infra:
       - vLLM Apple silicon CPU: ai-infra/vllm/quickstart-applesilicon-cpu.md
+
+  - KM:
+      - GitHub MkDocs: km/github-mkdocs.md
