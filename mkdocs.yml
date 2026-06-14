@@ -10,4 +10,4 @@ nav:
   - Home: index.md
 
   - AI Infra:
-      - vLLM: ai-infra/vllm.md
+      - vLLM Apple silicon CPU: ai-infra/vllm/quickstart-applesilicon-cpu.md
