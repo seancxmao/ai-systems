@@ -39,8 +39,7 @@ uv pip install -r requirements/cpu.txt --index-strategy unsafe-best-match
 uv pip install -e .
 ```
 
-## Start
-
+## Serve
 
 ### 使用默认参数启动
 
