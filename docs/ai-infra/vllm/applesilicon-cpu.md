@@ -2,17 +2,19 @@
 
 ## Background
 
-### Apple silicon
+### Apple silicon & M3 Pro
 Apple silicon is a series of system on a chip (SoC) and system in a package (SiP) processors designed by Apple Inc., mainly using the ARM architecture.
 
-### Apple M3 Pro
 The M3 Pro is a more powerful version of the M3, with five or six performance cores, six efficiency cores, 14 to 18 GPU cores, 16 Neural Engine cores, up to 36 GB unified RAM with 150 GB/s memory bandwidth, and 48% more transistors. It is used in the 14- and 16-inch MacBook Pro and operates at a clock frequency of up to about 4.1 GHz. Apple claims the CPU performance is 30 percent faster than the M1 Pro and the GPU is 40 percent faster than the M1 Pro.
 
-### Python-only vs Full Build
+### vLLM Apple silicon Support
 
 vLLM官网如是说：
 
-vLLM has experimental support for macOS with Apple Silicon. For now, users must build from source to natively run on macOS. For GPU-accelerated inference on Apple Silicon using Metal, check out vllm-metal, a community-maintained hardware plugin that uses MLX as the compute backend. Currently, there are no pre-built Apple silicon CPU wheels.
+* vLLM has experimental support for macOS with Apple Silicon. For now, users must build from source to natively run on macOS. 
+* Currently, there are no pre-built Apple silicon CPU wheels.
+* Currently the CPU implementation for macOS supports FP32 and FP16 datatypes.
+* For GPU-accelerated inference on Apple Silicon using Metal, check out vllm-metal, a community-maintained hardware plugin that uses MLX as the compute backend.
 
 vLLM 官方提供两种从源码安装的方式：
 

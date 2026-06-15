@@ -13,10 +13,15 @@ nav:
       - vLLM:
           - Apple silicon CPU: ai-infra/vllm/applesilicon-cpu.md
           - Apple silicon GPU: ai-infra/vllm/applesilicon-gpu.md
+          - vLLM Docker: ai-infra/vllm/vllm-docker.md
+      - Tools:
+          - AI Infra Engineer Toolbox: ai-infra/tools/ai-infra-engineer-toolbox.md
 
   - Models:
       - Transformers:
           - Tokenizers: models/transformers/tokenizers.md
+      - DL:
+          - Readings: models/dl/readings.md
 
   - Workloads:
       - Agents & Applications:
@@ -24,7 +29,19 @@ nav:
 
   - Foundation:
       - Math:
-          - Math for ML: foundation/math/math-for-ml.md
+          - Math for AI: foundation/math/math-for-ai.md
+      - Algorithms:
+          - DSA Overview: foundation/algorithms/dsa-overview.md
+      - Programming:
+          - Python for AI: foundation/programming/python-for-ai.md
+          - C++ for AI: foundation/programming/cpp-for-ai.md
+      - Design:
+          - Readings: foundation/design/readings.md
+      - Systems:
+          - Readings: foundation/systems/readings.md
+          - Security: foundation/systems/security.md
+      - Tools:
+          - GitHub: foundation/tools/github.md
 
   - KM:
       - Tools:
