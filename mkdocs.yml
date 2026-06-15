@@ -6,14 +6,25 @@ theme:
 plugins:
   - search
 
+markdown_extensions:
+  - tables
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+
 nav:
   - Home: index.md
 
   - System:
+      - Accelerator:
+          - Software Stack: system/accelerator/software-stack.md
       - vLLM:
           - Apple silicon CPU: system/vllm/applesilicon-cpu.md
           - Apple silicon GPU: system/vllm/applesilicon-gpu.md
           - vLLM Docker: system/vllm/vllm-docker.md
+          - vLLM Contributing: system/vllm/vllm-contributing.md
       - Tool:
           - AI Infra Engineer Toolbox: system/tool/ai-infra-engineer-toolbox.md
 
