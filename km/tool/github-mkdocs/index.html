@@ -286,7 +286,7 @@
   <span class="md-ellipsis">
     
   
-    vLLM
+    Accelerator
   
 
     
@@ -299,6 +299,89 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Accelerator
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../system/accelerator/software-stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Stack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vLLM
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -392,6 +475,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../system/vllm/vllm-contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vLLM Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -415,10 +526,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
         
           
-          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
             
   
   
@@ -436,8 +547,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2262,33 +2373,33 @@
 <h2 id="_1">首次搭建</h2>
 <h3 id="1-github-repository-clone">1. 创建GitHub Repository, 并Clone到本地</h3>
 <h3 id="2-python">2. 创建Python虚拟环境</h3>
-<pre><code>uv venv --python 3.12
+<div class="highlight"><pre><span></span><code>uv venv --python 3.12
 source .venv/bin/activate
-</code></pre>
+</code></pre></div>
 <h3 id="3-mkdocs-material">3. 安装MkDocs Material</h3>
-<pre><code>pip install mkdocs-material
+<div class="highlight"><pre><span></span><code>pip install mkdocs-material
 mkdocs --version
-</code></pre>
+</code></pre></div>
 <h3 id="4">4. 初始化站点</h3>
-<pre><code>cd ai-systems
+<div class="highlight"><pre><span></span><code>cd ai-systems
 mkdocs new .
-</code></pre>
+</code></pre></div>
 <h3 id="5-mkdocs">5. 配置 MkDocs</h3>
 <p>mkdocs.yml</p>
-<pre><code>site_name: AI Systems
+<div class="highlight"><pre><span></span><code>site_name: AI Systems
 
 theme:
   name: material
 
 plugins:
   - search
-</code></pre>
+</code></pre></div>
 <h3 id="6">6. 创建第一篇文章</h3>
-<pre><code>mkdir docs/ai-infra
+<div class="highlight"><pre><span></span><code>mkdir docs/ai-infra
 vi docs/ai-infra/vllm.md
-</code></pre>
+</code></pre></div>
 <h3 id="7">7. 配置导航</h3>
-<pre><code>site_name: AI Systems
+<div class="highlight"><pre><span></span><code>site_name: AI Systems
 
 theme:
   name: material
@@ -2301,51 +2412,51 @@ nav:
 
   - AI Infra:
       - vLLM: ai-infra/vllm.md
-</code></pre>
+</code></pre></div>
 <h3 id="8">8. 本地预览</h3>
-<pre><code>mkdocs serve
-</code></pre>
-<pre><code>http://127.0.0.1:8000
-</code></pre>
+<div class="highlight"><pre><span></span><code>mkdocs serve
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>http://127.0.0.1:8000
+</code></pre></div>
 <h3 id="9-github">9. 提交到 GitHub</h3>
-<pre><code>git status
+<div class="highlight"><pre><span></span><code>git status
 git add .
 git commit -m &quot;Initial MkDocs site&quot;
 git push origin main
-</code></pre>
+</code></pre></div>
 <p>从2021年开始，GitHub已经彻底关闭了HTTPS密码认证，推荐用SSH。</p>
 <h3 id="10">10. 手动构建静态网站</h3>
-<pre><code>mkdocs build
-</code></pre>
+<div class="highlight"><pre><span></span><code>mkdocs build
+</code></pre></div>
 <h3 id="11-github-pages">11. 手动发布Github Pages</h3>
-<pre><code>mkdocs gh-deploy
-</code></pre>
+<div class="highlight"><pre><span></span><code>mkdocs gh-deploy
+</code></pre></div>
 <h3 id="12-github-pages">12. 开启 Github Pages</h3>
 <p>Repository -&gt; Settings -&gt; Pages</p>
 <h3 id="13">13. 访问网站</h3>
 <p>https://seancxmao.github.io/ai-systems/</p>
 <h2 id="_2">后续更新</h2>
 <h3 id="1">1. 新增文章</h3>
-<pre><code>vim docs/ai-infra/sglang.md
-</code></pre>
+<div class="highlight"><pre><span></span><code>vim docs/ai-infra/sglang.md
+</code></pre></div>
 <h3 id="2">2. 本地预览</h3>
-<pre><code>mkdocs serve
-</code></pre>
+<div class="highlight"><pre><span></span><code>mkdocs serve
+</code></pre></div>
 <h3 id="3">3. 提交</h3>
-<pre><code>git add .
+<div class="highlight"><pre><span></span><code>git add .
 git commit -m &quot;add sglang notes&quot;
 git push
-</code></pre>
+</code></pre></div>
 <h3 id="4_1">4. 重新发布</h3>
-<pre><code>mkdocs gh-deploy
-</code></pre>
+<div class="highlight"><pre><span></span><code>mkdocs gh-deploy
+</code></pre></div>
 <p>从日志可以看到实际上做了什么：</p>
-<pre><code>Cleaning site directory
+<div class="highlight"><pre><span></span><code>Cleaning site directory
 Building documentation to directory: ai-systems/site
 Documentation built in 0.12 seconds
-Copying 'ai-systems/site' to 'gh-pages' branch and pushing to GitHub.
+Copying &#39;ai-systems/site&#39; to &#39;gh-pages&#39; branch and pushing to GitHub.
 Your documentation should shortly be available at: https://seancxmao.github.io/ai-systems/
-</code></pre>
+</code></pre></div>
 <h2 id="best-practices">Best Practices</h2>
 <h3 id="_3">工具</h3>
 <p>直接用VS Code，不要折腾专门的 Markdown 编辑器。</p>
@@ -2358,10 +2469,10 @@ Your documentation should shortly be available at: https://seancxmao.github.io/a
 </ul>
 <h3 id="_4">层次结构</h3>
 <p>使用3层导航比较合理：</p>
-<pre><code>Level 1: Domain
+<div class="highlight"><pre><span></span><code>Level 1: Domain
 Level 2: Topic
 Level 3: Article
-</code></pre>
+</code></pre></div>
 <h3 id="_5">目录名称</h3>
 <p>目录名的选择本质上是在两种风格之间取舍：</p>
 <ul>

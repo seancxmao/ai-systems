@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../../..">
+        <link rel="prev" href="../../accelerator/software-stack/">
       
       
         <link rel="next" href="../applesilicon-gpu/">
@@ -269,6 +269,89 @@
                 
   
   
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accelerator
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Accelerator
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../accelerator/software-stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Stack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -282,10 +365,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
             
   
   
@@ -303,8 +386,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2_1">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -589,6 +672,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vllm-contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vLLM Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -612,10 +723,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
         
           
-          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
             
   
   
@@ -633,8 +744,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1997,20 +2108,20 @@
 <p>对于Linux x86_64平台，Python-only Build通常可以正常工作；而对于 macOS Apple Silicon（M1/M2/M3/M4）平台，官方文档明确指出：Currently, there are no pre-built Apple silicon CPU wheels. 因此，Apple Silicon 用户目前只能采用 Full Build 方案。</p>
 <p>Python-only Build的本质是，核心原生扩展（native extensions）已经由官方预先编译并打包为wheel文件，安装过程只需要处理Python层代码，而不需要重新编译底层运行时组件。Python-only Build的主要价值就是提高开发迭代效率，避免每次修改Python代码都重新编译整个Native Runtime，因为Full Build的成本很高。</p>
 <h2 id="build-from-source">Build from source</h2>
-<pre><code>uv venv --python 3.12 --seed --managed-python
+<div class="highlight"><pre><span></span><code>uv venv --python 3.12 --seed --managed-python
 source .venv/bin/activate
-</code></pre>
-<pre><code>git clone https://github.com/vllm-project/vllm.git
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>git clone https://github.com/vllm-project/vllm.git
 cd vllm
 uv pip install -r requirements/cpu.txt --index-strategy unsafe-best-match
 uv pip install -e .
-</code></pre>
+</code></pre></div>
 <h2 id="start">Start</h2>
 <h3 id="_1">使用默认参数启动</h3>
-<pre><code>vllm serve Qwen/Qwen2.5-1.5B-Instruct
-</code></pre>
+<div class="highlight"><pre><span></span><code>vllm serve Qwen/Qwen2.5-1.5B-Instruct
+</code></pre></div>
 <p>报错，启动失败。关键的日志如下：</p>
-<pre><code>(EngineCore pid=12534) INFO 06-13 18:37:29 [core.py:114] Initializing a V1 LLM engine (v0.22.1rc1.dev495+g2ecf7d0eb) with config: model='Qwen/Qwen2.5-1.5B-Instruct', ...
+<div class="highlight"><pre><span></span><code>(EngineCore pid=12534) INFO 06-13 18:37:29 [core.py:114] Initializing a V1 LLM engine (v0.22.1rc1.dev495+g2ecf7d0eb) with config: model=&#39;Qwen/Qwen2.5-1.5B-Instruct&#39;, ...
 ...
 ERROR 06-13 18:37:32 [multiproc_executor.py:890] WorkerProc failed to start.
 ...
@@ -2024,15 +2135,15 @@ ERROR 06-13 18:37:32 [multiproc_executor.py:890] ValueError: Available memory on
 ...
 (EngineCore pid=12534) Exception: WorkerProc initialization failed due to an exception in a background process. See stack trace for root cause.
 ...
-(APIServer pid=12290) RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {'EngineCore': 1}
-</code></pre>
+(APIServer pid=12290) RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {&#39;EngineCore&#39;: 1}
+</code></pre></div>
 <p>启动过程涉及几个进程：APIServer、EngineCore和Worker。Worker进程启动失败，导致整个启动失败。gpu-memory-utilization默认值是0.92，所以<code>18.0*0.92=16.56</code>，而Available memory只有4.85了，所以启动失败。虽然参数gpu-memory-utilization名字里是gpu，但是在CPU backend的情况，指的是与预留的CPU memory。应当降低预留内存，使其小于Available memory（比如当前是4.85）。</p>
 <h3 id="cpu-memory">降低CPU Memory</h3>
 <p>预留CPU内存为18 * 0.2 = 3.6</p>
-<pre><code>vllm serve Qwen/Qwen2.5-1.5B-Instruct --gpu-memory-utilization 0.2
-</code></pre>
+<div class="highlight"><pre><span></span><code>vllm serve Qwen/Qwen2.5-1.5B-Instruct --gpu-memory-utilization 0.2
+</code></pre></div>
 <p>还是报错，启动失败。但是报错的情况不同了，关键的日志如下：</p>
-<pre><code>(Worker pid=18026) INFO 06-13 19:56:44 [parallel_state.py:1568] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://127.0.0.1:53678 backend=gloo
+<div class="highlight"><pre><span></span><code>(Worker pid=18026) INFO 06-13 19:56:44 [parallel_state.py:1568] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://127.0.0.1:53678 backend=gloo
 (Worker pid=18026) INFO 06-13 19:56:44 [parallel_state.py:1903] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank N/A, EPLB rank N/A
 (Worker pid=18026) INFO 06-13 19:56:44 [cpu_model_runner.py:104] Starting to load model Qwen/Qwen2.5-1.5B-Instruct...
 ...
@@ -2044,7 +2155,7 @@ ERROR 06-13 18:37:32 [multiproc_executor.py:890] ValueError: Available memory on
 (Worker pid=18026) ERROR 06-13 19:57:36 [multiproc_executor.py:989] WorkerProc hit an exception.
 ...
 (Worker pid=18026) ERROR 06-13 19:57:36 [multiproc_executor.py:989] ValueError: Available memory on node 0 (4.66/18.0 GiB) on kv cache allocation is less than requested memory for kv (-0.39/3.6 GiB). Reduce CPU memory used by other processes.
-</code></pre>
+</code></pre></div>
 <p>之前的错误发生在启动前的内存检查。这里Worker进程已经启动，加载模型权重也已经成功，开始kv cache allocation，但是发现内存不够，所以失败了。从日志看，预留的CPU内存（3.6），减去模型权重使用的内存，留给kv cache已经是负的了（-0.39）。</p>
 <p>vLLM CPU模式下整个系统内存组成：</p>
 <ul>
@@ -2063,9 +2174,9 @@ ERROR 06-13 18:37:32 [multiproc_executor.py:890] ValueError: Available memory on
 <p>Qwen2.5-1.5B的参数量1.54B，如果是默认FP16/BF16，内存占用1.54B * 2 bytes=3.08 GiB，再加上其他一些开销，实际模型加载后通常会更多，以至于超过预留的3.6了。有一个解决办法是预留更多的内存。</p>
 <h3 id="cpu-memory_1">提高CPU Memory</h3>
 <p>预留更多的内存，启动成功。</p>
-<p>18 * 0.3 = 4.8</p>
+<p>18 * 0.3 = 5.4</p>
 <p>关键的日志如下：</p>
-<pre><code>vllm on  main via △ via 🐍 v3.12.13 (vllm) took 1m12s
+<div class="highlight"><pre><span></span><code>vllm on  main via △ via 🐍 v3.12.13 (vllm) took 1m12s
 ✦ ❯ vllm serve Qwen/Qwen2.5-1.5B-Instruct --gpu-memory-utilization 0.3
 INFO 06-13 20:03:12 [importing.py:81] Triton not installed or not compatible; certain GPU-related functions will not be available.
 (APIServer pid=19786) INFO 06-13 20:03:12 [api_utils.py:339]
@@ -2074,17 +2185,17 @@ INFO 06-13 20:03:12 [importing.py:81] Triton not installed or not compatible; ce
 (APIServer pid=19786) INFO 06-13 20:03:12 [api_utils.py:339]   █▄█▀ █     █     █     █  model   Qwen/Qwen2.5-1.5B-Instruct
 (APIServer pid=19786) INFO 06-13 20:03:12 [api_utils.py:339]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
 (APIServer pid=19786) INFO 06-13 20:03:12 [api_utils.py:339]
-(APIServer pid=19786) INFO 06-13 20:03:12 [api_utils.py:273] non-default args: {'model_tag': 'Qwen/Qwen2.5-1.5B-Instruct', 'model': 'Qwen/Qwen2.5-1.5B-Instruct', 'gpu_memory_utilization': 0.3}
+(APIServer pid=19786) INFO 06-13 20:03:12 [api_utils.py:273] non-default args: {&#39;model_tag&#39;: &#39;Qwen/Qwen2.5-1.5B-Instruct&#39;, &#39;model&#39;: &#39;Qwen/Qwen2.5-1.5B-Instruct&#39;, &#39;gpu_memory_utilization&#39;: 0.3}
 (APIServer pid=19786) Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 (APIServer pid=19786) INFO 06-13 20:03:16 [model.py:598] Resolved architecture: Qwen2ForCausalLM
 (APIServer pid=19786) INFO 06-13 20:03:16 [model.py:1723] Using max model len 32768
 (APIServer pid=19786) INFO 06-13 20:03:16 [vllm.py:998] Asynchronous scheduling is enabled.
-(APIServer pid=19786) INFO 06-13 20:03:16 [kernel.py:272] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])
+(APIServer pid=19786) INFO 06-13 20:03:16 [kernel.py:272] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=[&#39;native&#39;], fused_add_rms_norm=[&#39;native&#39;])
 INFO 06-13 20:03:22 [importing.py:81] Triton not installed or not compatible; certain GPU-related functions will not be available.
-(EngineCore pid=19838) INFO 06-13 20:03:22 [core.py:114] Initializing a V1 LLM engine (v0.22.1rc1.dev495+g2ecf7d0eb) with config: model='Qwen/Qwen2.5-1.5B-Instruct', speculative_config=None, tokenizer='Qwen/Qwen2.5-1.5B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=True, quantization=None, quantization_config=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cpu, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=Qwen/Qwen2.5-1.5B-Instruct, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': &lt;CompilationMode.DYNAMO_TRACE_ONCE: 2&gt;, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none', '+gelu'], 'ir_enable_torch_wrap': False, 'splitting_ops': [], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': None, 'compile_ranges_endpoints': [2048], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'size_asserts': False, 'alignment_asserts': False, 'scalar_asserts': False, 'dce': True, 'nan_asserts': False, 'epilogue_fusion': True, 'cpp.dynamic_threads': True}, 'inductor_passes': {}, 'cudagraph_mode': &lt;CUDAGraphMode.NONE: 0&gt;, 'cudagraph_num_of_warmups': 0, 'cudagraph_capture_sizes': [], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False}, 'max_cudagraph_capture_size': None, 'dynamic_shapes_config': {'type': &lt;DynamicShapesType.BACKED: 'backed'&gt;, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native']), enable_flashinfer_autotune=True, moe_backend='auto', linear_backend='auto')
+(EngineCore pid=19838) INFO 06-13 20:03:22 [core.py:114] Initializing a V1 LLM engine (v0.22.1rc1.dev495+g2ecf7d0eb) with config: model=&#39;Qwen/Qwen2.5-1.5B-Instruct&#39;, speculative_config=None, tokenizer=&#39;Qwen/Qwen2.5-1.5B-Instruct&#39;, skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=True, quantization=None, quantization_config=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cpu, structured_outputs_config=StructuredOutputsConfig(backend=&#39;auto&#39;, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser=&#39;&#39;, reasoning_parser_plugin=&#39;&#39;, enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=Qwen/Qwen2.5-1.5B-Instruct, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={&#39;mode&#39;: &lt;CompilationMode.DYNAMO_TRACE_ONCE: 2&gt;, &#39;debug_dump_path&#39;: None, &#39;cache_dir&#39;: &#39;&#39;, &#39;compile_cache_save_format&#39;: &#39;binary&#39;, &#39;backend&#39;: &#39;inductor&#39;, &#39;custom_ops&#39;: [&#39;none&#39;, &#39;+gelu&#39;], &#39;ir_enable_torch_wrap&#39;: False, &#39;splitting_ops&#39;: [], &#39;compile_mm_encoder&#39;: False, &#39;cudagraph_mm_encoder&#39;: False, &#39;encoder_cudagraph_token_budgets&#39;: [], &#39;encoder_cudagraph_max_vision_items_per_batch&#39;: 0, &#39;encoder_cudagraph_max_frames_per_batch&#39;: None, &#39;compile_sizes&#39;: None, &#39;compile_ranges_endpoints&#39;: [2048], &#39;inductor_compile_config&#39;: {&#39;enable_auto_functionalized_v2&#39;: False, &#39;size_asserts&#39;: False, &#39;alignment_asserts&#39;: False, &#39;scalar_asserts&#39;: False, &#39;dce&#39;: True, &#39;nan_asserts&#39;: False, &#39;epilogue_fusion&#39;: True, &#39;cpp.dynamic_threads&#39;: True}, &#39;inductor_passes&#39;: {}, &#39;cudagraph_mode&#39;: &lt;CUDAGraphMode.NONE: 0&gt;, &#39;cudagraph_num_of_warmups&#39;: 0, &#39;cudagraph_capture_sizes&#39;: [], &#39;cudagraph_copy_inputs&#39;: False, &#39;cudagraph_specialize_lora&#39;: True, &#39;use_inductor_graph_partition&#39;: False, &#39;pass_config&#39;: {&#39;fuse_norm_quant&#39;: False, &#39;fuse_act_quant&#39;: False, &#39;fuse_attn_quant&#39;: False, &#39;enable_sp&#39;: False, &#39;fuse_gemm_comms&#39;: False, &#39;fuse_allreduce_rms&#39;: False, &#39;fuse_rope_kvcache_cat_mla&#39;: False, &#39;fuse_act_padding&#39;: False}, &#39;max_cudagraph_capture_size&#39;: None, &#39;dynamic_shapes_config&#39;: {&#39;type&#39;: &lt;DynamicShapesType.BACKED: &#39;backed&#39;&gt;, &#39;evaluate_guards&#39;: False, &#39;assume_32_bit_indexing&#39;: False}, &#39;local_cache_dir&#39;: None, &#39;fast_moe_cold_start&#39;: False, &#39;static_all_moe_layers&#39;: []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=[&#39;native&#39;], fused_add_rms_norm=[&#39;native&#39;]), enable_flashinfer_autotune=True, moe_backend=&#39;auto&#39;, linear_backend=&#39;auto&#39;)
 (EngineCore pid=19838) INFO 06-13 20:03:22 [multiproc_executor.py:140] DP group leader: node_rank=0, node_rank_within_dp=0, master_addr=127.0.0.1, mq_connect_ip=192.168.3.31 (local), world_size=1, local_world_size=1
 (EngineCore pid=19838) INFO 06-13 20:03:22 [ompmultiprocessing.py:185] OpenMP thread binding info:
-(EngineCore pid=19838) INFO 06-13 20:03:22 [ompmultiprocessing.py:185]  VLLM_CPU_OMP_THREADS_BIND='auto', auto_setup=True, skip_setup=False
+(EngineCore pid=19838) INFO 06-13 20:03:22 [ompmultiprocessing.py:185]  VLLM_CPU_OMP_THREADS_BIND=&#39;auto&#39;, auto_setup=True, skip_setup=False
 (EngineCore pid=19838) INFO 06-13 20:03:22 [ompmultiprocessing.py:185]  local_world_size=1, reserve_cpu_num=1
 (EngineCore pid=19838) INFO 06-13 20:03:22 [ompmultiprocessing.py:185]  local_rank=0, core ids=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 (EngineCore pid=19838) INFO 06-13 20:03:22 [ompmultiprocessing.py:185]  reserved_cpus=[10]
@@ -2093,7 +2204,7 @@ INFO 06-13 20:03:24 [importing.py:81] Triton not installed or not compatible; ce
 (Worker pid=19850) INFO 06-13 20:03:25 [parallel_state.py:1903] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank N/A, EPLB rank N/A
 (Worker pid=19850) INFO 06-13 20:03:25 [cpu_model_runner.py:104] Starting to load model Qwen/Qwen2.5-1.5B-Instruct...
 (Worker pid=19850) INFO 06-13 20:03:25 [selector.py:138] Using HND KV cache layout for CPU_ATTN backend.
-(Worker pid=19850) WARNING 06-13 20:03:25 [compilation.py:1301] Op 'gelu' not present in model, enabling with '+gelu' has no effect
+(Worker pid=19850) WARNING 06-13 20:03:25 [compilation.py:1301] Op &#39;gelu&#39; not present in model, enabling with &#39;+gelu&#39; has no effect
 (Worker pid=19850) Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 (Worker pid=19850) INFO 06-13 20:03:27 [weight_utils.py:575] No model.safetensors.index.json found in remote.
 (Worker pid=19850) INFO 06-13 20:03:27 [weight_utils.py:850] Filesystem type for checkpoints: unknown. Checkpoint size: 2.88 GiB. Available RAM: 5.66 GiB.
@@ -2104,7 +2215,7 @@ Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:02&lt;00:00,  2.
 (Worker pid=19850)
 (Worker pid=19850) INFO 06-13 20:03:29 [default_loader.py:397] Loading weights took 2.18 seconds
 (Worker pid=19850) INFO 06-13 20:03:29 [cpu_model_runner.py:121] Warming up model for the compilation...
-(Worker pid=19850) WARNING 06-13 20:03:29 [decorators.py:321] Compiling model again due to a load failure from /Users/maochenxiao/.cache/vllm/torch_compile_cache/torch_aot_compile/7428f7386b91d44679a0ea270d7e2057ce44fdf498f78bba176b8266ffd795e2/rank_0_0/model, reason: 'function' object has no attribute 'finalize_loading'
+(Worker pid=19850) WARNING 06-13 20:03:29 [decorators.py:321] Compiling model again due to a load failure from /Users/maochenxiao/.cache/vllm/torch_compile_cache/torch_aot_compile/7428f7386b91d44679a0ea270d7e2057ce44fdf498f78bba176b8266ffd795e2/rank_0_0/model, reason: &#39;function&#39; object has no attribute &#39;finalize_loading&#39;
 (Worker pid=19850) INFO 06-13 20:03:32 [decorators.py:708] saved AOT compiled function to /Users/maochenxiao/.cache/vllm/torch_compile_cache/torch_aot_compile/7428f7386b91d44679a0ea270d7e2057ce44fdf498f78bba176b8266ffd795e2/rank_0_0/model
 (Worker pid=19850) INFO 06-13 20:03:56 [monitor.py:81] Initial profiling/warmup run took 24.28 s
 (Worker pid=19850) INFO 06-13 20:03:57 [cpu_model_runner.py:125] Warming up done.
@@ -2115,10 +2226,10 @@ Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:02&lt;00:00,  2.
 (EngineCore pid=19838) Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 (EngineCore pid=19838) INFO 06-13 20:04:02 [vllm.py:998] Asynchronous scheduling is disabled.
 (EngineCore pid=19838) WARNING 06-13 20:04:02 [vllm.py:1096] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
-(EngineCore pid=19838) INFO 06-13 20:04:02 [kernel.py:272] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])
-(APIServer pid=19786) INFO 06-13 20:04:02 [api_server.py:572] Supported tasks: ['generate']
-(APIServer pid=19786) WARNING 06-13 20:04:03 [model.py:1475] Default vLLM sampling parameters have been overridden by the model's `generation_config.json`: `{'repetition_penalty': 1.1, 'temperature': 0.7, 'top_k': 20, 'top_p': 0.8}`. If this is not intended, please relaunch vLLM instance with `--generation-config vllm`.
-(APIServer pid=19786) INFO 06-13 20:04:08 [hf.py:548] Detected the chat template content format to be 'string'. You can set `--chat-template-content-format` to override this.
+(EngineCore pid=19838) INFO 06-13 20:04:02 [kernel.py:272] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=[&#39;native&#39;], fused_add_rms_norm=[&#39;native&#39;])
+(APIServer pid=19786) INFO 06-13 20:04:02 [api_server.py:572] Supported tasks: [&#39;generate&#39;]
+(APIServer pid=19786) WARNING 06-13 20:04:03 [model.py:1475] Default vLLM sampling parameters have been overridden by the model&#39;s `generation_config.json`: `{&#39;repetition_penalty&#39;: 1.1, &#39;temperature&#39;: 0.7, &#39;top_k&#39;: 20, &#39;top_p&#39;: 0.8}`. If this is not intended, please relaunch vLLM instance with `--generation-config vllm`.
+(APIServer pid=19786) INFO 06-13 20:04:08 [hf.py:548] Detected the chat template content format to be &#39;string&#39;. You can set `--chat-template-content-format` to override this.
 (APIServer pid=19786) INFO 06-13 20:04:09 [api_server.py:576] Starting vLLM server on http://0.0.0.0:8000
 (APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:37] Available routes are:
 (APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:46] Route: /openapi.json, Methods: HEAD, GET
@@ -2154,15 +2265,15 @@ Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:02&lt;00:00,  2.
 (APIServer pid=19786) INFO:     Started server process [19786]
 (APIServer pid=19786) INFO:     Waiting for application startup.
 (APIServer pid=19786) INFO:     Application startup complete.
-</code></pre>
+</code></pre></div>
 <p>最终，三个进程APIServer、EngineCore、Worker，都启动成功。</p>
 <h3 id="_2">降低模型规模</h3>
 <p>使用Qwen/Qwen3-0.6B：</p>
-<pre><code>vllm serve Qwen/Qwen3-0.6B --gpu-memory-utilization 0.2
-</code></pre>
+<div class="highlight"><pre><span></span><code>vllm serve Qwen/Qwen3-0.6B --gpu-memory-utilization 0.2
+</code></pre></div>
 <p>报错，启动失败。关键日志如下：</p>
-<pre><code>ValueError: To serve at least one request with the model's max seq len (40960), (4.38 GiB KV cache is needed, which is larger than the available KV cache memory (1.31 GiB). Based on the available memory, the estimated maximum model length is 12288. Try increasing `gpu_memory_utilization` (which also controls CPU memory on the CPU backend) or decreasing `max_model_len` when initializing the engine. See https://docs.vllm.ai/en/latest/configuration/conserving_memory/ for more details.
-</code></pre>
+<div class="highlight"><pre><span></span><code>ValueError: To serve at least one request with the model&#39;s max seq len (40960), (4.38 GiB KV cache is needed, which is larger than the available KV cache memory (1.31 GiB). Based on the available memory, the estimated maximum model length is 12288. Try increasing `gpu_memory_utilization` (which also controls CPU memory on the CPU backend) or decreasing `max_model_len` when initializing the engine. See https://docs.vllm.ai/en/latest/configuration/conserving_memory/ for more details.
+</code></pre></div>
 <p>为什么0.6B的模型，需要4.38GiB的KV cache呢？</p>
 <p>对于标准Transformer：</p>
 <ul>
@@ -2173,15 +2284,15 @@ Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:02&lt;00:00,  2.
 <li>并且，每个attention层都要缓存。（Qwen3-0.6B有28个transformer层，也即28个attention层）</li>
 </ul>
 <p>所以KV cache的计算公式是：</p>
-<pre><code>context_length      // 40960
+<div class="highlight"><pre><span></span><code>context_length      // 40960
 * K_and_V           // 2: K and V
 * embedding_size    // 1024: vector length of K or V
 * dtype_size        // 2: BF16, how many bytes for each number in the vector
 * number_of_layers  // 28
-</code></pre>
+</code></pre></div>
 <p>(40960 * 2 * 1024 * 2 * 28) / (1024 * 1024 * 1024) = 4.38 GiB</p>
 <p>Qwen3并不是传统MHA，而是GQA(Grouped Query Attention)：</p>
-<pre><code>KV Cache
+<div class="highlight"><pre><span></span><code>KV Cache
 =
 context_length  // 40960 
 * K_and_V       // 2
@@ -2189,15 +2300,15 @@ context_length  // 40960
 * head_dim      // 128
 * dtype_size    // 2
 * num_layers    // 28
-</code></pre>
+</code></pre></div>
 <p>(40960 * 2 * 8 * 128 * 2 * 28) / (1024 * 1024 * 1024) = 4.38 GiB</p>
 <h3 id="_3">降低上下文长度</h3>
 <p>使用报错信息中推荐的长度12288.</p>
-<pre><code>vllm serve Qwen/Qwen3-0.6B --gpu-memory-utilization 0.2 --max_model_len 12288
-</code></pre>
+<div class="highlight"><pre><span></span><code>vllm serve Qwen/Qwen3-0.6B --gpu-memory-utilization 0.2 --max_model_len 12288
+</code></pre></div>
 <p>启动成功。如果用更小的值，自然也能成功，比如4096:</p>
-<pre><code>vllm serve Qwen/Qwen3-0.6B --gpu-memory-utilization 0.2 --max_model_len 4096
-</code></pre>
+<div class="highlight"><pre><span></span><code>vllm serve Qwen/Qwen3-0.6B --gpu-memory-utilization 0.2 --max_model_len 4096
+</code></pre></div>
 <h2 id="summary">Summary</h2>
 <p>启动过程中碰到3类问题：</p>
 <ul>
