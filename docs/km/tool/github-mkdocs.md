@@ -157,16 +157,6 @@ Your documentation should shortly be available at: https://seancxmao.github.io/a
 
 ## Best Practices
 
-### 层次结构
-
-使用3层导航比较合理：
-
-```
-Level 1: Domain
-Level 2: Topic
-Level 3: Article
-```
-
 ### 工具
 
 直接用VS Code，不要折腾专门的 Markdown 编辑器。
@@ -177,4 +167,28 @@ Level 3: Article
 * Markdown Preview Enhanced
 * YAML
 * GitLens
+
+### 层次结构
+
+使用3层导航比较合理：
+
+```
+Level 1: Domain
+Level 2: Topic
+Level 3: Article
+```
+
+### 目录名称
+
+目录名的选择本质上是在两种风格之间取舍：
+
+* 单数（Category as Concept）：强调这是一个知识领域、主题。
+* 复数（Collection of Articles）：强调这里面包含很多文章、案例、笔记。
+
+推荐：知识领域用单数，资源集合用复数。
+
+例如：
+
+* Workload / Model / System / Algorithm 是知识领域（单数）
+* Books / Projects / Notes 是具体条目集合（复数）
 

@@ -9,40 +9,40 @@ plugins:
 nav:
   - Home: index.md
 
-  - AI Infra:
+  - System:
       - vLLM:
-          - Apple silicon CPU: ai-infra/vllm/applesilicon-cpu.md
-          - Apple silicon GPU: ai-infra/vllm/applesilicon-gpu.md
-          - vLLM Docker: ai-infra/vllm/vllm-docker.md
-      - Tools:
-          - AI Infra Engineer Toolbox: ai-infra/tools/ai-infra-engineer-toolbox.md
+          - Apple silicon CPU: system/vllm/applesilicon-cpu.md
+          - Apple silicon GPU: system/vllm/applesilicon-gpu.md
+          - vLLM Docker: system/vllm/vllm-docker.md
+      - Tool:
+          - AI Infra Engineer Toolbox: system/tool/ai-infra-engineer-toolbox.md
 
-  - Models:
-      - Transformers:
-          - Tokenizers: models/transformers/tokenizers.md
+  - Model:
+      - Transformer:
+          - Tokenizer: model/transformer/tokenizer.md
       - DL:
-          - Readings: models/dl/readings.md
+          - Readings: model/dl/readings.md
 
-  - Workloads:
-      - Agents & Applications:
-          - Overview: workloads/agents-applications/agents-apps-overview.md
+  - Workload:
+      - Agent:
+          - Overview: workload/agent/agent-overview.md
 
   - Foundation:
       - Math:
           - Math for AI: foundation/math/math-for-ai.md
-      - Algorithms:
-          - DSA Overview: foundation/algorithms/dsa-overview.md
+      - Algorithm:
+          - DSA Overview: foundation/algorithm/dsa-overview.md
       - Programming:
           - Python for AI: foundation/programming/python-for-ai.md
           - C++ for AI: foundation/programming/cpp-for-ai.md
       - Design:
           - Readings: foundation/design/readings.md
-      - Systems:
-          - Readings: foundation/systems/readings.md
-          - Security: foundation/systems/security.md
-      - Tools:
-          - GitHub: foundation/tools/github.md
+      - System:
+          - Readings: foundation/system/readings.md
+          - Security: foundation/system/security.md
+      - Tool:
+          - GitHub: foundation/tool/github.md
 
   - KM:
-      - Tools:
-          - GitHub MkDocs: km/tools/github-mkdocs.md
+      - Tool:
+          - GitHub MkDocs: km/tool/github-mkdocs.md
