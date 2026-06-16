@@ -10,6 +10,8 @@
 | Runtime   | Scheduling & Memory Management      |
 | Hardware  | Execution Device                    |
 
+为什么硬件之上还需要 Runtime？为什么不是 Compiler 直接生成指令然后执行？答案是：指令执行只是 Runtime 的一小部分工作。现代 AI 系统中，Runtime 主要负责“管理执行”，而不仅仅是“执行指令”。可以把 Runtime 理解成硬件资源管理器（Hardware Resource Manager）。现代 AI 系统里，硬件之上几乎一定会有 Runtime。硬件越复杂（GPU、TPU、分布式集群），Runtime 的作用就越重要。实际上，CUDA、Metal、TPU Runtime 的代码量往往比真正的 Kernel 代码还大，因为资源管理和调度本身就是一个巨大的系统问题。
+
 ## Training
 
 今天（2026年）的主流训练框架几乎全部建立在 PyTorch 生态之上。甚至很多人已经把PyTorch视为AI Training OS，即训练领域的事实标准平台。
@@ -135,6 +137,16 @@ CUDA
 
 ## Terminology
 
+### General
+
+Operator（算子）
+
+Operator 是深度学习框架中的逻辑计算单元，描述“要做什么计算”，而不关心具体如何在硬件上执行。例如 MatMul、Softmax、LayerNorm、ReLU 都是 Operator。它们对应模型中的数学操作，是框架（如 PyTorch）提供给用户的抽象接口。
+
+Kernel（GPU Kernel）
+
+Kernel 是运行在 GPU 上的实际程序，描述“如何利用 GPU 完成计算”。一个 Kernel 通常由成千上万个 GPU 线程并行执行，实现一个或多个 Operator 的计算逻辑。Operator 是逻辑抽象，Kernel 是具体实现；一个 Operator 可以对应一个 Kernel，而多个 Operator 也可能被融合（Fusion）成一个更大的 Kernel。
+
 ### NVIDIA生态
 
 CUDA
@@ -179,9 +191,13 @@ MLX 是 Apple 为 Apple Silicon 开发的机器学习框架。它提供张量运
 
 ### PyTorch
 
+Triton
+
+Triton 是 GPU Kernel 编译器和编程框架，负责把高层的 Kernel 描述转换为高性能 GPU 代码。它关注线程组织、内存访问、向量化、寄存器使用等底层实现细节，即“一个 Kernel 应该如何高效运行在 GPU 上”。在 PyTorch 2.x 中，TorchInductor 经常生成 Triton Kernel，再由 Triton 编译成最终可执行的 GPU 代码。
+
 TorchInductor
 
-TorchInductor 是 PyTorch 2.x 的优化编译器，负责将计算图转换为经过算子融合和内存优化的高性能 CPU/GPU 执行代码。 它对应的角色，大致相当于 JAX 体系中的 XLA。
+TorchInductor 是 PyTorch 2.x 的优化编译器，负责将计算图转换为经过算子融合和内存优化的高性能 CPU/GPU 执行代码。 它对应的角色，大致相当于 JAX 体系中的 XLA。TorchInductor 是 PyTorch 2.x 的图编译器（Graph Compiler），负责分析整个计算图，决定哪些 Operator 可以融合、如何减少中间结果读写、如何降低 Kernel Launch 开销等。它关注的是计算图级别的优化，即“多个 Operator 应该如何组织和转换成更高效的执行计划”，其输出通常是一组优化后的 Kernel 描述。
 
 TorchDynamo
 
