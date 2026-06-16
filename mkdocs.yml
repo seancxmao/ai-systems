@@ -24,6 +24,7 @@ nav:
           - Apple silicon CPU: system/vllm/applesilicon-cpu.md
           - Apple silicon GPU: system/vllm/applesilicon-gpu.md
           - vLLM Debug: system/vllm/vllm-debug.md
+          - vLLM C++: system/vllm/vllm-cpp.md
           - vLLM Docker: system/vllm/vllm-docker.md
           - Production Stack: system/vllm/production-stack.md
           - Architecture: system/vllm/arch-overview.md
@@ -56,7 +57,7 @@ nav:
           - Readings: foundation/system/readings.md
           - Security: foundation/system/security.md
       - Tool:
-          - GitHub: foundation/tool/github.md
+          - Git: foundation/tool/git.md
 
   - KM:
       - Tool:
