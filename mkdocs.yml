@@ -25,6 +25,7 @@ nav:
           - Apple silicon GPU: system/vllm/applesilicon-gpu.md
           - vLLM Debug: system/vllm/vllm-debug.md
           - vLLM C++: system/vllm/vllm-cpp.md
+          - vLLM Build: system/vllm/vllm-build.md
           - vLLM Docker: system/vllm/vllm-docker.md
           - Production Stack: system/vllm/production-stack.md
           - Architecture: system/vllm/arch-overview.md
