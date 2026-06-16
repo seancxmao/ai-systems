@@ -426,6 +426,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#general" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        General
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#nvidia" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -623,6 +634,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../vllm/vllm-debug/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vLLM Debug
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../vllm/vllm-docker/" class="md-nav__link">
         
   
@@ -631,6 +670,62 @@
     
   
     vLLM Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vllm/production-stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Production Stack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vllm/arch-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
   
 
     
@@ -1422,6 +1517,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../foundation/programming/python-debug/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Debug
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../foundation/programming/cpp-for-ai/" class="md-nav__link">
         
   
@@ -1944,6 +2067,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#general" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        General
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#nvidia" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2063,6 +2197,7 @@
 </tr>
 </tbody>
 </table>
+<p>为什么硬件之上还需要 Runtime？为什么不是 Compiler 直接生成指令然后执行？答案是：指令执行只是 Runtime 的一小部分工作。现代 AI 系统中，Runtime 主要负责“管理执行”，而不仅仅是“执行指令”。可以把 Runtime 理解成硬件资源管理器（Hardware Resource Manager）。现代 AI 系统里，硬件之上几乎一定会有 Runtime。硬件越复杂（GPU、TPU、分布式集群），Runtime 的作用就越重要。实际上，CUDA、Metal、TPU Runtime 的代码量往往比真正的 Kernel 代码还大，因为资源管理和调度本身就是一个巨大的系统问题。</p>
 <h2 id="training">Training</h2>
 <p>今天（2026年）的主流训练框架几乎全部建立在 PyTorch 生态之上。甚至很多人已经把PyTorch视为AI Training OS，即训练领域的事实标准平台。</p>
 <table>
@@ -2296,6 +2431,11 @@ CUDA
 </tbody>
 </table>
 <h2 id="terminology">Terminology</h2>
+<h3 id="general">General</h3>
+<p>Operator（算子）</p>
+<p>Operator 是深度学习框架中的逻辑计算单元，描述“要做什么计算”，而不关心具体如何在硬件上执行。例如 MatMul、Softmax、LayerNorm、ReLU 都是 Operator。它们对应模型中的数学操作，是框架（如 PyTorch）提供给用户的抽象接口。</p>
+<p>Kernel（GPU Kernel）</p>
+<p>Kernel 是运行在 GPU 上的实际程序，描述“如何利用 GPU 完成计算”。一个 Kernel 通常由成千上万个 GPU 线程并行执行，实现一个或多个 Operator 的计算逻辑。Operator 是逻辑抽象，Kernel 是具体实现；一个 Operator 可以对应一个 Kernel，而多个 Operator 也可能被融合（Fusion）成一个更大的 Kernel。</p>
 <h3 id="nvidia">NVIDIA生态</h3>
 <p>CUDA</p>
 <p>CUDA 是 NVIDIA 的 GPU 编程平台和运行时系统。开发者可以通过 CUDA 编写 GPU 程序，PyTorch、TensorFlow、vLLM 等 AI 框架的大部分 NVIDIA GPU 加速能力都建立在 CUDA 之上。</p>
@@ -2318,8 +2458,10 @@ CUDA
 <p>MLX</p>
 <p>MLX 是 Apple 为 Apple Silicon 开发的机器学习框架。它提供张量运算、自动求导和神经网络模块，并直接利用 Metal GPU。定位类似于苹果生态中的 JAX/PyTorch。</p>
 <h3 id="pytorch">PyTorch</h3>
+<p>Triton</p>
+<p>Triton 是 GPU Kernel 编译器和编程框架，负责把高层的 Kernel 描述转换为高性能 GPU 代码。它关注线程组织、内存访问、向量化、寄存器使用等底层实现细节，即“一个 Kernel 应该如何高效运行在 GPU 上”。在 PyTorch 2.x 中，TorchInductor 经常生成 Triton Kernel，再由 Triton 编译成最终可执行的 GPU 代码。</p>
 <p>TorchInductor</p>
-<p>TorchInductor 是 PyTorch 2.x 的优化编译器，负责将计算图转换为经过算子融合和内存优化的高性能 CPU/GPU 执行代码。 它对应的角色，大致相当于 JAX 体系中的 XLA。</p>
+<p>TorchInductor 是 PyTorch 2.x 的优化编译器，负责将计算图转换为经过算子融合和内存优化的高性能 CPU/GPU 执行代码。 它对应的角色，大致相当于 JAX 体系中的 XLA。TorchInductor 是 PyTorch 2.x 的图编译器（Graph Compiler），负责分析整个计算图，决定哪些 Operator 可以融合、如何减少中间结果读写、如何降低 Kernel Launch 开销等。它关注的是计算图级别的优化，即“多个 Operator 应该如何组织和转换成更高效的执行计划”，其输出通常是一组优化后的 Kernel 描述。</p>
 <p>TorchDynamo</p>
 <p>TorchDynamo 是 PyTorch 2.x 的图捕获（graph capture）组件，它在 Python 字节码层拦截 PyTorch 运算，把原本逐行执行的 eager 模式代码提取成计算图（FX Graph），然后交给后端编译器（通常是 TorchInductor）进行优化和代码生成。它本身不负责优化或生成 GPU Kernel，而是负责把动态 Python 程序转换成编译器能够处理的图表示，因此常被看作 PyTorch 编译链路的“前端”。</p>
 <h2 id="summary">Summary</h2>

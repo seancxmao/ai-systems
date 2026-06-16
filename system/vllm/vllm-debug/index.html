@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../../../workload/agent/agent-overview/">
+        <link rel="prev" href="../applesilicon-gpu/">
       
       
-        <link rel="next" href="../../algorithm/dsa-overview/">
+        <link rel="next" href="../vllm-docker/">
       
       
         
@@ -23,7 +23,7 @@
     
     
       
-        <title>Math for AI - AI Systems</title>
+        <title>vLLM Debug - AI Systems</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#math-for-ai" class="md-skip">
+        <a href="#vllm-debug" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Math for AI
+              vLLM Debug
             
           </span>
         </div>
@@ -220,18 +220,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -252,7 +254,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -317,7 +319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system/accelerator/software-stack/" class="md-nav__link">
+      <a href="../../accelerator/software-stack/" class="md-nav__link">
         
   
   
@@ -350,18 +352,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
@@ -382,7 +386,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -400,7 +404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system/vllm/applesilicon-cpu/" class="md-nav__link">
+      <a href="../applesilicon-cpu/" class="md-nav__link">
         
   
   
@@ -428,7 +432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system/vllm/applesilicon-gpu/" class="md-nav__link">
+      <a href="../applesilicon-gpu/" class="md-nav__link">
         
   
   
@@ -453,10 +457,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../system/vllm/vllm-debug/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vLLM Debug
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -472,6 +503,59 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug-with-vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debug with VS Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -484,7 +568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system/vllm/vllm-docker/" class="md-nav__link">
+      <a href="../vllm-docker/" class="md-nav__link">
         
   
   
@@ -512,7 +596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system/vllm/production-stack/" class="md-nav__link">
+      <a href="../production-stack/" class="md-nav__link">
         
   
   
@@ -540,7 +624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system/vllm/arch-overview/" class="md-nav__link">
+      <a href="../arch-overview/" class="md-nav__link">
         
   
   
@@ -568,7 +652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system/vllm/vllm-contributing/" class="md-nav__link">
+      <a href="../vllm-contributing/" class="md-nav__link">
         
   
   
@@ -651,7 +735,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system/tool/ai-infra-engineer-toolbox/" class="md-nav__link">
+      <a href="../../tool/ai-infra-engineer-toolbox/" class="md-nav__link">
         
   
   
@@ -1048,20 +1132,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -1082,7 +1164,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1097,20 +1179,18 @@
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
         
           
           <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
@@ -1131,7 +1211,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1146,19 +1226,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../foundation/math/math-for-ai/" class="md-nav__link">
         
   
   
@@ -1174,7 +1245,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -1242,7 +1312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../algorithm/dsa-overview/" class="md-nav__link">
+      <a href="../../../foundation/algorithm/dsa-overview/" class="md-nav__link">
         
   
   
@@ -1325,7 +1395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../programming/python-for-ai/" class="md-nav__link">
+      <a href="../../../foundation/programming/python-for-ai/" class="md-nav__link">
         
   
   
@@ -1353,7 +1423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../programming/python-debug/" class="md-nav__link">
+      <a href="../../../foundation/programming/python-debug/" class="md-nav__link">
         
   
   
@@ -1381,7 +1451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../programming/cpp-for-ai/" class="md-nav__link">
+      <a href="../../../foundation/programming/cpp-for-ai/" class="md-nav__link">
         
   
   
@@ -1464,7 +1534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/readings/" class="md-nav__link">
+      <a href="../../../foundation/design/readings/" class="md-nav__link">
         
   
   
@@ -1547,7 +1617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../system/readings/" class="md-nav__link">
+      <a href="../../../foundation/system/readings/" class="md-nav__link">
         
   
   
@@ -1575,7 +1645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../system/security/" class="md-nav__link">
+      <a href="../../../foundation/system/security/" class="md-nav__link">
         
   
   
@@ -1658,7 +1728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool/github/" class="md-nav__link">
+      <a href="../../../foundation/tool/github/" class="md-nav__link">
         
   
   
@@ -1851,6 +1921,47 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug-with-vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debug with VS Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1866,7 +1977,122 @@
 
 
 
-<h1 id="math-for-ai">Math for AI</h1>
+<h1 id="vllm-debug">vLLM Debug</h1>
+<h2 id="background">Background</h2>
+<table>
+<thead>
+<tr>
+<th>配置</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Run Current Python File</td>
+<td>调试小脚本</td>
+</tr>
+<tr>
+<td>Launch vLLM API Server</td>
+<td>启动整个 vLLM</td>
+</tr>
+<tr>
+<td>Attach debugpy</td>
+<td>调试已经运行中的 vLLM</td>
+</tr>
+</tbody>
+</table>
+<h2 id="debug-with-vs-code">Debug with VS Code</h2>
+<p>launch.json:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.2.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;configurations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+
+<span class="w">        </span><span class="c1">// 1. 调试当前打开的Python文件</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Python: Current File&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;debugpy&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${file}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;console&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integratedTerminal&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+
+<span class="w">        </span><span class="c1">// 2. 启动 vLLM OpenAI Server</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vLLM: OpenAI Server&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;debugpy&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vllm.entrypoints.openai.api_server&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;--model&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Qwen/Qwen3-0.6B&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;--port&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;8000&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;--gpu-memory-utilization&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;0.2&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;--max-model-len&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;4096&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;console&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integratedTerminal&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;env&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;VLLM_LOGGING_LEVEL&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DEBUG&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;justMyCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">        </span><span class="p">},</span>
+
+<span class="w">        </span><span class="c1">// 3. Attach到已经运行的vLLM进程</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vLLM: Attach&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;debugpy&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;attach&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;connect&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5678</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;justMyCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">        </span><span class="p">},</span>
+
+<span class="w">        </span><span class="c1">// 4. 调试 benchmark 脚本</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vLLM: Benchmark Throughput&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;debugpy&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/benchmarks/benchmark_throughput.py&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;--backend&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;vllm&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;--model&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Qwen/Qwen3-0.6B&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;console&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integratedTerminal&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;justMyCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">        </span><span class="p">},</span>
+
+<span class="w">        </span><span class="c1">// 5. debug vllm-metal</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vLLM Metal: OpenAI Server&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;debugpy&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vllm.entrypoints.openai.api_server&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;--model&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;Qwen/Qwen3-0.6B&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;--device&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;metal&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;--port&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;8000&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;--max-model-len&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;4096&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;env&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;VLLM_LOGGING_LEVEL&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DEBUG&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;console&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integratedTerminal&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;justMyCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="references">References</h2>
 
 
 
