@@ -24,6 +24,8 @@ nav:
           - Apple silicon CPU: system/vllm/applesilicon-cpu.md
           - Apple silicon GPU: system/vllm/applesilicon-gpu.md
           - vLLM Debug: system/vllm/vllm-debug.md
+          - vLLM Serve Startup: system/vllm/vllm-serve-startup.md
+          - vLLM Serve Request: system/vllm/vllm-serve-request.md
           - vLLM C++: system/vllm/vllm-cpp.md
           - vLLM Build: system/vllm/vllm-build.md
           - vLLM Docker: system/vllm/vllm-docker.md
