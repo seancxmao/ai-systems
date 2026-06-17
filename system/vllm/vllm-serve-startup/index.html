@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../../accelerator/software-stack/">
+        <link rel="prev" href="../vllm-debug/">
       
       
-        <link rel="next" href="../applesilicon-gpu/">
+        <link rel="next" href="../vllm-serve-request/">
       
       
         
@@ -23,7 +23,7 @@
     
     
       
-        <title>Apple silicon CPU - AI Systems</title>
+        <title>vLLM Serve Startup - AI Systems</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#vllm-on-apple-silicon-cpu" class="md-skip">
+        <a href="#vllm-serve-startup" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Apple silicon CPU
+              vLLM Serve Startup
             
           </span>
         </div>
@@ -401,37 +401,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Apple silicon CPU
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../applesilicon-cpu/" class="md-nav__link">
         
   
   
@@ -447,170 +420,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#background" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Background
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Background">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#apple-silicon-m3-pro" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Apple silicon &amp; M3 Pro
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vllm-apple-silicon-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        vLLM Apple silicon Support
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#build-from-source" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Build from source
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#serve" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Serve
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Serve">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        使用默认参数启动
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cpu-memory" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        降低CPU Memory
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cpu-memory_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        提高CPU Memory
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        降低模型规模
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        降低上下文长度
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Summary
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -676,10 +485,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../vllm-serve-startup/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vLLM Serve Startup
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -695,6 +531,125 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vllm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        认识vllm脚本
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vllm-serve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        运行vllm serve
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        进入serve子命令
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        启动API Server
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enginecore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        启动EngineCore
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        启动Worker
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三个进程如何交互
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2159,41 +2114,24 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Background">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#apple-silicon-m3-pro" class="md-nav__link">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vllm" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Apple silicon &amp; M3 Pro
+        认识vllm脚本
       
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vllm-apple-silicon-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        vLLM Apple silicon Support
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#build-from-source" class="md-nav__link">
+  <a href="#vllm-serve" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Build from source
+        运行vllm serve
       
     </span>
   </a>
@@ -2204,71 +2142,54 @@
   <a href="#serve" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Serve
+        进入serve子命令
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Serve">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        启动API Server
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enginecore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        启动EngineCore
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        启动Worker
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        使用默认参数启动
+        三个进程如何交互
       
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cpu-memory" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        降低CPU Memory
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cpu-memory_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        提高CPU Memory
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        降低模型规模
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        降低上下文长度
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2277,17 +2198,6 @@
     <span class="md-ellipsis">
       
         Summary
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
       
     </span>
   </a>
@@ -2311,250 +2221,381 @@
 
 
 
-<h1 id="vllm-on-apple-silicon-cpu">vLLM on Apple silicon CPU</h1>
+<h1 id="vllm-serve-startup">vllm Serve Startup</h1>
 <h2 id="background">Background</h2>
-<h3 id="apple-silicon-m3-pro">Apple silicon &amp; M3 Pro</h3>
-<p>Apple silicon is a series of system on a chip (SoC) and system in a package (SiP) processors designed by Apple Inc., mainly using the ARM architecture.</p>
-<p>The M3 Pro is a more powerful version of the M3, with five or six performance cores, six efficiency cores, 14 to 18 GPU cores, 16 Neural Engine cores, up to 36 GB unified RAM with 150 GB/s memory bandwidth, and 48% more transistors. It is used in the 14- and 16-inch MacBook Pro and operates at a clock frequency of up to about 4.1 GHz. Apple claims the CPU performance is 30 percent faster than the M1 Pro and the GPU is 40 percent faster than the M1 Pro.</p>
-<h3 id="vllm-apple-silicon-support">vLLM Apple silicon Support</h3>
-<p>vLLM官网如是说：</p>
+<h2 id="vllm">认识<code>vllm</code>脚本</h2>
+<p>首先问题是：vllm这个shell脚本是什么？</p>
+<p><code>vllm</code> 不是源码仓库里的脚本文件，而是 Python package 安装时自动生成的 console script。定义在项目的 <code>pyproject.toml</code> 中：</p>
+<div class="highlight"><pre><span></span><code><span class="k">[project.scripts]</span>
+<span class="n">vllm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;vllm.entrypoints.cli.main:main&quot;</span>
+</code></pre></div>
+<p>当执行：</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</code></pre></div>
+<p>时，Python 的 packaging 系统会在虚拟环境的 <code>bin/</code> 目录下生成一个可执行文件：</p>
+<div class="highlight"><pre><span></span><code>.venv/bin/vllm
+</code></pre></div>
+<p>其本质相当于：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">vllm.entrypoints.cli.main</span><span class="w"> </span><span class="kn">import</span> <span class="n">main</span>
+<span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+<p>可以通过下面命令查看：</p>
+<div class="highlight"><pre><span></span><code>which<span class="w"> </span>vllm
+cat<span class="w"> </span><span class="k">$(</span>which<span class="w"> </span>vllm<span class="k">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>❯<span class="w"> </span>cat<span class="w"> </span><span class="k">$(</span>which<span class="w"> </span>vllm<span class="k">)</span>
+<span class="c1">#!/Users/maochenxiao/workspace/aiengineer/projects/personal/vllm/.venv/bin/python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+import<span class="w"> </span>sys
+from<span class="w"> </span>vllm.entrypoints.cli.main<span class="w"> </span>import<span class="w"> </span>main
+<span class="k">if</span><span class="w"> </span><span class="nv">__name__</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;__main__&quot;</span>:
+<span class="w">    </span><span class="k">if</span><span class="w"> </span>sys.argv<span class="o">[</span><span class="m">0</span><span class="o">]</span>.endswith<span class="o">(</span><span class="s2">&quot;-script.pyw&quot;</span><span class="o">)</span>:
+<span class="w">        </span>sys.argv<span class="o">[</span><span class="m">0</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>sys.argv<span class="o">[</span><span class="m">0</span><span class="o">][</span>:-11<span class="o">]</span>
+<span class="w">    </span><span class="k">elif</span><span class="w"> </span>sys.argv<span class="o">[</span><span class="m">0</span><span class="o">]</span>.endswith<span class="o">(</span><span class="s2">&quot;.exe&quot;</span><span class="o">)</span>:
+<span class="w">        </span>sys.argv<span class="o">[</span><span class="m">0</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>sys.argv<span class="o">[</span><span class="m">0</span><span class="o">][</span>:-4<span class="o">]</span>
+<span class="w">    </span>sys.exit<span class="o">(</span>main<span class="o">())</span>
+</code></pre></div>
+<h2 id="vllm-serve">运行<code>vllm serve</code></h2>
+<p>搞清楚了vllm脚本是什么，下一个问题是，运行<code>vllm serve</code>，实际上在做什么？</p>
+<p>已经知道shell脚本对应的入口是<code>vllm/entrypoints/cli/main.py</code>的<code>main</code>函数，它实际上完成参数转换和启动 OpenAI Server，其执行逻辑大致：</p>
+<div class="highlight"><pre><span></span><code>CLI main
+    ↓
+注册所有子命令
+    ↓
+识别 serve
+    ↓
+ServeSubcommand.cmd()
+</code></pre></div>
+<p>这里负责解析一级命令，比如：</p>
+<div class="highlight"><pre><span></span><code>vllm<span class="w"> </span>serve<span class="w"> </span>...
+vllm<span class="w"> </span>chat<span class="w"> </span>...
+vllm<span class="w"> </span>benchmark<span class="w"> </span>...
+</code></pre></div>
+<p>其中 <code>serve</code> 子命令对应<code>vllm/entrypoints/cli/serve.py</code>的<code>ServeSubcommand</code>，并调用其<code>cmd</code>方法。</p>
+<p>这接近于<strong>Command Pattern（命令模式）+ Registry（注册表模式）+ Plugin Architecture（插件架构）</strong>。核心思想是：</p>
+<div class="highlight"><pre><span></span><code>CLI Main
+   ↓
+发现所有 Subcommand
+   ↓
+注册到 argparse
+   ↓
+用户输入 serve
+   ↓
+找到对应对象
+   ↓
+dispatch_function()
+   ↓
+ServeSubcommand.cmd()
+</code></pre></div>
+<p>如果直接写成：</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s2">&quot;serve&quot;</span><span class="p">:</span>
+    <span class="n">ServeSubcommand</span><span class="o">.</span><span class="n">cmd</span><span class="p">()</span>
+<span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s2">&quot;chat&quot;</span><span class="p">:</span>
+    <span class="n">ChatSubcommand</span><span class="o">.</span><span class="n">cmd</span><span class="p">()</span>
+<span class="o">...</span>
+</code></pre></div>
+<p>每新增一个子命令都要修改 <code>main.py</code>，违反 Open/Closed Principle（开闭原则）。而现在的设计中：</p>
+<div class="highlight"><pre><span></span><code><span class="n">CMD_MODULES</span> <span class="o">=</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+</code></pre></div>
+<p>相当于一个插件列表，新增命令只需：</p>
+<div class="highlight"><pre><span></span><code><span class="n">new_command</span><span class="o">.</span><span class="n">py</span>
+<span class="err">└──</span> <span class="k">class</span><span class="w"> </span><span class="nc">NewSubcommand</span>
+</code></pre></div>
+<p>然后注册到 <code>CMD_MODULES</code> 即可，<code>main.py</code> 完全不用改。</p>
+<p>所以从架构角度看：</p>
+<div class="highlight"><pre><span></span><code>main.py
+    = 框架（Framework）
+
+ServeSubcommand
+ChatSubcommand
+BenchmarkSubcommand
+    = 插件（Plugin）
+</code></pre></div>
+<p>这是很多大型 Python CLI（例如 <a href="https://pytest.org">pytest</a>、<a href="https://git-scm.com">git</a>、<a href="https://kubernetes.io/docs/reference/kubectl">kubectl</a>）常见的扩展方式。</p>
+<p>对于阅读 vLLM 源码，可以把：</p>
+<div class="highlight"><pre><span></span><code><span class="n">dispatch_function</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</code></pre></div>
+<p>理解成：</p>
+<div class="highlight"><pre><span></span><code><span class="n">args</span><span class="o">.</span><span class="n">subcommand</span><span class="o">.</span><span class="n">cmd</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</code></pre></div>
+<p>只是作者用了一层间接调用，把 CLI 框架和具体命令解耦了而已。真正的业务入口仍然是：</p>
+<div class="highlight"><pre><span></span><code><span class="n">ServeSubcommand</span><span class="o">.</span><span class="n">cmd</span><span class="p">()</span>
+</code></pre></div>
+<p>所以调试时直接在 <code>ServeSubcommand.cmd()</code> 打断点即可，不必纠结中间的 dispatch 细节。</p>
+<p>相关的Python模块和类（CMD_MODULES）：</p>
+<div class="highlight"><pre><span></span><code>vllm.entrypoints.cli.openai
+    ChatCommand
+    CompleteCommand
+vllm.entrypoints.cli.serve
+    ServeSubcommand
+vllm.entrypoints.cli.launch
+    LaunchSubcommandBase
+    RenderSubcommand
+    LaunchSubcommand
+vllm.entrypoints.cli.benchmark.main
+    BenchmarkSubcommand
+vllm.entrypoints.cli.collect_env
+    CollectEnvSubcommand
+vllm.entrypoints.cli.run_batch
+    RunBatchSubCommand
+</code></pre></div>
+<h2 id="serve">进入serve子命令</h2>
+<p>启动链路可以理解为：</p>
+<div class="highlight"><pre><span></span><code>shell
+ │
+ ▼
+vllm serve ...
+ │
+ ▼
+vllm.entrypoints.cli.main.main()
+ │
+ ▼
+ServeSubcommand.cmd() // &lt;== we are here
+</code></pre></div>
+<p><code>ServeSubcommand.cmd()</code>的关键代码：</p>
+<div class="highlight"><pre><span></span><code>        <span class="k">if</span> <span class="n">is_multi_port</span><span class="p">:</span>
+            <span class="n">run_dp_supervisor</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">api_server_count</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">run_headless</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">api_server_count</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">envs</span><span class="o">.</span><span class="n">VLLM_RUST_FRONTEND_PATH</span><span class="p">:</span>
+            <span class="n">run_multi_api_server</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Single API server (this process).</span>
+            <span class="n">args</span><span class="o">.</span><span class="n">api_server_count</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">uvloop</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">run_server</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
+</code></pre></div>
+<p><code>run_dp_supervisor</code>会进入 <strong>Data Parallel（DP）模式</strong>。<code>run_dp_supervisor()</code> 的作用是启动一个 Supervisor，再管理多个 Engine/API 实例。在 MBP（CPU Backend）上理论上也能跑，只是意义不大。最简单的方法是让 <code>is_multi_port=True</code>，例如配置多个数据并行实例（具体参数名称可能随版本变化，通常与 <code>--data-parallel-size &gt; 1</code> 或多端口部署相关）。对于源码学习，不建议从这里入手，因为绝大多数单机开发和调试都会走：</p>
+<div class="highlight"><pre><span></span><code>ServeSubcommand.cmd()
+    ↓
+uvloop.run(run_server(args))
+</code></pre></div>
+<p>先把单 API Server → EngineCore → Worker 这条主路径看透，DP Supervisor 可以后面再看。</p>
+<p><code>uvloop</code> 是一个基于 libuv 的高性能 asyncio Event Loop，可以理解成：</p>
+<div class="highlight"><pre><span></span><code>Python 默认事件循环
+          ↓
+      uvloop
+（更快的替代实现）
+</code></pre></div>
+<p>FastAPI、Uvicorn、vLLM API Server 本质上都是大量异步 I/O（HTTP 请求、流式 Token 返回、进程间通信），因此使用 <code>uvloop</code> 可以降低调度开销、提升吞吐量，所以 vLLM 默认用：</p>
+<div class="highlight"><pre><span></span><code><span class="n">uvloop</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">run_server</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
+</code></pre></div>
+<p>启动整个异步系统。对于 vLLM 开发，不需要研究 uvloop 源码，也不需要掌握 libuv；知道它是 <strong>asyncio 的高性能实现</strong> 即可。真正需要掌握的是 Python 的 <code>async/await</code>、<code>Task</code>、<code>Event Loop</code> 基本模型，因为 API Server、EngineCore Client、流式推理接口大量依赖 asyncio，而不是依赖 uvloop 本身。换句话说：</p>
+<div class="highlight"><pre><span></span><code>需要掌握：
+    asyncio
+
+了解即可：
+    uvloop
+</code></pre></div>
+<p>把 uvloop 看成：</p>
+<div class="highlight"><pre><span></span><code><span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</code></pre></div>
+<p>的更快版本，基本就够了。</p>
+<p>到这里，执行进入<code>vllm.entrypoints.openai.api_server</code>的<code>run_server</code>函数</p>
+<h2 id="api-server">启动API Server</h2>
+<p>终于进入<code>vllm.entrypoints.openai.api_server</code>的<code>run_server</code></p>
+<p>最重要的调用链：</p>
+<div class="highlight"><pre><span></span><code>run_server()
+ └── build_async_engine_client()
+       └── AsyncLLM.from_vllm_config()
+              ↓
+        创建 EngineCore └── FastAPI App 初始化
+ └── 注册 OpenAI Routes
+ └── uvicorn.run()
+</code></pre></div>
+<p>可以简单理解成：</p>
+<div class="highlight"><pre><span></span><code>解析参数
+  ↓
+启动 EngineCore
+  ↓
+创建 FastAPI
+  ↓
+启动 HTTP 服务
+</code></pre></div>
+<h2 id="enginecore">启动EngineCore</h2>
+<p>API Server 创建 Engine 时，调用<code>vllm/v1/engine/async_llm.py</code>的<code>AsyncLLM.from_vllm_config()</code>，进入<code>AsyncLLM</code>类的初始化方法。</p>
+<p><code>AsyncLLM</code>类的初始化方法的流程如下，最终EngineCore作为子进程被创建和启动。</p>
+<div class="highlight"><pre><span></span><code>vllm/v1/engine/core_client.py
+    EngineCoreClient.make_async_mp_client
+    AsyncMPClient.__init__
+    MPClient.__init__ (parent class of AsyncMPClient)
+vllm/v1/engine/utils.py
+    launch_core_engines
+    CoreEngineProcManager.__init__      // &lt;- CoreEngine进程的进程对象被创建
+python3.12/multiprocessing/process.py
+    BaseProcess.start                   // &lt;- 启动CoreEngine进程
+</code></pre></div>
+<p>CoreEngine进程对象的创建在<code>CoreEngineProcManager.__init__</code>，关键代码如下：</p>
+<div class="highlight"><pre><span></span><code><span class="n">context</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span>
+    <span class="n">target</span><span class="o">=</span><span class="n">EngineCoreProc</span><span class="o">.</span><span class="n">run_engine_core</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;EngineCore_DP</span><span class="si">{</span><span class="n">global_index</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="n">is_dp</span> <span class="k">else</span> <span class="s2">&quot;EngineCore&quot;</span><span class="p">,</span>
+    <span class="n">kwargs</span><span class="o">=</span><span class="n">common_kwargs</span>
+    <span class="o">|</span> <span class="p">{</span><span class="s2">&quot;dp_rank&quot;</span><span class="p">:</span> <span class="n">global_index</span><span class="p">,</span> <span class="s2">&quot;local_dp_rank&quot;</span><span class="p">:</span> <span class="n">local_index</span><span class="p">},</span>
+<span class="p">)</span>
+</code></pre></div>
 <ul>
-<li>vLLM has experimental support for macOS with Apple Silicon. For now, users must build from source to natively run on macOS. </li>
-<li>Currently, there are no pre-built Apple silicon CPU wheels.</li>
-<li>Currently the CPU implementation for macOS supports FP32 and FP16 datatypes.</li>
-<li>For GPU-accelerated inference on Apple Silicon using Metal, check out vllm-metal, a community-maintained hardware plugin that uses MLX as the compute backend.</li>
+<li>context is multiprocessing.context.SpawnContext</li>
+<li>context.Process is SpawnProcess</li>
 </ul>
-<p>vLLM 官方提供两种从源码安装的方式：</p>
+<p>最后，在<code>BaseProcess.start</code>启动CoreEngine进程。</p>
+<p>EngineCore进程的启动流程在<code>target=EngineCoreProc.run_engine_core</code>，这是一个静态工程方法，根据不同配置会使用不同的类：</p>
 <ul>
-<li>Python-only Build (without compilation)</li>
-<li>Full Build (with compilation)</li>
+<li>EngineCoreProc</li>
+<li>DPEngineCoreProc</li>
 </ul>
-<p>对于Linux x86_64平台，Python-only Build通常可以正常工作；而对于 macOS Apple Silicon（M1/M2/M3/M4）平台，官方文档明确指出：Currently, there are no pre-built Apple silicon CPU wheels. 因此，Apple Silicon 用户目前只能采用 Full Build 方案。</p>
-<p>Python-only Build的本质是，核心原生扩展（native extensions）已经由官方预先编译并打包为wheel文件，安装过程只需要处理Python层代码，而不需要重新编译底层运行时组件。Python-only Build的主要价值就是提高开发迭代效率，避免每次修改Python代码都重新编译整个Native Runtime，因为Full Build的成本很高。</p>
-<h2 id="build-from-source">Build from source</h2>
-<div class="highlight"><pre><span></span><code>uv venv --python 3.12 --seed --managed-python
-source .venv/bin/activate
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>git clone https://github.com/vllm-project/vllm.git
-cd vllm
-uv pip install -r requirements/cpu.txt --index-strategy unsafe-best-match
-uv pip install -e .
-</code></pre></div>
-<h2 id="serve">Serve</h2>
-<h3 id="_1">使用默认参数启动</h3>
-<div class="highlight"><pre><span></span><code>vllm serve Qwen/Qwen2.5-1.5B-Instruct
-</code></pre></div>
-<p>报错，启动失败。关键的日志如下：</p>
-<div class="highlight"><pre><span></span><code>(EngineCore pid=12534) INFO 06-13 18:37:29 [core.py:114] Initializing a V1 LLM engine (v0.22.1rc1.dev495+g2ecf7d0eb) with config: model=&#39;Qwen/Qwen2.5-1.5B-Instruct&#39;, ...
-...
-ERROR 06-13 18:37:32 [multiproc_executor.py:890] WorkerProc failed to start.
-...
-ERROR 06-13 18:37:32 [multiproc_executor.py:890] ValueError: Available memory on node 0 (4.85/18.0 GiB) on startup is less than desired CPU memory utilization (0.92, 16.56 GiB). On the CPU backend, the `--gpu-memory-utilization` flag controls the fraction of CPU memory reserved (despite its name). To resolve: decrease `--gpu-memory-utilization` (e.g. `--gpu-memory-utilization 0.5`) or reduce CPU memory used by other processes.
-(EngineCore pid=12534) INFO 06-13 18:37:32 [multiproc_executor.py:428] [shutdown] Executor: waiting for worker exit count=1
-(EngineCore pid=12534) INFO 06-13 18:37:33 [multiproc_executor.py:435] [shutdown] Executor: all workers exited gracefully
-(EngineCore pid=12534) ERROR 06-13 18:37:33 [core.py:1202] EngineCore failed to start.
-...
-(EngineCore pid=12534) ERROR 06-13 18:37:33 [core.py:1202] Exception: WorkerProc initialization failed due to an exception in a background process. See stack trace for root cause.
-(EngineCore pid=12534) Process EngineCore:
-...
-(EngineCore pid=12534) Exception: WorkerProc initialization failed due to an exception in a background process. See stack trace for root cause.
-...
-(APIServer pid=12290) RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {&#39;EngineCore&#39;: 1}
-</code></pre></div>
-<p>启动过程涉及几个进程：APIServer、EngineCore和Worker。Worker进程启动失败，导致整个启动失败。gpu-memory-utilization默认值是0.92，所以<code>18.0*0.92=16.56</code>，而Available memory只有4.85了，所以启动失败。虽然参数gpu-memory-utilization名字里是gpu，但是在CPU backend的情况，指的是与预留的CPU memory。应当降低预留内存，使其小于Available memory（比如当前是4.85）。</p>
-<h3 id="cpu-memory">降低CPU Memory</h3>
-<p>预留CPU内存为18 * 0.2 = 3.6</p>
-<div class="highlight"><pre><span></span><code>vllm serve Qwen/Qwen2.5-1.5B-Instruct --gpu-memory-utilization 0.2
-</code></pre></div>
-<p>还是报错，启动失败。但是报错的情况不同了，关键的日志如下：</p>
-<div class="highlight"><pre><span></span><code>(Worker pid=18026) INFO 06-13 19:56:44 [parallel_state.py:1568] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://127.0.0.1:53678 backend=gloo
-(Worker pid=18026) INFO 06-13 19:56:44 [parallel_state.py:1903] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank N/A, EPLB rank N/A
-(Worker pid=18026) INFO 06-13 19:56:44 [cpu_model_runner.py:104] Starting to load model Qwen/Qwen2.5-1.5B-Instruct...
-...
-(Worker pid=18026) INFO 06-13 19:56:49 [default_loader.py:397] Loading weights took 3.62 seconds
-(Worker pid=18026) INFO 06-13 19:56:49 [cpu_model_runner.py:121] Warming up model for the compilation...
-...
-(Worker pid=18026) INFO 06-13 19:57:34 [monitor.py:81] Initial profiling/warmup run took 23.85 s
-(Worker pid=18026) INFO 06-13 19:57:36 [cpu_model_runner.py:125] Warming up done.
-(Worker pid=18026) ERROR 06-13 19:57:36 [multiproc_executor.py:989] WorkerProc hit an exception.
-...
-(Worker pid=18026) ERROR 06-13 19:57:36 [multiproc_executor.py:989] ValueError: Available memory on node 0 (4.66/18.0 GiB) on kv cache allocation is less than requested memory for kv (-0.39/3.6 GiB). Reduce CPU memory used by other processes.
-</code></pre></div>
-<p>之前的错误发生在启动前的内存检查。这里Worker进程已经启动，加载模型权重也已经成功，开始kv cache allocation，但是发现内存不够，所以失败了。从日志看，预留的CPU内存（3.6），减去模型权重使用的内存，留给kv cache已经是负的了（-0.39）。</p>
-<p>vLLM CPU模式下整个系统内存组成：</p>
+<p>如果调试非DP的情况，则使用EngineCoreProc，<code>EngineCoreProc.__init__()</code>会调用<code>EngineCore.__init__()</code>。</p>
+<p>EngineCoreProc和EngineCore都在<code>vllm/v1/engine/core.py</code>：</p>
 <ul>
-<li>非vLLM<ul>
-<li>操作系统</li>
-<li>其他程序</li>
+<li>EngineCoreProc: ZMQ-wrapper for running EngineCore in background process.</li>
+<li>EngineCore: Inner loop of vLLM's Engine.</li>
+<li>实现方式上：EngineCoreProc is subcluass of EngineCore</li>
 </ul>
-</li>
-<li>vLLM<ul>
-<li>模型权重</li>
-<li>KV Cache</li>
-<li>运行时开销</li>
-</ul>
-</li>
-</ul>
-<p>Qwen2.5-1.5B的参数量1.54B，如果是默认FP16/BF16，内存占用1.54B * 2 bytes=3.08 GiB，再加上其他一些开销，实际模型加载后通常会更多，以至于超过预留的3.6了。有一个解决办法是预留更多的内存。</p>
-<h3 id="cpu-memory_1">提高CPU Memory</h3>
-<p>预留更多的内存，启动成功。</p>
-<p>18 * 0.3 = 5.4</p>
-<p>关键的日志如下：</p>
-<div class="highlight"><pre><span></span><code>vllm on  main via △ via 🐍 v3.12.13 (vllm) took 1m12s
-✦ ❯ vllm serve Qwen/Qwen2.5-1.5B-Instruct --gpu-memory-utilization 0.3
-INFO 06-13 20:03:12 [importing.py:81] Triton not installed or not compatible; certain GPU-related functions will not be available.
-(APIServer pid=19786) INFO 06-13 20:03:12 [api_utils.py:339]
-(APIServer pid=19786) INFO 06-13 20:03:12 [api_utils.py:339]        █     █     █▄   ▄█
-(APIServer pid=19786) INFO 06-13 20:03:12 [api_utils.py:339]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.22.1rc1.dev495+g2ecf7d0eb
-(APIServer pid=19786) INFO 06-13 20:03:12 [api_utils.py:339]   █▄█▀ █     █     █     █  model   Qwen/Qwen2.5-1.5B-Instruct
-(APIServer pid=19786) INFO 06-13 20:03:12 [api_utils.py:339]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
-(APIServer pid=19786) INFO 06-13 20:03:12 [api_utils.py:339]
-(APIServer pid=19786) INFO 06-13 20:03:12 [api_utils.py:273] non-default args: {&#39;model_tag&#39;: &#39;Qwen/Qwen2.5-1.5B-Instruct&#39;, &#39;model&#39;: &#39;Qwen/Qwen2.5-1.5B-Instruct&#39;, &#39;gpu_memory_utilization&#39;: 0.3}
-(APIServer pid=19786) Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-(APIServer pid=19786) INFO 06-13 20:03:16 [model.py:598] Resolved architecture: Qwen2ForCausalLM
-(APIServer pid=19786) INFO 06-13 20:03:16 [model.py:1723] Using max model len 32768
-(APIServer pid=19786) INFO 06-13 20:03:16 [vllm.py:998] Asynchronous scheduling is enabled.
-(APIServer pid=19786) INFO 06-13 20:03:16 [kernel.py:272] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=[&#39;native&#39;], fused_add_rms_norm=[&#39;native&#39;])
-INFO 06-13 20:03:22 [importing.py:81] Triton not installed or not compatible; certain GPU-related functions will not be available.
-(EngineCore pid=19838) INFO 06-13 20:03:22 [core.py:114] Initializing a V1 LLM engine (v0.22.1rc1.dev495+g2ecf7d0eb) with config: model=&#39;Qwen/Qwen2.5-1.5B-Instruct&#39;, speculative_config=None, tokenizer=&#39;Qwen/Qwen2.5-1.5B-Instruct&#39;, skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=True, quantization=None, quantization_config=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cpu, structured_outputs_config=StructuredOutputsConfig(backend=&#39;auto&#39;, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser=&#39;&#39;, reasoning_parser_plugin=&#39;&#39;, enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=Qwen/Qwen2.5-1.5B-Instruct, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={&#39;mode&#39;: &lt;CompilationMode.DYNAMO_TRACE_ONCE: 2&gt;, &#39;debug_dump_path&#39;: None, &#39;cache_dir&#39;: &#39;&#39;, &#39;compile_cache_save_format&#39;: &#39;binary&#39;, &#39;backend&#39;: &#39;inductor&#39;, &#39;custom_ops&#39;: [&#39;none&#39;, &#39;+gelu&#39;], &#39;ir_enable_torch_wrap&#39;: False, &#39;splitting_ops&#39;: [], &#39;compile_mm_encoder&#39;: False, &#39;cudagraph_mm_encoder&#39;: False, &#39;encoder_cudagraph_token_budgets&#39;: [], &#39;encoder_cudagraph_max_vision_items_per_batch&#39;: 0, &#39;encoder_cudagraph_max_frames_per_batch&#39;: None, &#39;compile_sizes&#39;: None, &#39;compile_ranges_endpoints&#39;: [2048], &#39;inductor_compile_config&#39;: {&#39;enable_auto_functionalized_v2&#39;: False, &#39;size_asserts&#39;: False, &#39;alignment_asserts&#39;: False, &#39;scalar_asserts&#39;: False, &#39;dce&#39;: True, &#39;nan_asserts&#39;: False, &#39;epilogue_fusion&#39;: True, &#39;cpp.dynamic_threads&#39;: True}, &#39;inductor_passes&#39;: {}, &#39;cudagraph_mode&#39;: &lt;CUDAGraphMode.NONE: 0&gt;, &#39;cudagraph_num_of_warmups&#39;: 0, &#39;cudagraph_capture_sizes&#39;: [], &#39;cudagraph_copy_inputs&#39;: False, &#39;cudagraph_specialize_lora&#39;: True, &#39;use_inductor_graph_partition&#39;: False, &#39;pass_config&#39;: {&#39;fuse_norm_quant&#39;: False, &#39;fuse_act_quant&#39;: False, &#39;fuse_attn_quant&#39;: False, &#39;enable_sp&#39;: False, &#39;fuse_gemm_comms&#39;: False, &#39;fuse_allreduce_rms&#39;: False, &#39;fuse_rope_kvcache_cat_mla&#39;: False, &#39;fuse_act_padding&#39;: False}, &#39;max_cudagraph_capture_size&#39;: None, &#39;dynamic_shapes_config&#39;: {&#39;type&#39;: &lt;DynamicShapesType.BACKED: &#39;backed&#39;&gt;, &#39;evaluate_guards&#39;: False, &#39;assume_32_bit_indexing&#39;: False}, &#39;local_cache_dir&#39;: None, &#39;fast_moe_cold_start&#39;: False, &#39;static_all_moe_layers&#39;: []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=[&#39;native&#39;], fused_add_rms_norm=[&#39;native&#39;]), enable_flashinfer_autotune=True, moe_backend=&#39;auto&#39;, linear_backend=&#39;auto&#39;)
-(EngineCore pid=19838) INFO 06-13 20:03:22 [multiproc_executor.py:140] DP group leader: node_rank=0, node_rank_within_dp=0, master_addr=127.0.0.1, mq_connect_ip=192.168.3.31 (local), world_size=1, local_world_size=1
-(EngineCore pid=19838) INFO 06-13 20:03:22 [ompmultiprocessing.py:185] OpenMP thread binding info:
-(EngineCore pid=19838) INFO 06-13 20:03:22 [ompmultiprocessing.py:185]  VLLM_CPU_OMP_THREADS_BIND=&#39;auto&#39;, auto_setup=True, skip_setup=False
-(EngineCore pid=19838) INFO 06-13 20:03:22 [ompmultiprocessing.py:185]  local_world_size=1, reserve_cpu_num=1
-(EngineCore pid=19838) INFO 06-13 20:03:22 [ompmultiprocessing.py:185]  local_rank=0, core ids=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-(EngineCore pid=19838) INFO 06-13 20:03:22 [ompmultiprocessing.py:185]  reserved_cpus=[10]
-INFO 06-13 20:03:24 [importing.py:81] Triton not installed or not compatible; certain GPU-related functions will not be available.
-(Worker pid=19850) INFO 06-13 20:03:25 [parallel_state.py:1568] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://127.0.0.1:54139 backend=gloo
-(Worker pid=19850) INFO 06-13 20:03:25 [parallel_state.py:1903] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank N/A, EPLB rank N/A
-(Worker pid=19850) INFO 06-13 20:03:25 [cpu_model_runner.py:104] Starting to load model Qwen/Qwen2.5-1.5B-Instruct...
-(Worker pid=19850) INFO 06-13 20:03:25 [selector.py:138] Using HND KV cache layout for CPU_ATTN backend.
-(Worker pid=19850) WARNING 06-13 20:03:25 [compilation.py:1301] Op &#39;gelu&#39; not present in model, enabling with &#39;+gelu&#39; has no effect
-(Worker pid=19850) Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-(Worker pid=19850) INFO 06-13 20:03:27 [weight_utils.py:575] No model.safetensors.index.json found in remote.
-(Worker pid=19850) INFO 06-13 20:03:27 [weight_utils.py:850] Filesystem type for checkpoints: unknown. Checkpoint size: 2.88 GiB. Available RAM: 5.66 GiB.
-(Worker pid=19850) INFO 06-13 20:03:27 [weight_utils.py:873] Auto-prefetch is disabled because the filesystem (unknown) is not a recognized network FS (NFS/Lustre). If you want to force prefetching, start vLLM with --safetensors-load-strategy=prefetch.
-Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00&lt;?, ?it/s]
-Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:02&lt;00:00,  2.17s/it]
-Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:02&lt;00:00,  2.17s/it]
-(Worker pid=19850)
-(Worker pid=19850) INFO 06-13 20:03:29 [default_loader.py:397] Loading weights took 2.18 seconds
-(Worker pid=19850) INFO 06-13 20:03:29 [cpu_model_runner.py:121] Warming up model for the compilation...
-(Worker pid=19850) WARNING 06-13 20:03:29 [decorators.py:321] Compiling model again due to a load failure from /Users/maochenxiao/.cache/vllm/torch_compile_cache/torch_aot_compile/7428f7386b91d44679a0ea270d7e2057ce44fdf498f78bba176b8266ffd795e2/rank_0_0/model, reason: &#39;function&#39; object has no attribute &#39;finalize_loading&#39;
-(Worker pid=19850) INFO 06-13 20:03:32 [decorators.py:708] saved AOT compiled function to /Users/maochenxiao/.cache/vllm/torch_compile_cache/torch_aot_compile/7428f7386b91d44679a0ea270d7e2057ce44fdf498f78bba176b8266ffd795e2/rank_0_0/model
-(Worker pid=19850) INFO 06-13 20:03:56 [monitor.py:81] Initial profiling/warmup run took 24.28 s
-(Worker pid=19850) INFO 06-13 20:03:57 [cpu_model_runner.py:125] Warming up done.
-(Worker pid=19850) INFO 06-13 20:03:57 [cpu_worker.py:235] Auto set (1.48/18.0) GiB for KV cache on node 0, with 5.4 GiB requested memory for the worker. 3.92 GiB memory was consumed by non-kv usages.
-(EngineCore pid=19838) INFO 06-13 20:03:57 [kv_cache_utils.py:2078] GPU KV cache size: 55,424 tokens
-(EngineCore pid=19838) INFO 06-13 20:03:57 [kv_cache_utils.py:2079] Maximum concurrency for 32,768 tokens per request: 1.69x
-(EngineCore pid=19838) INFO 06-13 20:03:57 [core.py:322] init engine (profile, create kv cache, warmup model) took 28.12 s
-(EngineCore pid=19838) Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-(EngineCore pid=19838) INFO 06-13 20:04:02 [vllm.py:998] Asynchronous scheduling is disabled.
-(EngineCore pid=19838) WARNING 06-13 20:04:02 [vllm.py:1096] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
-(EngineCore pid=19838) INFO 06-13 20:04:02 [kernel.py:272] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=[&#39;native&#39;], fused_add_rms_norm=[&#39;native&#39;])
-(APIServer pid=19786) INFO 06-13 20:04:02 [api_server.py:572] Supported tasks: [&#39;generate&#39;]
-(APIServer pid=19786) WARNING 06-13 20:04:03 [model.py:1475] Default vLLM sampling parameters have been overridden by the model&#39;s `generation_config.json`: `{&#39;repetition_penalty&#39;: 1.1, &#39;temperature&#39;: 0.7, &#39;top_k&#39;: 20, &#39;top_p&#39;: 0.8}`. If this is not intended, please relaunch vLLM instance with `--generation-config vllm`.
-(APIServer pid=19786) INFO 06-13 20:04:08 [hf.py:548] Detected the chat template content format to be &#39;string&#39;. You can set `--chat-template-content-format` to override this.
-(APIServer pid=19786) INFO 06-13 20:04:09 [api_server.py:576] Starting vLLM server on http://0.0.0.0:8000
-(APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:37] Available routes are:
-(APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:46] Route: /openapi.json, Methods: HEAD, GET
-(APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:46] Route: /docs, Methods: HEAD, GET
-(APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:46] Route: /docs/oauth2-redirect, Methods: HEAD, GET
-(APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:46] Route: /redoc, Methods: HEAD, GET
-(APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:46] Route: /load, Methods: GET
-(APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:46] Route: /version, Methods: GET
-(APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:46] Route: /health, Methods: GET
-(APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:46] Route: /metrics, Methods: GET
-(APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:46] Route: /tokenize, Methods: POST
-(APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:46] Route: /detokenize, Methods: POST
-(APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:46] Route: /v1/models, Methods: GET
-(APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:46] Route: /ping, Methods: GET
-(APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:46] Route: /ping, Methods: POST
-(APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:46] Route: /invocations, Methods: POST
-(APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:46] Route: /v1/chat/completions, Methods: POST
-(APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:46] Route: /v1/chat/completions/batch, Methods: POST
-(APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:46] Route: /v1/responses, Methods: POST
-(APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:46] Route: /v1/responses/{response_id}, Methods: GET
-(APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:46] Route: /v1/responses/{response_id}/cancel, Methods: POST
-(APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:46] Route: /v1/completions, Methods: POST
-(APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:46] Route: /v1/messages, Methods: POST
-(APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:46] Route: /v1/messages/count_tokens, Methods: POST
-(APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:46] Route: /generative_scoring, Methods: POST
-(APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:46] Route: /inference/v1/generate, Methods: POST
-(APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:46] Route: /scale_elastic_ep, Methods: POST
-(APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:46] Route: /is_scaling_elastic_ep, Methods: POST
-(APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:46] Route: /v1/chat/completions/render, Methods: POST
-(APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:46] Route: /v1/completions/render, Methods: POST
-(APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:46] Route: /v1/chat/completions/derender, Methods: POST
-(APIServer pid=19786) INFO 06-13 20:04:09 [launcher.py:46] Route: /v1/completions/derender, Methods: POST
-(APIServer pid=19786) INFO:     Started server process [19786]
-(APIServer pid=19786) INFO:     Waiting for application startup.
-(APIServer pid=19786) INFO:     Application startup complete.
+<p>EngineCore启动的核心逻辑在<code>EngineCore.__init__()</code>。</p>
+<div class="highlight"><pre><span></span><code>...
+
+# plugins need to be loaded at the engine/scheduler level too
+from vllm.plugins import load_general_plugins
+load_general_plugins()
+
+# Setup Model.
+self.model_executor = executor_class(vllm_config)   // &lt;- Model executor创建，启动Worker进程
+
+# Setup KV Caches and update CacheConfig after profiling.
+kv_cache_config = self._initialize_kv_caches(vllm_config)    // &lt;- KV Cache初始化
+self.structured_output_manager = StructuredOutputManager(vllm_config)
+
+# Setup scheduler.
+Scheduler = vllm_config.scheduler_config.get_scheduler_cls() // &lt;- Scheduler初始化
+
+...
 </code></pre></div>
-<p>最终，三个进程APIServer、EngineCore、Worker，都启动成功。</p>
-<h3 id="_2">降低模型规模</h3>
-<p>使用Qwen/Qwen3-0.6B：</p>
-<div class="highlight"><pre><span></span><code>vllm serve Qwen/Qwen3-0.6B --gpu-memory-utilization 0.2
-</code></pre></div>
-<p>报错，启动失败。关键日志如下：</p>
-<div class="highlight"><pre><span></span><code>ValueError: To serve at least one request with the model&#39;s max seq len (40960), (4.38 GiB KV cache is needed, which is larger than the available KV cache memory (1.31 GiB). Based on the available memory, the estimated maximum model length is 12288. Try increasing `gpu_memory_utilization` (which also controls CPU memory on the CPU backend) or decreasing `max_model_len` when initializing the engine. See https://docs.vllm.ai/en/latest/configuration/conserving_memory/ for more details.
-</code></pre></div>
-<p>为什么0.6B的模型，需要4.38GiB的KV cache呢？</p>
-<p>对于标准Transformer：</p>
+<p>关于Model executor:</p>
 <ul>
-<li>如果context length是40960，意味着要为40960个token缓存K和V</li>
-<li>K和V意味着token数量的2倍</li>
-<li>K和V分别是用1024长的向量表示（Qwen3-0.6B使用类似的数量级）</li>
-<li>向量中的每个数值如果是BF16，则占用2个字节</li>
-<li>并且，每个attention层都要缓存。（Qwen3-0.6B有28个transformer层，也即28个attention层）</li>
+<li>vllm.v1.executor.multiproc_executor.MultiprocExecutor(Executor)（vllm/v1/executor/multiproc_executor.py）</li>
+<li>MultiprocExecutor的父类vllm.v1.executor.abstract.Executor（vllm/v1/executor/abstract.py）是Abstract base class for vLLM executors. An executor is responsible for executing the model on one device, or it can be a distributed executor that can execute the model on multiple devices.</li>
 </ul>
-<p>所以KV cache的计算公式是：</p>
-<div class="highlight"><pre><span></span><code>context_length      // 40960
-* K_and_V           // 2: K and V
-* embedding_size    // 1024: vector length of K or V
-* dtype_size        // 2: BF16, how many bytes for each number in the vector
-* number_of_layers  // 28
+<p>关于Scheduler:</p>
+<ul>
+<li>vllm.v1.core.sched.scheduler.Scheduler(SchedulerInterface)（vllm/v1/core/sched/scheduler.py）</li>
+</ul>
+<p>可以看到，伴随着model executor的创建，会启动Worker进程。model executor在CoreEngine进程中，但是Worker是另一个进程，这又一次跨越了进程边界。</p>
+<h2 id="worker">启动Worker</h2>
+<p>MultiprocExecutor的父类是Executor，MultiprocExecutor的初始化基本上委托给其父类Executor的初始化方法，其间又委托给子类实现的抽象方法<code>_init_executor</code>。所以，最终的核心逻辑在<code>MultiprocExecutor._init_executor()</code>。</p>
+<div class="highlight"><pre><span></span><code>unready_worker_handle = WorkerProc.make_worker_process(
+    vllm_config=self.vllm_config,
+    local_rank=local_rank,
+    rank=global_rank,
+    distributed_init_method=distributed_init_method,
+    input_shm_handle=scheduler_output_handle,
+    shared_worker_lock=shared_worker_lock,
+    is_driver_worker=is_driver_worker,
+    inherited_fds=inherited_fds,
+)     // &lt;- 启动Worker进程
+
+unready_workers.append(unready_worker_handle)
+
+# Workers must be created before wait_for_ready to avoid
+# deadlock, since worker.init_device() does a device sync.
+# Wait for all local workers to be ready.
+self.workers = WorkerProc.wait_for_ready(unready_workers)
 </code></pre></div>
-<p>(40960 * 2 * 1024 * 2 * 28) / (1024 * 1024 * 1024) = 4.38 GiB</p>
-<p>Qwen3并不是传统MHA，而是GQA(Grouped Query Attention)：</p>
-<div class="highlight"><pre><span></span><code>KV Cache
-=
-context_length  // 40960 
-* K_and_V       // 2
-* num_kv_heads  // 8
-* head_dim      // 128
-* dtype_size    // 2
-* num_layers    // 28
+<p>真正启动Worker进程的代码在<code>WorkerProc.make_worker_process</code>(<code>vllm/v1/executor/multiproc_executor.py</code>)：</p>
+<div class="highlight"><pre><span></span><code><span class="n">proc</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span>
+    <span class="n">target</span><span class="o">=</span><span class="n">WorkerProc</span><span class="o">.</span><span class="n">worker_main</span><span class="p">,</span>
+    <span class="n">kwargs</span><span class="o">=</span><span class="n">process_kwargs</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;VllmWorker-</span><span class="si">{</span><span class="n">rank</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="c1"># Apply NUMA binding if configured</span>
+<span class="k">with</span> <span class="n">numa_utils</span><span class="o">.</span><span class="n">configure_subprocess</span><span class="p">(</span>
+    <span class="n">vllm_config</span><span class="p">,</span> <span class="n">local_rank</span><span class="p">,</span> <span class="n">process_kind</span><span class="o">=</span><span class="s2">&quot;worker&quot;</span>
+<span class="p">):</span>
+    <span class="n">proc</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 </code></pre></div>
-<p>(40960 * 2 * 8 * 128 * 2 * 28) / (1024 * 1024 * 1024) = 4.38 GiB</p>
-<h3 id="_3">降低上下文长度</h3>
-<p>使用报错信息中推荐的长度12288.</p>
-<div class="highlight"><pre><span></span><code>vllm serve Qwen/Qwen3-0.6B --gpu-memory-utilization 0.2 --max_model_len 12288
+<p>Worker进程运行的代码是<code>WorkerProc.worker_main</code>，关键代码在<code>WorkerProc.__init__</code></p>
+<div class="highlight"><pre><span></span><code><span class="o">...</span>
+
+<span class="c1"># Load model</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">worker</span><span class="o">.</span><span class="n">init_device</span><span class="p">()</span>
+<span class="c1"># Update process title now that parallel groups are initialized</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">setup_proc_title_and_log_prefix</span><span class="p">(</span>
+    <span class="n">enable_ep</span><span class="o">=</span><span class="n">vllm_config</span><span class="o">.</span><span class="n">parallel_config</span><span class="o">.</span><span class="n">enable_expert_parallel</span>
+<span class="p">)</span>
+<span class="k">if</span> <span class="n">envs</span><span class="o">.</span><span class="n">VLLM_ELASTIC_EP_SCALE_UP_LAUNCH</span><span class="p">:</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">worker</span><span class="o">.</span><span class="n">elastic_ep_execute</span><span class="p">(</span><span class="s2">&quot;load_model&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">worker</span><span class="o">.</span><span class="n">load_model</span><span class="p">()</span>            <span class="o">//</span> <span class="o">&lt;-</span> <span class="n">WorkerWrapperBase</span>
+
+<span class="n">scheduler_config</span> <span class="o">=</span> <span class="n">vllm_config</span><span class="o">.</span><span class="n">scheduler_config</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">use_async_scheduling</span> <span class="o">=</span> <span class="n">scheduler_config</span><span class="o">.</span><span class="n">async_scheduling</span>
+<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_async_scheduling</span><span class="p">:</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">async_output_queue</span><span class="p">:</span> <span class="n">queue</span><span class="o">.</span><span class="n">Queue</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">Queue</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">async_output_copy_thread</span> <span class="o">=</span> <span class="n">Thread</span><span class="p">(</span>
+        <span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">async_output_busy_loop</span><span class="p">,</span>
+        <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;WorkerAsyncOutputCopy&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">async_output_copy_thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="c1"># Set block size based on the attention backends</span>
+<span class="n">current_platform</span><span class="o">.</span><span class="n">update_block_size_for_backend</span><span class="p">(</span><span class="n">vllm_config</span><span class="p">)</span>
+
+<span class="o">...</span>
 </code></pre></div>
-<p>启动成功。如果用更小的值，自然也能成功，比如4096:</p>
-<div class="highlight"><pre><span></span><code>vllm serve Qwen/Qwen3-0.6B --gpu-memory-utilization 0.2 --max_model_len 4096
+<p><code>WorkerWrapperBase.load_model()</code>到底调用了哪个方法：</p>
+<p><code>self.worker</code>: vllm.v1.worker.worker_base.WorkerWrapperBase, wrapper of vllm.v1.worker.cpu_worker.CPUWorker。WorkerWrapperBase没有实现load_model()方法。从下面的代码看，WorkerWrapperBase的load_model()委托给了被包装的CPUWorker。</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">WorkerWrapperBase</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">worker</span><span class="p">,</span> <span class="n">attr</span><span class="p">)</span>
+</code></pre></div>
+<p>而Class hierarchy: <code>WorkerBase</code> &lt;- <code>Worker</code> &lt;- <code>CPUWorker</code>, <code>Worker</code>实现了load_model方法，所以<code>self.worker.load_model()</code>最终调用的是<code>Worker.load_model</code>。</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Worker</span><span class="p">(</span><span class="n">WorkerBase</span><span class="p">):</span>
+   <span class="o">...</span>
+   <span class="k">def</span><span class="w"> </span><span class="nf">load_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">load_dummy_weights</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">with</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_maybe_get_memory_pool_context</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">&quot;weights&quot;</span><span class="p">),</span>
+            <span class="n">set_current_vllm_config</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vllm_config</span><span class="p">),</span>
+            <span class="c1"># 20 MiB is the minimum PyTorch allows for max_split_size_mb.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_scoped_allocator_max_split</span><span class="p">(</span><span class="n">max_split_size_mb</span><span class="o">=</span><span class="mi">20</span><span class="p">),</span>
+        <span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model_runner</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="n">load_dummy_weights</span><span class="o">=</span><span class="n">load_dummy_weights</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">vllm_config</span><span class="o">.</span><span class="n">weight_transfer_config</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">weight_transfer_engine</span> <span class="o">=</span> <span class="n">WeightTransferEngineFactory</span><span class="o">.</span><span class="n">create_engine</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">vllm_config</span><span class="o">.</span><span class="n">weight_transfer_config</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">vllm_config</span><span class="o">.</span><span class="n">parallel_config</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">model_runner</span><span class="o">.</span><span class="n">get_model</span><span class="p">(),</span>
+            <span class="p">)</span>
+    <span class="o">...</span>
+</code></pre></div>
+<p><code>self.model_runner</code> = <code>vllm.v1.worker.cpu_model_runner.CPUModelRunner</code></p>
+<p><code>self.model_runner.load_model</code>又进一步委托给<code>vllm.model_executor.model_loader.default_loader.DefaultModelLoader</code></p>
+<h2 id="_1">三个进程如何交互</h2>
+<p>启动顺序：</p>
+<div class="highlight"><pre><span></span><code>API Server
+    ↓
+启动 EngineCore
+    ↓
+EngineCore 创建 Worker
+    ↓
+Worker 加载模型
+    ↓
+EngineCore Ready
+    ↓
+API Server 开始接受请求
 </code></pre></div>
 <h2 id="summary">Summary</h2>
-<p>启动过程中碰到3类问题：</p>
 <ul>
-<li>系统可用内存不够，小于vLLM预留内存 -&gt; 增大系统可用内存，或者降低vLLM预留内存</li>
-<li>vLLM拿到了预留内存，但是模型权重占用太多，KV cache不够 -&gt; 调大vLLM预留内存，或者使用更小的模型</li>
-<li>使用小的模型，但是上下文很长，权重加载成功，KV cache不够 -&gt; 调小上下文长度</li>
+<li>API Server启动EngineCore子进程，EngineCore又启动Worker子进程</li>
+<li>EngineCore含有Executor（e.g. MultiprocExecutor）。EngineCore = 调度中心，类似Spark的Driver或Flink的JobManager。</li>
+<li>Worker（CPUWorker）含有ModelRunner，ModelRunner（CPUModelRunner）又使用ModelLoader（e.g. DefaultModelLoader）。Worker = 干活的人，类似Spark的Worker或Flink的TaskManager。</li>
 </ul>
-<p>几点收获：</p>
+<p>Worker 真正负责：</p>
 <ul>
-<li>这三类问题都是内存相关的，可以粗粗地一窥看到vLLM的内存。</li>
-<li>就内存而言，Training时代，参数量决定成本；Inference时代，KV Cache决定成本。</li>
-<li>启动成功后，能够看到本地部署的进程模型，APIServer、EngineCore、Worker。</li>
+<li>加载模型权重</li>
+<li>管理 KV Cache</li>
+<li>执行 Forward</li>
 </ul>
-<h2 id="references">References</h2>
-<ul>
-<li>https://docs.vllm.ai/en/latest/getting_started/installation/cpu/</li>
-<li>https://en.wikipedia.org/wiki/Apple_silicon</li>
-<li>https://huggingface.co/Qwen/Qwen2.5-1.5B</li>
-<li>https://huggingface.co/Qwen/Qwen3-0.6B</li>
-<li>gpu_memory_utilization defaults to 0.92 in the source code. https://github.com/vllm-project/vllm/blob/releases/v0.23.0/vllm/config/cache.py#L67-L74</li>
-<li>BF16, bfloat16, brain floating point. https://en.wikipedia.org/wiki/Bfloat16_floating-point_format</li>
-</ul>
+<p>这是后续阅读 vLLM 源码时最重要的骨架。理解了它，再深入 Scheduler、KV Cache、Batching、Paged Attention 时不会迷路。</p>
 
 
 
