@@ -2569,6 +2569,114 @@ self.workers = WorkerProc.wait_for_ready(unready_workers)
 </code></pre></div>
 <p><code>self.model_runner</code> = <code>vllm.v1.worker.cpu_model_runner.CPUModelRunner</code></p>
 <p><code>self.model_runner.load_model</code>又进一步委托给<code>vllm.model_executor.model_loader.default_loader.DefaultModelLoader</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">CPUModelRunner</span><span class="p">(</span><span class="n">GPUModelRunner</span><span class="p">)</span>
+    <span class="o">...</span>
+
+    <span class="nd">@instrument</span><span class="p">(</span><span class="n">span_name</span><span class="o">=</span><span class="s2">&quot;Loading (CPU)&quot;</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">load_dummy_weights</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">load_dummy_weights</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Loading dummy weights (needed for elastic EP scale-up) &quot;</span>
+                <span class="s2">&quot;Is not supported by the CPU Model Runner.&quot;</span>
+            <span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Starting to load model </span><span class="si">%s</span><span class="s2">...&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_config</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">get_model</span><span class="p">(</span><span class="n">vllm_config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">vllm_config</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">lora_config</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_lora_model</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vllm_config</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;drafter&quot;</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info_once</span><span class="p">(</span><span class="s2">&quot;Loading drafter model...&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">drafter</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_setup_eagle3_aux_hidden_state_outputs</span><span class="p">()</span>
+
+    <span class="o">...</span>
+</code></pre></div>
+<p><code>self.model = get_model(vllm_config=self.vllm_config)</code>的类型是：<code>vllm.model_executor.models.qwen3.Qwen3ForCausalLM</code></p>
+<p><code>vllm/model_executor/models/qwen3.py</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Qwen3ForCausalLM</span><span class="p">(</span>
+    <span class="n">LocalArgmaxMixin</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span> <span class="n">SupportsLoRA</span><span class="p">,</span> <span class="n">SupportsPP</span><span class="p">,</span> <span class="n">SupportsEagle</span><span class="p">,</span> <span class="n">SupportsEagle3</span>
+<span class="p">):</span>
+    <span class="n">packed_modules_mapping</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;qkv_proj&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;q_proj&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;k_proj&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;v_proj&quot;</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;gate_up_proj&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;gate_proj&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;up_proj&quot;</span><span class="p">,</span>
+        <span class="p">],</span>
+    <span class="p">}</span>
+
+    <span class="n">embedding_modules</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;embed_tokens&quot;</span><span class="p">:</span> <span class="s2">&quot;input_embeddings&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;lm_head&quot;</span><span class="p">:</span> <span class="s2">&quot;output_embeddings&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">vllm_config</span><span class="p">:</span> <span class="n">VllmConfig</span><span class="p">,</span> <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">vllm_config</span><span class="o">.</span><span class="n">model_config</span><span class="o">.</span><span class="n">hf_config</span>
+        <span class="n">quant_config</span> <span class="o">=</span> <span class="n">vllm_config</span><span class="o">.</span><span class="n">quant_config</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">config</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">vllm_config</span> <span class="o">=</span> <span class="n">vllm_config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">quant_config</span> <span class="o">=</span> <span class="n">quant_config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">Qwen3Model</span><span class="p">(</span>
+            <span class="n">vllm_config</span><span class="o">=</span><span class="n">vllm_config</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">maybe_prefix</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="s2">&quot;model&quot;</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">get_pp_group</span><span class="p">()</span><span class="o">.</span><span class="n">is_last_rank</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">tie_word_embeddings</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">lm_head</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">embed_tokens</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">lm_head</span> <span class="o">=</span> <span class="n">ParallelLMHead</span><span class="p">(</span>
+                    <span class="n">config</span><span class="o">.</span><span class="n">vocab_size</span><span class="p">,</span>
+                    <span class="n">config</span><span class="o">.</span><span class="n">hidden_size</span><span class="p">,</span>
+                    <span class="n">quant_config</span><span class="o">=</span><span class="n">quant_config</span><span class="p">,</span>
+                    <span class="n">prefix</span><span class="o">=</span><span class="n">maybe_prefix</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="s2">&quot;lm_head&quot;</span><span class="p">),</span>
+                <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lm_head</span> <span class="o">=</span> <span class="n">PPMissingLayer</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">logits_processor</span> <span class="o">=</span> <span class="n">LogitsProcessor</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">vocab_size</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">make_empty_intermediate_tensors</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">make_empty_intermediate_tensors</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">embed_input_ids</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_ids</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">embed_input_ids</span><span class="p">(</span><span class="n">input_ids</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">input_ids</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">positions</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+        <span class="n">intermediate_tensors</span><span class="p">:</span> <span class="n">IntermediateTensors</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">inputs_embeds</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">IntermediateTensors</span><span class="p">:</span>
+        <span class="n">hidden_states</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span>
+            <span class="n">input_ids</span><span class="p">,</span> <span class="n">positions</span><span class="p">,</span> <span class="n">intermediate_tensors</span><span class="p">,</span> <span class="n">inputs_embeds</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">hidden_states</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_logits</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">hidden_states</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">logits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">logits_processor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lm_head</span><span class="p">,</span> <span class="n">hidden_states</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">logits</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">load_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weights</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="n">loader</span> <span class="o">=</span> <span class="n">AutoWeightsLoader</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">skip_prefixes</span><span class="o">=</span><span class="p">([</span><span class="s2">&quot;lm_head.&quot;</span><span class="p">]</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">tie_word_embeddings</span> <span class="k">else</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">loader</span><span class="o">.</span><span class="n">load_weights</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+</code></pre></div>
+<p>可以看到，<code>Qwen3ForCausalLM</code>实现了PyTorch的<code>nn.Module</code>。执行模型时，反复调用<code>forward</code>方法。</p>
 <h2 id="_1">三个进程如何交互</h2>
 <p>启动顺序：</p>
 <div class="highlight"><pre><span></span><code>API Server
