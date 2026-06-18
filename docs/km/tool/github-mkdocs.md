@@ -192,3 +192,12 @@ Level 3: Article
 * Workload / Model / System / Algorithm 是知识领域（单数）
 * Books / Projects / Notes 是具体条目集合（复数）
 
+### 端口冲突
+
+```shell
+# Blog
+mkdocs serve -a 127.0.0.1:8001
+
+# vLLM
+vllm serve Qwen/Qwen3-0.6B --port 8000
+```

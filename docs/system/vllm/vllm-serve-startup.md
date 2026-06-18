@@ -473,6 +473,123 @@ class Worker(WorkerBase):
 
 `self.model_runner.load_model`又进一步委托给`vllm.model_executor.model_loader.default_loader.DefaultModelLoader`
 
+
+```python
+class CPUModelRunner(GPUModelRunner)
+    ...
+
+    @instrument(span_name="Loading (CPU)")
+    def load_model(self, load_dummy_weights: bool = False) -> None:
+        if load_dummy_weights:
+            raise ValueError(
+                "Loading dummy weights (needed for elastic EP scale-up) "
+                "Is not supported by the CPU Model Runner."
+            )
+        logger.info("Starting to load model %s...", self.model_config.model)
+        self.model = get_model(vllm_config=self.vllm_config)
+
+        if self.lora_config:
+            self.model = self.load_lora_model(self.model, self.vllm_config, self.device)
+
+        if hasattr(self, "drafter"):
+            logger.info_once("Loading drafter model...")
+            self.drafter.load_model(self.model)
+
+        self._setup_eagle3_aux_hidden_state_outputs()
+
+    ...
+```
+
+`self.model = get_model(vllm_config=self.vllm_config)`的类型是：`vllm.model_executor.models.qwen3.Qwen3ForCausalLM`
+
+
+`vllm/model_executor/models/qwen3.py`:
+
+```python
+class Qwen3ForCausalLM(
+    LocalArgmaxMixin, nn.Module, SupportsLoRA, SupportsPP, SupportsEagle, SupportsEagle3
+):
+    packed_modules_mapping = {
+        "qkv_proj": [
+            "q_proj",
+            "k_proj",
+            "v_proj",
+        ],
+        "gate_up_proj": [
+            "gate_proj",
+            "up_proj",
+        ],
+    }
+
+    embedding_modules = {
+        "embed_tokens": "input_embeddings",
+        "lm_head": "output_embeddings",
+    }
+
+    def __init__(self, *, vllm_config: VllmConfig, prefix: str = ""):
+        super().__init__()
+        config = vllm_config.model_config.hf_config
+        quant_config = vllm_config.quant_config
+
+        self.config = config
+
+        self.vllm_config = vllm_config
+        self.quant_config = quant_config
+        self.model = Qwen3Model(
+            vllm_config=vllm_config, prefix=maybe_prefix(prefix, "model")
+        )
+
+        if get_pp_group().is_last_rank:
+            if config.tie_word_embeddings:
+                self.lm_head = self.model.embed_tokens
+            else:
+                self.lm_head = ParallelLMHead(
+                    config.vocab_size,
+                    config.hidden_size,
+                    quant_config=quant_config,
+                    prefix=maybe_prefix(prefix, "lm_head"),
+                )
+        else:
+            self.lm_head = PPMissingLayer()
+
+        self.logits_processor = LogitsProcessor(config.vocab_size)
+
+        self.make_empty_intermediate_tensors = (
+            self.model.make_empty_intermediate_tensors
+        )
+
+    def embed_input_ids(self, input_ids: torch.Tensor) -> torch.Tensor:
+        return self.model.embed_input_ids(input_ids)
+
+    def forward(
+        self,
+        input_ids: torch.Tensor | None,
+        positions: torch.Tensor,
+        intermediate_tensors: IntermediateTensors | None = None,
+        inputs_embeds: torch.Tensor | None = None,
+    ) -> torch.Tensor | IntermediateTensors:
+        hidden_states = self.model(
+            input_ids, positions, intermediate_tensors, inputs_embeds
+        )
+        return hidden_states
+
+    def compute_logits(
+        self,
+        hidden_states: torch.Tensor,
+    ) -> torch.Tensor | None:
+        logits = self.logits_processor(self.lm_head, hidden_states)
+        return logits
+
+    def load_weights(self, weights: Iterable[tuple[str, torch.Tensor]]) -> set[str]:
+        loader = AutoWeightsLoader(
+            self,
+            skip_prefixes=(["lm_head."] if self.config.tie_word_embeddings else None),
+        )
+        return loader.load_weights(weights)
+```
+
+可以看到，`Qwen3ForCausalLM`实现了PyTorch的`nn.Module`。执行模型时，反复调用`forward`方法。
+
 ## 三个进程如何交互
 
 启动顺序：
