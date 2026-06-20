@@ -57,6 +57,7 @@ nav:
           - Overview: workload/agent/agent-overview.md
 
   - Foundation:
+      - foundation/index.md
       - Math:
           - Math for AI: foundation/math/math-for-ai.md
       - Algorithm:
