@@ -12,7 +12,7 @@
         <link rel="prev" href="../foundation/tool/git/">
       
       
-        <link rel="next" href="template/">
+        <link rel="next" href="asyncio-essentials/">
       
       
         
@@ -23,7 +23,7 @@
     
     
       
-        <title>Index - AI Systems</title>
+        <title>Essentials Writing Guide - AI Systems</title>
       
     
     
@@ -63,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#essentials-writing-guide" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -95,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Index
+              Essentials Writing Guide
             
           </span>
         </div>
@@ -2595,6 +2600,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Essentials Writing Guide
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -2603,7 +2628,7 @@
   <span class="md-ellipsis">
     
   
-    Index
+    Essentials Writing Guide
   
 
     
@@ -2613,34 +2638,224 @@
 
       </a>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="template/" class="md-nav__link">
         
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-  <span class="md-ellipsis">
+  
     
   
-    Template
   
-
-    
-  </span>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-an-essential" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is An Essential?
+      
+    </span>
+  </a>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#essentials-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Essentials Template
+      
+    </span>
+  </a>
   
-
-      </a>
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section Guidelines
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section Guidelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-what-problem-does-it-solve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. What Problem Does It Solve?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Core Concepts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-minimal-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Minimal Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-common-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Common Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-why-it-matters-for-llm-serving" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Why It Matters for LLM Serving
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-common-misconceptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Common Misconceptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Further Reading
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Writing Principles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Writing Principles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#principle-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principle 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principle-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principle 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principle-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principle 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principle-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principle 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principle-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principle 5
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2891,6 +3106,215 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-an-essential" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is An Essential?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#essentials-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Essentials Template
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section Guidelines
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section Guidelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-what-problem-does-it-solve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. What Problem Does It Solve?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Core Concepts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-minimal-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Minimal Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-common-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Common Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-why-it-matters-for-llm-serving" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Why It Matters for LLM Serving
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-common-misconceptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Common Misconceptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Further Reading
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Writing Principles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Writing Principles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#principle-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principle 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principle-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principle 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principle-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principle 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principle-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principle 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principle-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principle 5
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2907,9 +3331,319 @@
 
 
 
-  <h1>Index</h1>
+<h1 id="essentials-writing-guide">Essentials Writing Guide</h1>
+<h2 id="what-is-an-essential">What Is An Essential?</h2>
+<p>An Essential is not a tutorial, reference manual, or comprehensive guide.</p>
+<p>Its purpose is to capture the minimum knowledge required to:</p>
+<ul>
+<li>Understand a technology</li>
+<li>Read source code using it</li>
+<li>Work effectively with it</li>
+<li>Reconstruct deeper knowledge later</li>
+</ul>
+<p>Think of an Essential as a high-signal knowledge card for future review.</p>
+<p>Target length:</p>
+<div class="highlight"><pre><span></span><code>1–2 A4 pages
+10 minutes to read
+30 seconds to refresh
+</code></pre></div>
+<h2 id="essentials-template">Essentials Template</h2>
+<div class="highlight"><pre><span></span><code>1. What Problem Does It Solve?
 
+2. Core Concepts
 
+3. Minimal Example
+
+4. Common Patterns
+
+5. Why It Matters for LLM Serving
+
+6. Common Misconceptions
+
+7. Key Takeaways
+
+8. Further Reading
+</code></pre></div>
+<h2 id="section-guidelines">Section Guidelines</h2>
+<h3 id="1-what-problem-does-it-solve">1. What Problem Does It Solve?</h3>
+<p><strong>Purpose</strong></p>
+<p>Answer:</p>
+<div class="highlight"><pre><span></span><code>Why does this technology exist?
+</code></pre></div>
+<p>before explaining:</p>
+<div class="highlight"><pre><span></span><code>How does it work?
+</code></pre></div>
+<p>Many technologies become easier to understand once their original problem is clear.</p>
+<p><strong>Questions</strong></p>
+<div class="highlight"><pre><span></span><code>What problem is being solved?
+
+What would happen without it?
+
+Why was it created?
+</code></pre></div>
+<p><strong>Example</strong></p>
+<p>FastAPI:</p>
+<div class="highlight"><pre><span></span><code>Build HTTP APIs with automatic validation and dependency injection.
+</code></pre></div>
+<p>Asyncio:</p>
+<div class="highlight"><pre><span></span><code>Handle many concurrent I/O operations efficiently within a single thread.
+</code></pre></div>
+<p><strong>Length</strong></p>
+<div class="highlight"><pre><span></span><code>1–3 paragraphs
+</code></pre></div>
+<h3 id="2-core-concepts">2. Core Concepts</h3>
+<p><strong>Purpose</strong></p>
+<p>Define the technology's mental vocabulary.</p>
+<p>This section contains the concepts that appear repeatedly in documentation, code, and discussions.</p>
+<p><strong>Questions</strong></p>
+<div class="highlight"><pre><span></span><code>What are the core building blocks?
+
+What terminology must I understand?
+</code></pre></div>
+<p><strong>Example</strong></p>
+<p>Asyncio:</p>
+<div class="highlight"><pre><span></span><code>Event Loop
+Coroutine
+await
+Task
+Queue
+</code></pre></div>
+<p>FastAPI:</p>
+<div class="highlight"><pre><span></span><code>Router
+Decorator
+Request
+Response
+Dependency Injection
+Pydantic Model
+</code></pre></div>
+<p><strong>Length</strong></p>
+<div class="highlight"><pre><span></span><code>3–7 concepts
+</code></pre></div>
+<p>Prefer depth over completeness.</p>
+<h3 id="3-minimal-example">3. Minimal Example</h3>
+<p><strong>Purpose</strong></p>
+<p>Provide the smallest executable example that demonstrates the technology.</p>
+<p>The goal is understanding, not production readiness.</p>
+<p><strong>Questions</strong></p>
+<div class="highlight"><pre><span></span><code>What is the smallest example that shows the core idea?
+</code></pre></div>
+<p><strong>Example</strong></p>
+<p>FastAPI:</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">root</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;hello&quot;</span><span class="p">:</span> <span class="s2">&quot;world&quot;</span><span class="p">}</span>
+</code></pre></div>
+<p>Asyncio:</p>
+<div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="k">await</span> <span class="n">worker</span><span class="p">()</span>
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</code></pre></div>
+<p><strong>Length</strong></p>
+<div class="highlight"><pre><span></span><code>5–20 lines of code
+</code></pre></div>
+<h3 id="4-common-patterns">4. Common Patterns</h3>
+<p><strong>Purpose</strong></p>
+<p>Capture the patterns most frequently encountered in real projects.</p>
+<p>This section bridges theory and practice.</p>
+<p><strong>Questions</strong></p>
+<div class="highlight"><pre><span></span><code>What code patterns will I see repeatedly?
+
+What APIs are used most often?
+</code></pre></div>
+<p><strong>Example</strong></p>
+<p>Asyncio:</p>
+<div class="highlight"><pre><span></span><code><span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">asyncio</span><span class="o">.</span><span class="n">Queue</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</code></pre></div>
+<p>FastAPI:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Depends</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">BaseModel</span>
+<span class="n">StreamingResponse</span>
+</code></pre></div>
+<p><strong>Length</strong></p>
+<div class="highlight"><pre><span></span><code>3–8 patterns
+</code></pre></div>
+<h3 id="5-why-it-matters-for-llm-serving">5. Why It Matters for LLM Serving</h3>
+<p><strong>Purpose</strong></p>
+<p>Connect the technology to the AI Systems roadmap.</p>
+<p>Every Essential should answer:</p>
+<div class="highlight"><pre><span></span><code>Why am I learning this as an AI Infrastructure Engineer?
+</code></pre></div>
+<p><strong>Questions</strong></p>
+<div class="highlight"><pre><span></span><code>Where does it appear in a serving system?
+
+Which components depend on it?
+
+What breaks if I don&#39;t understand it?
+</code></pre></div>
+<p><strong>Example</strong></p>
+<p>Uvicorn:</p>
+<div class="highlight"><pre><span></span><code>Client
+ ↓
+Uvicorn
+ ↓
+FastAPI
+ ↓
+LLM Engine
+</code></pre></div>
+<p>Asyncio:</p>
+<div class="highlight"><pre><span></span><code>Request handling
+Streaming
+Scheduling
+Background tasks
+</code></pre></div>
+<p><strong>Length</strong></p>
+<div class="highlight"><pre><span></span><code>1 architecture diagram
++
+2–5 bullets
+</code></pre></div>
+<h3 id="6-common-misconceptions">6. Common Misconceptions</h3>
+<p><strong>Purpose</strong></p>
+<p>Capture the ideas most likely to be misunderstood.</p>
+<p>This section prevents future confusion.</p>
+<p><strong>Questions</strong></p>
+<div class="highlight"><pre><span></span><code>What do people commonly get wrong?
+
+What misconception did I personally have?
+</code></pre></div>
+<p><strong>Example</strong></p>
+<p>Asyncio:</p>
+<div class="highlight"><pre><span></span><code>Asyncio = Parallelism ❌
+
+Asyncio = Concurrency ✅
+</code></pre></div>
+<p>Uvicorn:</p>
+<div class="highlight"><pre><span></span><code>FastAPI = Uvicorn ❌
+
+FastAPI = Application
+Uvicorn = Server ✅
+</code></pre></div>
+<p><strong>Length</strong></p>
+<div class="highlight"><pre><span></span><code>2–5 items
+</code></pre></div>
+<h3 id="7-key-takeaways">7. Key Takeaways</h3>
+<p><strong>Purpose</strong></p>
+<p>Provide retrieval cues for future review.</p>
+<p>This is NOT a summary.</p>
+<p>This section answers:</p>
+<div class="highlight"><pre><span></span><code>Six months from now,
+what should I remember first?
+</code></pre></div>
+<p><strong>Important</strong></p>
+<p>Key Takeaways are often:</p>
+<ul>
+<li>Mental models</li>
+<li>Common pitfalls</li>
+<li>Knowledge anchors</li>
+<li>Retrieval cues</li>
+</ul>
+<p>They are not necessarily the most comprehensive concepts.</p>
+<p><strong>Example</strong></p>
+<p>Uvicorn:</p>
+<div class="highlight"><pre><span></span><code>FastAPI is an application;
+Uvicorn is a server.
+
+Worker = process.
+
+More workers means more model copies.
+</code></pre></div>
+<p>Asyncio:</p>
+<div class="highlight"><pre><span></span><code>Single-threaded cooperative concurrency.
+
+Coroutines do nothing until awaited.
+
+Asyncio manages infrastructure around inference, not inference itself.
+</code></pre></div>
+<p><strong>Length</strong></p>
+<div class="highlight"><pre><span></span><code>3–7 bullets
+</code></pre></div>
+<h3 id="8-further-reading">8. Further Reading</h3>
+<p><strong>Purpose</strong></p>
+<p>Provide trusted entry points for deeper study.</p>
+<p>Essentials should not attempt to contain everything.</p>
+<p><strong>Structure</strong></p>
+<div class="highlight"><pre><span></span><code>Official
+
+Deep Dive
+
+Recommended Books / Source Code
+</code></pre></div>
+<p><strong>Example</strong></p>
+<div class="highlight"><pre><span></span><code>Official:
+- FastAPI Docs
+
+Deep Dive:
+- ASGI Specification
+
+Source Code:
+- FastAPI
+- Uvicorn
+- vLLM
+</code></pre></div>
+<p><strong>Rule</strong></p>
+<p>Prefer:</p>
+<div class="highlight"><pre><span></span><code>Official docs
+Source code
+Authoritative books
+</code></pre></div>
+<p>over blog posts.</p>
+<h2 id="writing-principles">Writing Principles</h2>
+<h3 id="principle-1">Principle 1</h3>
+<p>Focus on understanding, not completeness.</p>
+<p>A 90% shorter note that gets reread is better than a comprehensive note that never gets opened again.</p>
+<h3 id="principle-2">Principle 2</h3>
+<p>Optimize for future retrieval.</p>
+<p>Write for your future self.</p>
+<p>Ask:</p>
+<div class="highlight"><pre><span></span><code>What will I forget?
+
+What will confuse me again?
+
+What will help me recover the whole topic quickly?
+</code></pre></div>
+<h3 id="principle-3">Principle 3</h3>
+<p>Connect everything to AI Systems.</p>
+<p>An Essential is not:</p>
+<div class="highlight"><pre><span></span><code>FastAPI Tutorial
+</code></pre></div>
+<p>It is:</p>
+<div class="highlight"><pre><span></span><code>FastAPI Essentials for AI Infrastructure Engineers
+</code></pre></div>
+<p>Every topic should be anchored to where it appears in:</p>
+<div class="highlight"><pre><span></span><code>Training
+Inference
+Serving
+Distributed Systems
+Production Infrastructure
+</code></pre></div>
+<h3 id="principle-4">Principle 4</h3>
+<p>Prefer mental models over API memorization.</p>
+<p>APIs change.</p>
+<p>Mental models last.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>Good:
+FastAPI uses type hints to drive framework behavior.
+
+Less useful:
+Request(..., default=None, ...)
+</code></pre></div>
+<h3 id="principle-5">Principle 5</h3>
+<p>One page beats ten pages.</p>
+<p>If an Essential becomes long:</p>
+<div class="highlight"><pre><span></span><code>Extract another Essential.
+</code></pre></div>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>Asyncio Essentials
+
+├── Event Loop
+├── Coroutine
+└── Task
+</code></pre></div>
+<p>而不是：</p>
+<div class="highlight"><pre><span></span><code>Asyncio Essentials (20 pages)
+</code></pre></div>
 
 
 
