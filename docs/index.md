@@ -16,24 +16,10 @@ from models to infrastructure.
 
 ### Current Focus
 
-> LLM inference and serving systems.
+LLM inference and serving systems.
+
+* Deep dive into [vLLM](inference/vllm/index.md).
 
 ### Long-Term Goal
 
-> contributing to the next generation of AI infrastructure.
-
-### Deep Dive into vLLM
-
-| 目录                    | 回答的问题          | 对应能力     |
-| --------------------- | -------------- | -------- |
-| [Architecture](vllm/architecture/arch-overview.md)          | 系统为什么这么设计？     | 系统设计     |
-| [Runtime](vllm/runtime/vllm-runtime.md)               | 请求是怎么跑起来的？     | 推理机制     |
-| [Memory System](vllm/memory/vllm-memory.md)         | KV Cache 怎么管理？ | 内存管理     |
-| [Distributed Inference](vllm/distributed/vllm-distributed.md) | 怎么扩展到更大规模？     | 分布式系统    |
-| [Compiler](vllm/compiler/vllm-compiler.md)              | 为什么执行效率这么高？    | 编译优化     |
-| [Development](vllm/development/vllm-contributing.md)           | 怎么定位问题并修改代码？   | 工程开发     |
-| [Production](vllm/production/production-stack.md)            | 怎么保证线上稳定运行？    | SRE / 运维 |
-
-### Beyond vLLM
-
-Exploring how workloads, models, and systems co-evolve to shape the future of AI infrastructure.
+Beyond inference and serving systems, exploring how workloads, models, and systems co-evolve to shape the future of AI infrastructure. Contributing to the next generation of AI infrastructure.

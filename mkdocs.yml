@@ -16,64 +16,77 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - vLLM:
-        - Architecture:
-          - Architecture: vllm/architecture/arch-overview.md
-          - vLLM Serve Startup: vllm/architecture/vllm-serve-startup.md
-          - vLLM Serve Request: vllm/architecture/vllm-serve-request.md
-        - Runtime:
-            - vLLM Runtime Overview: vllm/runtime/vllm-runtime.md
-        - Memory System:
-            - vLLM Memory System: vllm/memory/vllm-memory.md
-        - Distributed Inference:
-            - vLLM Distributed: vllm/distributed/vllm-distributed.md
-        - Compiler:
-            - vLLM Compiler: vllm/compiler/vllm-compiler.md
-        - Development:
-            - Apple silicon CPU: vllm/development/applesilicon-cpu.md
-            - Apple silicon GPU: vllm/development/applesilicon-gpu.md
-            - vLLM Docker: vllm/development/vllm-docker.md
-            - vLLM Debug: vllm/development/vllm-debug.md
-            - vLLM C++: vllm/development/vllm-cpp.md
-            - vLLM Build: vllm/development/vllm-build.md
-            - vLLM Contributing: vllm/development/vllm-contributing.md
-        - Production:
-            - Production Stack: vllm/production/production-stack.md
+  - Projects:
+    - projects/index.md
 
-  - System:
-      - Accelerator:
-          - Software Stack: system/accelerator/software-stack.md
-      - Tool:
-          - AI Infra Engineer Toolbox: system/tool/ai-infra-engineer-toolbox.md
+  - Inference & Serving:
+    - vLLM:
+      - inference/vllm/index.md
+      - Architecture:
+        - Architecture: inference/vllm/architecture/arch-overview.md
+        - vLLM Serve Startup: inference/vllm/architecture/vllm-serve-startup.md
+        - vLLM Serve Request: inference/vllm/architecture/vllm-serve-request.md
+      - Runtime:
+        - vLLM Runtime Overview: inference/vllm/runtime/vllm-runtime.md
+      - Memory System:
+        - vLLM Memory System: inference/vllm/memory/vllm-memory.md
+      - Distributed Inference:
+        - vLLM Distributed: inference/vllm/distributed/vllm-distributed.md
+      - Compiler:
+        - vLLM Compiler: inference/vllm/compiler/vllm-compiler.md
+      - Development:
+        - Apple silicon CPU: inference/vllm/development/applesilicon-cpu.md
+        - Apple silicon GPU: inference/vllm/development/applesilicon-gpu.md
+        - vLLM Docker: inference/vllm/development/vllm-docker.md
+        - vLLM Debug: inference/vllm/development/vllm-debug.md
+        - vLLM C++: inference/vllm/development/vllm-cpp.md
+        - vLLM Build: inference/vllm/development/vllm-build.md
+        - vLLM Contributing: inference/vllm/development/vllm-contributing.md
+      - Production:
+        - Production Stack: inference/vllm/production/production-stack.md
+    - SGLang:
+      - inference/sglang/index.md
 
-  - Model:
-      - Transformer:
-          - Tokenizer: model/transformer/tokenizer.md
-      - DL:
-          - Readings: model/dl/readings.md
+  - Model Fundamentals:
+    - model/index.md
+    - Transformer:
+      - Tokenizer: model/transformer/tokenizer.md
+    - DL:
+      - Readings: model/dl/readings.md
 
-  - Workload:
-      - Agent:
-          - Overview: workload/agent/agent-overview.md
+  - AI Systems Overview:
+    - Agent:
+      - Overview: overview/agent/agent-overview.md
+    - Accelerator:
+      - Software Stack: overview/accelerator/software-stack.md
+    - Tool:
+      - AI Infra Engineer Toolbox: overview/tool/ai-infra-engineer-toolbox.md
 
   - Foundation:
-      - foundation/index.md
-      - Math:
-          - Math for AI: foundation/math/math-for-ai.md
-      - Algorithm:
-          - DSA Overview: foundation/algorithm/dsa-overview.md
-      - Programming:
-          - Python for AI: foundation/programming/python-for-ai.md
-          - Python Debug: foundation/programming/python-debug.md
-          - C++ for AI: foundation/programming/cpp-for-ai.md
-      - Design:
-          - Readings: foundation/design/readings.md
-      - System:
-          - Readings: foundation/system/readings.md
-          - Security: foundation/system/security.md
-      - Tool:
-          - Git: foundation/tool/git.md
+    - foundation/index.md
+    - Math:
+      - Math for AI: foundation/math/math-for-ai.md
+    - Algorithm:
+      - DSA Overview: foundation/algorithm/dsa-overview.md
+    - Programming:
+      - Python for AI: foundation/programming/python-for-ai.md
+      - Python Debug: foundation/programming/python-debug.md
+      - C++ for AI: foundation/programming/cpp-for-ai.md
+    - Design:
+      - Readings: foundation/design/readings.md
+    - System:
+      - Readings: foundation/system/readings.md
+      - Security: foundation/system/security.md
+    - Tool:
+      - Git: foundation/tool/git.md
+
+  - Essentials:
+    - essentials/README.md
+    - Template: essentials/template.md
+    - asyncio Essentials: essentials/asyncio-essentials.md
+    - FastAPI Essentials: essentials/fastapi-essentials.md
+    - Uvicorn Essnetials: essentials/uvicorn-essentials.md
 
   - KM:
-      - Tool:
-          - GitHub MkDocs: km/tool/github-mkdocs.md
+    - Tool:
+      - GitHub MkDocs: km/tool/github-mkdocs.md
