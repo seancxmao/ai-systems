@@ -82,7 +82,6 @@ nav:
 
   - Essentials:
     - essentials/README.md
-    - Template: essentials/template.md
     - asyncio Essentials: essentials/asyncio-essentials.md
     - FastAPI Essentials: essentials/fastapi-essentials.md
     - Uvicorn Essnetials: essentials/uvicorn-essentials.md
