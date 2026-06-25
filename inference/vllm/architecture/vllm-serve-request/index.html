@@ -1,0 +1,4013 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../vllm-serve-startup/">
+      
+      
+        <link rel="next" href="../../runtime/vllm-runtime/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>vLLM Serve Request - AI Systems</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vllm-serve-request" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="AI Systems" class="md-header__button md-logo" aria-label="AI Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AI Systems
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              vLLM Serve Request
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="AI Systems" class="md-nav__button md-logo" aria-label="AI Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AI Systems
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inference & Serving
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Inference & Serving
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vLLM
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    vLLM
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_2" id="__nav_3_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arch-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vllm-serve-startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vLLM Serve Startup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vLLM Serve Request
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vLLM Serve Request
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        请求处理流程
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Client
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Server
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#openaiservingcompletioncreate_completion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenAIServingCompletion.create_completion()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asyncllmgenerate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AsyncLLM.generate()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asyncllmadd_request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AsyncLLM.add_request()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enginecore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EngineCore
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="EngineCore">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enginecoreadd_request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EngineCore.add_request()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schedulerschedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scheduler.schedule()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kv-cache-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KV Cache Block 分配
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executorexecute_model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Executor.execute_model()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worker
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Worker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#worker-rpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worker RPC 入口
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelrunnerexecute_model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ModelRunner.execute_model()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelrunner_model_forward" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ModelRunner._model_forward
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qwen3forcausallmforward" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qwen3ForCausalLM.forward()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#samplersample" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sampler.sample()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_3" id="__nav_3_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Runtime
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Runtime
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../runtime/vllm-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vLLM Runtime Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_4" id="__nav_3_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Memory System
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Memory System
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../memory/vllm-memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vLLM Memory System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_5" id="__nav_3_1_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Distributed Inference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Distributed Inference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../distributed/vllm-distributed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vLLM Distributed
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_6" id="__nav_3_1_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compiler
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Compiler
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../compiler/vllm-compiler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vLLM Compiler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_7" id="__nav_3_1_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/applesilicon-cpu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Apple silicon CPU
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/applesilicon-gpu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Apple silicon GPU
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/vllm-docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vLLM Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/vllm-debug/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vLLM Debug
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/vllm-cpp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vLLM C++
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/vllm-build/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vLLM Build
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/vllm-contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vLLM Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_8" id="__nav_3_1_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Production
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Production
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../production/production-stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Production Stack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SGLang
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SGLang
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sglang/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Model Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transformer
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Transformer
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../model/transformer/tokenizer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tokenizer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DL
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DL
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../model/dl/readings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Systems Overview
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI Systems Overview
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Agent
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../overview/agent/agent-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accelerator
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Accelerator
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../overview/accelerator/software-stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Stack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tool
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../overview/tool/ai-infra-engineer-toolbox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Infra Engineer Toolbox
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Foundation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../foundation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Math
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Math
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../foundation/math/math-for-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Math for AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithm
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Algorithm
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../foundation/algorithm/dsa-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DSA Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Programming
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../foundation/programming/python-for-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python for AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../foundation/programming/python-debug/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Debug
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../foundation/programming/cpp-for-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ for AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Design
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../foundation/design/readings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_6" id="__nav_6_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    System
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../foundation/system/readings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../foundation/system/security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_7" id="__nav_6_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tool
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../foundation/tool/git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Essentials
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Essentials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../essentials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../essentials/template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../essentials/asyncio-essentials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    asyncio Essentials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../essentials/fastapi-essentials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FastAPI Essentials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../essentials/uvicorn-essentials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uvicorn Essnetials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    KM
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    KM
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_1" id="__nav_8_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tool
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../km/tool/github-mkdocs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub MkDocs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        请求处理流程
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Client
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Server
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#openaiservingcompletioncreate_completion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenAIServingCompletion.create_completion()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asyncllmgenerate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AsyncLLM.generate()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asyncllmadd_request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AsyncLLM.add_request()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enginecore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EngineCore
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="EngineCore">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enginecoreadd_request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EngineCore.add_request()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schedulerschedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scheduler.schedule()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kv-cache-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KV Cache Block 分配
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executorexecute_model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Executor.execute_model()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worker
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Worker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#worker-rpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worker RPC 入口
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelrunnerexecute_model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ModelRunner.execute_model()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelrunner_model_forward" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ModelRunner._model_forward
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qwen3forcausallmforward" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qwen3ForCausalLM.forward()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#samplersample" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sampler.sample()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="vllm-serve-request">vLLM Serve Request</h1>
+<h2 id="background">Background</h2>
+<h2 id="_1">请求处理流程</h2>
+<div class="highlight"><pre><span></span><code>Client
+   ↓
+----------------
+API Server
+   ↓
+FastAPI Route
+   ↓
+AsyncLLM
+   ↓
+----------------
+EngineCore
+   ↓
+Scheduler
+   ↓
+Executor
+   ↓
+----------------
+Worker
+   ↓
+Model Forward
+</code></pre></div>
+<h2 id="client">Client</h2>
+<div class="highlight"><pre><span></span><code>curl http://localhost:8000/v1/completions \
+   -H &quot;Content-Type: application/json&quot; \
+   -d &#39;{
+      &quot;model&quot;: &quot;Qwen/Qwen3-0.6B&quot;,
+      &quot;prompt&quot;: &quot;San Francisco is a&quot;,
+      &quot;max_tokens&quot;: 7,
+      &quot;temperature&quot;: 0 
+   }&#39;
+</code></pre></div>
+<h2 id="api-server">API Server</h2>
+<p>API Server 把 OpenAI 请求转换成 Engine 能理解的 Request.</p>
+<div class="highlight"><pre><span></span><code>Client
+   ↓
+----------------------
+uvicorn/FastAPI
+    ↓
+vllm/entrypoints/openai/completion/api_server.py
+OpenAIServingCompletion.create_completion()
+    ↓
+engine_client.generate() // engine_client = AsyncLLM
+    ↓
+engine_client.add_request()
+    ↓
+AsyncLLM.engine_core.add_request_async() // engine_core = AsyncMPClient
+    ↓
+---------------------
+EngineCore
+</code></pre></div>
+<h3 id="openaiservingcompletioncreate_completion">OpenAIServingCompletion.create_completion()</h3>
+<p>这里是 OpenAI API 的业务入口。可以看到原始 HTTP 请求已经被解析成 CompletionRequest，包括 prompt、temperature、max_tokens 等参数，是整个预处理链路的起点。</p>
+<ul>
+<li>CompletionRequest (vllm/entrypoints/openai/completion/protocol.py)</li>
+</ul>
+<h3 id="asyncllmgenerate">AsyncLLM.generate()</h3>
+<ul>
+<li>vllm.v1.engine.async_llm.AsyncLLM</li>
+<li>AsyncLLM(EngineClient)</li>
+</ul>
+<p>EngineClient是明确定义的协议，从Client到Engine</p>
+<div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="n">vllm</span><span class="o">/</span><span class="n">engine</span><span class="o">/</span><span class="n">protocol</span><span class="o">.</span><span class="n">py</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">StreamingInput</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Input data for a streaming generation request.</span>
+
+<span class="sd">    This is used with generate() to support multi-turn streaming sessions</span>
+<span class="sd">    where inputs are provided via an async generator.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="o">...</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">EngineClient</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Protocol class for Clients to Engine&quot;&quot;&quot;</span>
+    <span class="o">...</span>
+</code></pre></div>
+<p>AsyncLLMEngine是AsyncLLM的别名：</p>
+<div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="n">vllm</span><span class="o">/</span><span class="n">engine</span><span class="o">/</span><span class="n">async_llm_engine</span><span class="o">.</span><span class="n">py</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">vllm.v1.engine.async_llm</span><span class="w"> </span><span class="kn">import</span> <span class="n">AsyncLLM</span>
+
+<span class="n">AsyncLLMEngine</span> <span class="o">=</span> <span class="n">AsyncLLM</span>  <span class="c1"># type: ignore</span>
+<span class="sd">&quot;&quot;&quot;The `AsyncLLMEngine` class is an alias of [vllm.v1.engine.async_llm.AsyncLLM][].&quot;&quot;&quot;</span>
+</code></pre></div>
+<p><code>AsyncLLM.generate()</code>的参数<code>EngineInput</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="n">vllm</span><span class="o">/</span><span class="n">inputs</span><span class="o">/</span><span class="n">engine</span><span class="o">.</span><span class="n">py</span>
+
+<span class="n">EngineInput</span><span class="p">:</span> <span class="n">TypeAlias</span> <span class="o">=</span> <span class="n">DecoderOnlyEngineInput</span> <span class="o">|</span> <span class="n">EncoderDecoderInput</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A rendered [`PromptType`][vllm.inputs.llm.PromptType]</span>
+<span class="sd">which can be passed to `LLMEngine.add_request` or `AsyncLLM.add_request`.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</code></pre></div>
+<h3 id="asyncllmadd_request">AsyncLLM.add_request()</h3>
+<p>最终API Server通过<code>AsyncLLM.add_request()</code> 把请求提交给 EngineCore。<code>AsyncLLM</code>内部通过<code>AsyncMPClient</code>进行RPC。</p>
+<h2 id="enginecore">EngineCore</h2>
+<p>对于 <code>/v1/completions</code> 请求，在进入 <code>EngineCore.add_request()</code> 之前，prompt 通常已经完成了 tokenization，并被转换成 <code>prompt_token_ids</code>。这部分工作发生在 OpenAI serving layer 和 processor 之间（例如 <code>InputPreprocessor</code>、tokenizer 相关逻辑），因此 <code>EngineCore</code> 接收到的已经是 token 序列，而不是原始文本；<code>EngineCore</code> 主要负责调度、KV Cache 管理和模型执行，不再负责 tokenizer。</p>
+<h3 id="enginecoreadd_request">EngineCore.add_request()</h3>
+<p>这是请求正式进入 EngineCore 的入口。这里可以看到已经完成 tokenization 的 prompt_token_ids、sampling params、request_id 等信息，并且会创建对应的 Request/Sequence 对象加入调度器管理。</p>
+<ul>
+<li>engine core = vllm.v1.engine.core.EngineCoreProc(EngineCore)</li>
+<li>request: vllm.v1.request.Request</li>
+</ul>
+<p>核心逻辑：</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">EngineCore</span><span class="p">:</span>
+
+   <span class="k">def</span><span class="w"> </span><span class="nf">add_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span> <span class="n">request_wave</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add request to the scheduler.</span>
+
+<span class="sd">        `request_wave`: indicate which wave of requests this is expected to</span>
+<span class="sd">        belong to in DP case</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="o">...</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scheduler</span><span class="o">.</span><span class="n">add_request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="o">...</span>
+</code></pre></div>
+<h3 id="schedulerschedule">Scheduler.schedule()</h3>
+<p>这是 vLLM 最核心的断点。这里决定：</p>
+<ul>
+<li>哪些请求本轮运行</li>
+<li>哪些请求等待</li>
+<li>是 Prefill 还是 Decode</li>
+<li>分配多少 token budget</li>
+<li>分配多少 KV Cache block</li>
+</ul>
+<p>理解了这里，就理解了 vLLM 的 continuous batching。</p>
+<div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="n">vllm</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">core</span><span class="o">/</span><span class="n">sched</span><span class="o">/</span><span class="n">scheduler</span><span class="o">.</span><span class="n">py</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Scheduler</span><span class="p">:</span>
+   <span class="k">def</span><span class="w"> </span><span class="nf">schedule</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SchedulerOutput</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_step</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="c1"># NOTE(woosuk) on the scheduling algorithm:</span>
+        <span class="c1"># There&#39;s no &quot;decoding phase&quot; nor &quot;prefill phase&quot; in the scheduler.</span>
+        <span class="c1"># Each request just has the num_computed_tokens and</span>
+        <span class="c1"># num_tokens_with_spec. num_tokens_with_spec =</span>
+        <span class="c1"># len(prompt_token_ids) + len(output_token_ids) + len(spec_token_ids).</span>
+        <span class="c1"># At each step, the scheduler tries to assign tokens to the requests</span>
+        <span class="c1"># so that each request&#39;s num_computed_tokens can catch up its</span>
+        <span class="c1"># num_tokens_with_spec. This is general enough to cover</span>
+        <span class="c1"># chunked prefills, prefix caching, speculative decoding,</span>
+        <span class="c1"># and the &quot;jump decoding&quot; optimization in the future.</span>
+        <span class="o">...</span>
+</code></pre></div>
+<h3 id="kv-cache-block">KV Cache Block 分配</h3>
+<p>通常在：</p>
+<div class="highlight"><pre><span></span><code>KVCacheManager.allocate_slots(...)
+</code></pre></div>
+<p>这里决定：</p>
+<ul>
+<li>需要多少 KV blocks</li>
+<li>是否有足够显存</li>
+<li>block table 如何建立</li>
+</ul>
+<p>这是理解 PagedAttention 的最佳入口，因为之后 Worker 执行时使用的就是这里构造出来的 block mapping。</p>
+<div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="n">vllm</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">core</span><span class="o">/</span><span class="n">kv_cache_manager</span><span class="o">.</span><span class="n">py</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">KVCacheManager</span><span class="p">:</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">allocate_slots</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span>
+        <span class="n">num_new_tokens</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">num_new_computed_tokens</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">new_computed_blocks</span><span class="p">:</span> <span class="n">KVCacheBlocks</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">num_lookahead_tokens</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">num_external_computed_tokens</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">delay_cache_blocks</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">num_encoder_tokens</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">full_sequence_must_fit</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">reserved_blocks</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">has_scheduled_reqs</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">KVCacheBlocks</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add slots for a request with new tokens to append.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            request: The request to allocate slots.</span>
+<span class="sd">            num_new_tokens: The number of new tokens to be allocated and computed.</span>
+<span class="sd">            num_new_computed_tokens: The number of new computed tokens just</span>
+<span class="sd">                hitting the prefix caching, excluding external tokens.</span>
+<span class="sd">            new_computed_blocks: The cached blocks for the above new computed</span>
+<span class="sd">                tokens, grouped as a tuple by kv cache groups.</span>
+<span class="sd">            num_lookahead_tokens: The number of speculative tokens to allocate.</span>
+<span class="sd">                This is used by spec decode proposers with kv-cache such</span>
+<span class="sd">                as eagle.</span>
+<span class="sd">            num_external_computed_tokens: The number of tokens that their</span>
+<span class="sd">                KV caches are not cached by vLLM but cached by the connector.</span>
+<span class="sd">            delay_cache_blocks: Whether to skip caching the blocks. This is</span>
+<span class="sd">                used by P/D when allocating blocks used in a KV transfer</span>
+<span class="sd">                which will complete in a future step.</span>
+<span class="sd">            num_encoder_tokens: The number of encoder tokens to allocate for</span>
+<span class="sd">                cross-attention in encoder-decoder models(e.g., Whisper).</span>
+<span class="sd">                For decoder-only models, this should be 0.</span>
+<span class="sd">            full_sequence_must_fit: Only allocate blocks if the KV cache has enough</span>
+<span class="sd">                free blocks to hold the full sequence, accounting for prefix cache hits</span>
+<span class="sd">                and sliding window. Used as an admission gate to prevent over-admitting</span>
+<span class="sd">                requests when chunked prefill would otherwise only check the first chunk</span>
+<span class="sd">            reserved_blocks: Number of free blocks that must be left available for</span>
+<span class="sd">                other in-flight sequences to complete. The actual allocation is only</span>
+<span class="sd">                made if it fits within (free blocks - reserved_blocks). Used to gate</span>
+<span class="sd">                async KV-connector loads so their initial allocation cannot consume</span>
+<span class="sd">                blocks an already in-flight (prefilling) sequence is relying on.</span>
+<span class="sd">            has_scheduled_reqs: Whether any requests are already scheduled to run</span>
+<span class="sd">                this step, controls whether watermark is applied.</span>
+
+<span class="sd">        Blocks layout:</span>
+<span class="sd">        ```</span>
+<span class="sd">        ----------------------------------------------------------------------</span>
+<span class="sd">        | &lt; comp &gt; | &lt; new_comp &gt; | &lt; ext_comp &gt;  | &lt; new &gt;  | &lt; lookahead &gt; |</span>
+<span class="sd">        ----------------------------------------------------------------------</span>
+<span class="sd">                                                  |   &lt; to be computed &gt;     |</span>
+<span class="sd">        ----------------------------------------------------------------------</span>
+<span class="sd">                                  |            &lt; to be allocated &gt;           |</span>
+<span class="sd">        ----------------------------------------------------------------------</span>
+<span class="sd">                                  | &lt; to be cached (roughly, |</span>
+<span class="sd">                                  | details below)&gt;          |</span>
+<span class="sd">        ----------------------------------------------------------------------</span>
+<span class="sd">        | Prefix-cached tokens from either vLLM   |</span>
+<span class="sd">        | or connector. Can be safely removed if  |</span>
+<span class="sd">        | they are outside sliding window.        |</span>
+<span class="sd">        ----------------------------------------------------------------------</span>
+<span class="sd">        |   &lt; cached by vLLM &gt;    | not cached by |</span>
+<span class="sd">                                  | vLLM, but     |</span>
+<span class="sd">        | ref_cnt  | ref_cnt not  | cached by     |</span>
+<span class="sd">        | increased| increased yet| connector     |</span>
+<span class="sd">        ----------------------------------------------------------------------</span>
+<span class="sd">        ```</span>
+
+<span class="sd">        Abbrivations:</span>
+
+<span class="sd">        ```</span>
+<span class="sd">        comp      = request.num_computed_tokens</span>
+<span class="sd">        new_comp  = num_new_computed_tokens</span>
+<span class="sd">                  = len(new_computed_blocks) * block_size</span>
+<span class="sd">        ext_comp  = num_external_computed_tokens, cached by the connector</span>
+<span class="sd">        new       = num_new_tokens, including unverified draft tokens</span>
+<span class="sd">        lookahead = num_lookahead_tokens</span>
+<span class="sd">        ```</span>
+
+<span class="sd">        NOTE: for new tokens which include both verified and unverified draft</span>
+<span class="sd">        tokens, we only cache the verified tokens (by capping the number at</span>
+<span class="sd">        `request.num_tokens`).</span>
+
+<span class="sd">        The allocation has three stages:</span>
+<span class="sd">        - Free unnecessary blocks in `comp` and check</span>
+<span class="sd">           if we have sufficient free blocks (return None if not).</span>
+<span class="sd">        - Handle prefix tokens (`comp + new_comp + ext_comp`):</span>
+<span class="sd">            - Free unnecessary blocks (e.g. outside sliding window)</span>
+<span class="sd">            - Allocate new blocks for `ext_comp` tokens inside</span>
+<span class="sd">              sliding window</span>
+<span class="sd">        - Allocate new blocks for tokens to be computed (`new + lookahead`)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A list of new allocated blocks.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="o">...</span>
+        <span class="n">num_blocks_to_allocate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coordinator</span><span class="o">.</span><span class="n">get_num_blocks_to_allocate</span><span class="p">(</span>
+            <span class="n">request_id</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">request_id</span><span class="p">,</span>
+            <span class="n">num_tokens</span><span class="o">=</span><span class="n">full_num_tokens</span><span class="p">,</span>
+            <span class="n">new_computed_blocks</span><span class="o">=</span><span class="n">new_computed_block_list</span><span class="p">,</span>
+            <span class="n">num_encoder_tokens</span><span class="o">=</span><span class="n">num_encoder_tokens</span><span class="p">,</span>
+            <span class="n">total_computed_tokens</span><span class="o">=</span><span class="n">total_computed_tokens</span><span class="p">,</span>
+            <span class="n">num_tokens_main_model</span><span class="o">=</span><span class="n">full_num_tokens</span><span class="p">,</span>
+            <span class="n">apply_admission_cap</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="o">...</span>
+        <span class="n">new_blocks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coordinator</span><span class="o">.</span><span class="n">allocate_new_blocks</span><span class="p">(</span>
+            <span class="n">request</span><span class="o">.</span><span class="n">request_id</span><span class="p">,</span>
+            <span class="n">num_tokens_need_slot</span><span class="p">,</span>
+            <span class="n">num_tokens_main_model</span><span class="p">,</span>
+            <span class="n">num_encoder_tokens</span><span class="p">,</span>
+        <span class="p">)</span>
+</code></pre></div>
+<p>相关的类：</p>
+<ul>
+<li>KVCacheCoordinator (vllm/v1/core/kv_cache_coordinator.py)</li>
+</ul>
+<h3 id="executorexecute_model">Executor.execute_model()</h3>
+<div class="highlight"><pre><span></span><code>Executor.execute_model(...)
+</code></pre></div>
+<p>实现类是：</p>
+<div class="highlight"><pre><span></span><code>MultiprocExecutor.execute_model(...)
+</code></pre></div>
+<p>或者</p>
+<div class="highlight"><pre><span></span><code>UniProcExecutor.execute_model(...)
+</code></pre></div>
+<p>这里是 EngineCore 与 Worker 的分界线。</p>
+<p>此时：</p>
+<ul>
+<li>schedule 已完成</li>
+<li>batch 已构建完成</li>
+<li>KV Cache 已准备好</li>
+<li>model input 已准备好</li>
+</ul>
+<p>接下来会通过 Executor 把一次执行请求发送给 Worker 进程。</p>
+<div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="n">MultiprocExecutor</span> <span class="p">(</span><span class="n">vllm</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">executor</span><span class="o">/</span><span class="n">multiproc_executor</span><span class="o">.</span><span class="n">py</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">execute_model</span><span class="p">(</span>  <span class="c1"># type: ignore[override]</span>
+    <span class="bp">self</span><span class="p">,</span> <span class="n">scheduler_output</span><span class="p">:</span> <span class="n">SchedulerOutput</span><span class="p">,</span> <span class="n">non_block</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ModelRunnerOutput</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">|</span> <span class="n">Future</span><span class="p">[</span><span class="n">ModelRunnerOutput</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]:</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">collective_rpc</span><span class="p">(</span>
+        <span class="s2">&quot;execute_model&quot;</span><span class="p">,</span>
+        <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">scheduler_output</span><span class="p">,),</span>
+        <span class="n">unique_reply_rank</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">output_rank</span><span class="p">,</span>
+        <span class="n">non_block</span><span class="o">=</span><span class="n">non_block</span><span class="p">,</span>
+        <span class="n">timeout</span><span class="o">=</span><span class="n">envs</span><span class="o">.</span><span class="n">VLLM_EXECUTE_MODEL_TIMEOUT_SECONDS</span><span class="p">,</span>
+        <span class="n">kv_output_aggregator</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">kv_output_aggregator</span><span class="p">,</span>
+    <span class="p">)</span>
+</code></pre></div>
+<h2 id="worker">Worker</h2>
+<p>现在正好站在 EngineCore → Worker 的边界。</p>
+<p>对于 CPU backend（特别是 Mac 上的 <code>CPUWorker</code>），打断点。</p>
+<h3 id="worker-rpc">Worker RPC 入口</h3>
+<p>CPUWorker没有覆盖execute_model方法，实际执行的是父类的方法</p>
+<div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="n">vllm</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">worker</span><span class="o">/</span><span class="n">gpu_worker</span><span class="o">.</span><span class="n">py</span>
+<span class="n">Worker</span><span class="o">.</span><span class="n">execute_model</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</code></pre></div>
+<p>这里是 <code>MultiprocExecutor.collective_rpc("execute_model")</code> 在 Worker 侧的接收点。此时可以观察从 Scheduler 传过来的 <code>SchedulerOutput</code>，确认 batch 中有哪些 request、哪些 token 要执行。</p>
+<div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="n">vllm</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">worker</span><span class="o">/</span><span class="n">gpu_worker</span><span class="o">.</span><span class="n">py</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Worker</span><span class="p">(</span><span class="n">WorkerBase</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">execute_model</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">scheduler_output</span><span class="p">:</span> <span class="s2">&quot;SchedulerOutput&quot;</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ModelRunnerOutput</span> <span class="o">|</span> <span class="n">AsyncModelRunnerOutput</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="o">...</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">annotate_profile</span><span class="p">(</span><span class="n">scheduler_output</span><span class="p">):</span>
+           <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_runner</span><span class="o">.</span><span class="n">execute_model</span><span class="p">(</span>
+              <span class="n">scheduler_output</span><span class="p">,</span> <span class="n">intermediate_tensors</span>
+           <span class="p">)</span>
+           <span class="k">if</span> <span class="p">(</span>
+              <span class="bp">self</span><span class="o">.</span><span class="n">use_v2_model_runner</span>
+              <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_runner</span><span class="o">.</span><span class="n">is_pooling_model</span>
+              <span class="ow">and</span> <span class="n">output</span> <span class="ow">is</span> <span class="kc">None</span>
+           <span class="p">):</span>
+              <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_runner</span><span class="o">.</span><span class="n">pool</span><span class="p">()</span>  <span class="c1"># type: ignore</span>
+           <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span>
+              <span class="n">output</span><span class="p">,</span> <span class="n">ModelRunnerOutput</span> <span class="o">|</span> <span class="n">AsyncModelRunnerOutput</span> <span class="o">|</span> <span class="n">NoneType</span>
+           <span class="p">):</span>
+              <span class="k">return</span> <span class="n">output</span>
+        <span class="o">...</span>
+</code></pre></div>
+<h3 id="modelrunnerexecute_model">ModelRunner.execute_model()</h3>
+<p><code>CPUModelRunner</code>没有覆盖<code>execute_model</code>方法，实际执行的是父类的方法<code>GPUModelRunner.execute_model</code>。</p>
+<p>这是 Worker 最重要的入口。这里开始把 SchedulerOutput 转换成真正的模型输入：</p>
+<div class="highlight"><pre><span></span><code>SchedulerOutput
+↓
+input_ids
+positions
+attention metadata
+↓
+Model Forward
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">GPUModelRunner</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">execute_model</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">scheduler_output</span><span class="p">:</span> <span class="s2">&quot;SchedulerOutput&quot;</span><span class="p">,</span>
+        <span class="n">intermediate_tensors</span><span class="p">:</span> <span class="n">IntermediateTensors</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ModelRunnerOutput</span> <span class="o">|</span> <span class="n">AsyncModelRunnerOutput</span> <span class="o">|</span> <span class="n">IntermediateTensors</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="o">...</span>
+        <span class="c1"># Run the model.</span>
+        <span class="c1"># Use persistent buffers for CUDA graphs.</span>
+        <span class="c1"># When spec decode is enabled, defer connector finalization</span>
+        <span class="c1"># (wait_for_save + clear metadata) until after draft model runs.</span>
+        <span class="n">defer_kv_connector_finalize</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">speculative_config</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="k">with</span> <span class="p">(</span>
+            <span class="n">set_forward_context</span><span class="p">(</span>
+                <span class="n">attn_metadata</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">vllm_config</span><span class="p">,</span>
+                <span class="n">num_tokens</span><span class="o">=</span><span class="n">num_tokens_padded</span><span class="p">,</span>
+                <span class="n">num_tokens_across_dp</span><span class="o">=</span><span class="n">num_tokens_across_dp</span><span class="p">,</span>
+                <span class="n">cudagraph_runtime_mode</span><span class="o">=</span><span class="n">cudagraph_mode</span><span class="p">,</span>
+                <span class="n">batch_descriptor</span><span class="o">=</span><span class="n">batch_desc</span><span class="p">,</span>
+                <span class="n">ubatch_slices</span><span class="o">=</span><span class="n">ubatch_slices_padded</span><span class="p">,</span>
+                <span class="n">slot_mapping</span><span class="o">=</span><span class="n">slot_mappings</span><span class="p">,</span>
+                <span class="n">skip_compiled</span><span class="o">=</span><span class="n">has_encoder_input</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">record_function_or_nullcontext</span><span class="p">(</span><span class="s2">&quot;gpu_model_runner: forward&quot;</span><span class="p">),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">maybe_get_kv_connector_output</span><span class="p">(</span>
+                <span class="n">scheduler_output</span><span class="p">,</span>
+                <span class="n">defer_finalize</span><span class="o">=</span><span class="n">defer_kv_connector_finalize</span><span class="p">,</span>
+            <span class="p">)</span> <span class="k">as</span> <span class="n">kv_connector_output</span><span class="p">,</span>
+        <span class="p">):</span>
+            <span class="n">model_output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_model_forward</span><span class="p">(</span>
+                <span class="n">input_ids</span><span class="o">=</span><span class="n">input_ids</span><span class="p">,</span>
+                <span class="n">positions</span><span class="o">=</span><span class="n">positions</span><span class="p">,</span>
+                <span class="n">intermediate_tensors</span><span class="o">=</span><span class="n">intermediate_tensors</span><span class="p">,</span>
+                <span class="n">inputs_embeds</span><span class="o">=</span><span class="n">inputs_embeds</span><span class="p">,</span>
+                <span class="o">**</span><span class="n">model_kwargs</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="o">...</span>
+</code></pre></div>
+<h3 id="modelrunner_model_forward">ModelRunner._model_forward</h3>
+<p>这里是真正开始执行 Transformer。</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">GPUModelRunner</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_model_forward</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">input_ids</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">positions</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">intermediate_tensors</span><span class="p">:</span> <span class="n">IntermediateTensors</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">inputs_embeds</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">model_kwargs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Helper method to call the model forward pass.</span>
+
+<span class="sd">        This method can be overridden by subclasses for model execution.</span>
+<span class="sd">        Motivation: We can inspect only this method versus</span>
+<span class="sd">        the whole execute_model, which has additional logic.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            input_ids: Input token IDs</span>
+<span class="sd">            positions: Token positions</span>
+<span class="sd">            intermediate_tensors: Tensors from previous pipeline stages</span>
+<span class="sd">            inputs_embeds: Input embeddings (alternative to input_ids)</span>
+<span class="sd">            **model_kwargs: Additional model arguments</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Model output tensor</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span>
+            <span class="n">input_ids</span><span class="o">=</span><span class="n">input_ids</span><span class="p">,</span>
+            <span class="n">positions</span><span class="o">=</span><span class="n">positions</span><span class="p">,</span>
+            <span class="n">intermediate_tensors</span><span class="o">=</span><span class="n">intermediate_tensors</span><span class="p">,</span>
+            <span class="n">inputs_embeds</span><span class="o">=</span><span class="n">inputs_embeds</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">model_kwargs</span><span class="p">,</span>
+        <span class="p">)</span>
+</code></pre></div>
+<p>self.model = Qwen3ForCausalLM</p>
+<h3 id="qwen3forcausallmforward">Qwen3ForCausalLM.forward()</h3>
+<p>调用内部的Qwen3Model(Qwen2Model)</p>
+<div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="n">vllm</span><span class="o">/</span><span class="n">model_executor</span><span class="o">/</span><span class="n">models</span><span class="o">/</span><span class="n">qwen3</span><span class="o">.</span><span class="n">py</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Qwen3ForCausalLM</span><span class="p">(</span>
+    <span class="n">LocalArgmaxMixin</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span> <span class="n">SupportsLoRA</span><span class="p">,</span> <span class="n">SupportsPP</span><span class="p">,</span> <span class="n">SupportsEagle</span><span class="p">,</span> <span class="n">SupportsEagle3</span>
+<span class="p">):</span>
+    <span class="n">packed_modules_mapping</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;qkv_proj&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;q_proj&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;k_proj&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;v_proj&quot;</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;gate_up_proj&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;gate_proj&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;up_proj&quot;</span><span class="p">,</span>
+        <span class="p">],</span>
+    <span class="p">}</span>
+
+    <span class="n">embedding_modules</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;embed_tokens&quot;</span><span class="p">:</span> <span class="s2">&quot;input_embeddings&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;lm_head&quot;</span><span class="p">:</span> <span class="s2">&quot;output_embeddings&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">vllm_config</span><span class="p">:</span> <span class="n">VllmConfig</span><span class="p">,</span> <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">vllm_config</span><span class="o">.</span><span class="n">model_config</span><span class="o">.</span><span class="n">hf_config</span>
+        <span class="n">quant_config</span> <span class="o">=</span> <span class="n">vllm_config</span><span class="o">.</span><span class="n">quant_config</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">config</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">vllm_config</span> <span class="o">=</span> <span class="n">vllm_config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">quant_config</span> <span class="o">=</span> <span class="n">quant_config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">Qwen3Model</span><span class="p">(</span>
+            <span class="n">vllm_config</span><span class="o">=</span><span class="n">vllm_config</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">maybe_prefix</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="s2">&quot;model&quot;</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">get_pp_group</span><span class="p">()</span><span class="o">.</span><span class="n">is_last_rank</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">tie_word_embeddings</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">lm_head</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">embed_tokens</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">lm_head</span> <span class="o">=</span> <span class="n">ParallelLMHead</span><span class="p">(</span>
+                    <span class="n">config</span><span class="o">.</span><span class="n">vocab_size</span><span class="p">,</span>
+                    <span class="n">config</span><span class="o">.</span><span class="n">hidden_size</span><span class="p">,</span>
+                    <span class="n">quant_config</span><span class="o">=</span><span class="n">quant_config</span><span class="p">,</span>
+                    <span class="n">prefix</span><span class="o">=</span><span class="n">maybe_prefix</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="s2">&quot;lm_head&quot;</span><span class="p">),</span>
+                <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lm_head</span> <span class="o">=</span> <span class="n">PPMissingLayer</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">logits_processor</span> <span class="o">=</span> <span class="n">LogitsProcessor</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">vocab_size</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">make_empty_intermediate_tensors</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">make_empty_intermediate_tensors</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">embed_input_ids</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_ids</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">embed_input_ids</span><span class="p">(</span><span class="n">input_ids</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">input_ids</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">positions</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+        <span class="n">intermediate_tensors</span><span class="p">:</span> <span class="n">IntermediateTensors</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">inputs_embeds</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">IntermediateTensors</span><span class="p">:</span>
+        <span class="n">hidden_states</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span>
+            <span class="n">input_ids</span><span class="p">,</span> <span class="n">positions</span><span class="p">,</span> <span class="n">intermediate_tensors</span><span class="p">,</span> <span class="n">inputs_embeds</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">hidden_states</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_logits</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">hidden_states</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">logits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">logits_processor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lm_head</span><span class="p">,</span> <span class="n">hidden_states</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">logits</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">load_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weights</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="n">loader</span> <span class="o">=</span> <span class="n">AutoWeightsLoader</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">skip_prefixes</span><span class="o">=</span><span class="p">([</span><span class="s2">&quot;lm_head.&quot;</span><span class="p">]</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">tie_word_embeddings</span> <span class="k">else</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">loader</span><span class="o">.</span><span class="n">load_weights</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="samplersample">Sampler.sample()</h3>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Worker</span><span class="p">(</span><span class="n">WorkerBase</span><span class="p">):</span>
+    <span class="nd">@torch</span><span class="o">.</span><span class="n">inference_mode</span><span class="p">()</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sample_tokens</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">grammar_output</span><span class="p">:</span> <span class="s2">&quot;GrammarOutput | None&quot;</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ModelRunnerOutput</span> <span class="o">|</span> <span class="n">AsyncModelRunnerOutput</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_runner</span><span class="o">.</span><span class="n">sample_tokens</span><span class="p">(</span><span class="n">grammar_output</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">GPUModelRunner</span>
+    <span class="o">...</span>
+    <span class="nd">@torch</span><span class="o">.</span><span class="n">inference_mode</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sample_tokens</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">grammar_output</span><span class="p">:</span> <span class="s2">&quot;GrammarOutput | None&quot;</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ModelRunnerOutput</span> <span class="o">|</span> <span class="n">AsyncModelRunnerOutput</span> <span class="o">|</span> <span class="n">IntermediateTensors</span><span class="p">:</span>
+        <span class="o">...</span>
+</code></pre></div>
+<p>这里生成 token。</p>
+<div class="highlight"><pre><span></span><code>hidden_states
+↓
+logits
+↓
+temperature/top_p
+↓
+next_token
+</code></pre></div>
+<h2 id="summary">Summary</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
