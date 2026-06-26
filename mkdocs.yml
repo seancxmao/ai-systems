@@ -79,7 +79,6 @@ nav:
       - Security: foundation/system/security.md
 
   - Essentials:
-    - essentials/README.md
     - Programming:
       - asyncio Essentials: essentials/programming/asyncio-essentials.md
       - FastAPI Essentials: essentials/programming/fastapi-essentials.md
@@ -89,5 +88,6 @@ nav:
 
   - KM:
     - Knowledge Structure: km/knowledge-structure.md
+    - Essentials Writing Guide: km/essentials-writing-guide.md
     - Tool:
       - GitHub MkDocs: km/tool/github-mkdocs.md

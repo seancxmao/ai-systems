@@ -484,15 +484,11 @@ over blog posts.
 
 ## Writing Principles
 
-### Principle 1
-
-Focus on understanding, not completeness.
+### 1. Focus on understanding, not completeness.
 
 A 90% shorter note that gets reread is better than a comprehensive note that never gets opened again.
 
-### Principle 2
-
-Optimize for future retrieval.
+### 2. Optimize for future retrieval.
 
 Write for your future self.
 
@@ -506,9 +502,7 @@ What will confuse me again?
 What will help me recover the whole topic quickly?
 ```
 
-### Principle 3
-
-Connect everything to AI Systems.
+### 3. Connect everything to AI Systems.
 
 An Essential is not:
 
@@ -532,9 +526,7 @@ Distributed Systems
 Production Infrastructure
 ```
 
-### Principle 4
-
-Prefer mental models over API memorization.
+### 4. Prefer mental models over API memorization.
 
 APIs change.
 
@@ -550,9 +542,7 @@ Less useful:
 Request(..., default=None, ...)
 ```
 
-### Principle 5
-
-One page beats ten pages.
+### 5. One page beats ten pages.
 
 If an Essential becomes long:
 
