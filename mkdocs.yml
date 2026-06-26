@@ -83,6 +83,7 @@ nav:
       - asyncio Essentials: essentials/programming/asyncio-essentials.md
       - FastAPI Essentials: essentials/programming/fastapi-essentials.md
       - Uvicorn Essnetials: essentials/programming/uvicorn-essentials.md
+      - Pydantic Essentials: essentials/programming/pydantic-essentials.md
     - Engineering:
       - Git Essentials: essentials/engineering/git.md
 
