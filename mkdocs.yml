@@ -77,15 +77,17 @@ nav:
     - System:
       - Readings: foundation/system/readings.md
       - Security: foundation/system/security.md
-    - Tool:
-      - Git: foundation/tool/git.md
 
   - Essentials:
     - essentials/README.md
-    - asyncio Essentials: essentials/asyncio-essentials.md
-    - FastAPI Essentials: essentials/fastapi-essentials.md
-    - Uvicorn Essnetials: essentials/uvicorn-essentials.md
+    - Programming:
+      - asyncio Essentials: essentials/programming/asyncio-essentials.md
+      - FastAPI Essentials: essentials/programming/fastapi-essentials.md
+      - Uvicorn Essnetials: essentials/programming/uvicorn-essentials.md
+    - Engineering:
+      - Git Essentials: essentials/engineering/git.md
 
   - KM:
+    - Knowledge Structure: km/knowledge-structure.md
     - Tool:
       - GitHub MkDocs: km/tool/github-mkdocs.md
