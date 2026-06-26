@@ -26,19 +26,21 @@ Target length:
 ```text
 1. What Problem Does It Solve?
 
-2. Core Concepts
+2. If You Come from Java（Optional）
 
-3. Minimal Example
+3. Core Concepts
 
-4. Common Patterns
+4. Minimal Example
 
-5. Why It Matters for LLM Serving
+5. Common Patterns
 
-6. Common Misconceptions
+6. Why It Matters for LLM Serving
 
-7. Key Takeaways
+7. Common Misconceptions
 
-8. Further Reading
+8. Key Takeaways
+
+9. Further Reading
 ```
 
 ## Section Guidelines
@@ -91,7 +93,76 @@ Handle many concurrent I/O operations efficiently within a single thread.
 1–3 paragraphs
 ```
 
-### 2. Core Concepts
+### 2. If You Come from Java *(Optional)*
+
+**Purpose**
+
+Reuse existing mental models to accelerate learning.
+
+For engineers with Java experience, many technologies in the Python AI ecosystem have familiar counterparts. This section helps readers recognize what they already know before introducing new concepts.
+
+The goal is **not** to establish exact one-to-one mappings, but to reduce cognitive load through analogy.
+
+This section is not about teaching Java. Its purpose is to leverage existing knowledge to build new mental models through analogical learning. For engineers with substantial Java experience, drawing conceptual parallels is often a faster and more effective way to understand a new ecosystem than starting from first principles.
+
+**Questions**
+
+```text
+What is the closest concept in the Java ecosystem?
+
+Which parts are conceptually similar?
+
+What are the important differences?
+```
+
+**Typical Structure**
+
+```text
+Comparison Table
+
+Mental Model
+
+Key Differences
+```
+
+Keep the comparison focused on concepts rather than implementation details.
+
+For example:
+
+```text
+FastAPI      → Spring Boot Web Application
+Uvicorn      → Tomcat / Jetty
+ASGI         → Servlet Specification
+Pydantic     → Jackson + Bean Validation
+```
+
+Then briefly explain where the analogy breaks down.
+
+For example:
+
+```text
+Both FastAPI and Spring Boot expose HTTP APIs.
+
+However, FastAPI typically runs on the ASGI asynchronous model, while traditional Spring MVC follows a thread-per-request model.
+```
+
+**Length**
+
+```text
+One comparison table
+
++
+
+1–3 short paragraphs
+```
+
+**Rule**
+
+This section is optional.
+
+Include it only when a meaningful conceptual mapping exists. The goal is to help readers transfer existing mental models through analogy, not to establish exact one-to-one mappings or force superficial comparisons.
+
+### 3. Core Concepts
 
 **Purpose**
 
@@ -138,7 +209,7 @@ Pydantic Model
 
 Prefer depth over completeness.
 
-### 3. Minimal Example
+### 4. Minimal Example
 
 **Purpose**
 
@@ -177,7 +248,7 @@ asyncio.run(main())
 5–20 lines of code
 ```
 
-### 4. Common Patterns
+### 5. Common Patterns
 
 **Purpose**
 
@@ -217,7 +288,7 @@ StreamingResponse
 3–8 patterns
 ```
 
-### 5. Why It Matters for LLM Serving
+### 6. Why It Matters for LLM Serving
 
 **Purpose**
 
@@ -270,7 +341,7 @@ Background tasks
 2–5 bullets
 ```
 
-### 6. Common Misconceptions
+### 7. Common Misconceptions
 
 **Purpose**
 
@@ -311,7 +382,7 @@ Uvicorn = Server ✅
 2–5 items
 ```
 
-### 7. Key Takeaways
+### 8. Key Takeaways
 
 **Purpose**
 
@@ -366,7 +437,7 @@ Asyncio manages infrastructure around inference, not inference itself.
 3–7 bullets
 ```
 
-### 8. Further Reading
+### 9. Further Reading
 
 **Purpose**
 
