@@ -63,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#fastapi-essentials" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -2617,6 +2622,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FastAPI Essentials
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -2634,6 +2659,390 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-what-problem-does-it-solve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. What Problem Does It Solve?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-if-you-come-from-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. If You Come from Java
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Core Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Core Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#path-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Operation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request &amp; Response
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pydantic-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pydantic Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependency-injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependency Injection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#async-endpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Async Endpoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#router" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Router
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asgi-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ASGI Application
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-minimal-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Minimal Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-common-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Common Patterns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Common Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependency-injection_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependency Injection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#streaming-responses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Streaming Responses
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#background-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Routers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-why-it-matters-for-llm-serving" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Why It Matters for LLM Serving
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-common-misconceptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Common Misconceptions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Common Misconceptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fastapi-uvicorn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FastAPI = Uvicorn ❌
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fastapi-performs-inference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FastAPI performs inference ❌
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type-hints-are-only-for-ides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Type hints are only for IDEs ❌
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#async-automatically-makes-code-faster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Async automatically makes code faster ❌
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Further Reading
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Further Reading">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#official" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Official
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep-dive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deep Dive
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommended-books" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended Books
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2948,6 +3357,381 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-what-problem-does-it-solve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. What Problem Does It Solve?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-if-you-come-from-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. If You Come from Java
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Core Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Core Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#path-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Operation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request &amp; Response
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pydantic-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pydantic Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependency-injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependency Injection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#async-endpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Async Endpoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#router" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Router
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asgi-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ASGI Application
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-minimal-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Minimal Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-common-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Common Patterns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Common Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependency-injection_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependency Injection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#streaming-responses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Streaming Responses
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#background-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Routers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-why-it-matters-for-llm-serving" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Why It Matters for LLM Serving
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-common-misconceptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Common Misconceptions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Common Misconceptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fastapi-uvicorn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FastAPI = Uvicorn ❌
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fastapi-performs-inference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FastAPI performs inference ❌
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type-hints-are-only-for-ides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Type hints are only for IDEs ❌
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#async-automatically-makes-code-faster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Async automatically makes code faster ❌
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Further Reading
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Further Reading">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#official" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Official
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep-dive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deep Dive
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommended-books" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended Books
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2964,9 +3748,270 @@
 
 
 
-  <h1>FastAPI Essentials</h1>
+<h1 id="fastapi-essentials">FastAPI Essentials</h1>
+<h2 id="1-what-problem-does-it-solve">1. What Problem Does It Solve?</h2>
+<p>FastAPI is a modern Python web framework for building HTTP APIs. It allows developers to expose Python functions as web services with minimal boilerplate while automatically handling request parsing, data validation, serialization, documentation generation, and dependency management.</p>
+<p>Without FastAPI, building an API typically requires manually parsing HTTP requests, validating input, converting JSON to Python objects, handling errors, and generating API documentation. These repetitive tasks distract from implementing the actual business logic.</p>
+<p>For LLM serving, FastAPI's role is straightforward: <strong>it is the interface between clients and the inference engine</strong>. It receives requests, validates them, invokes the backend (such as vLLM), and returns responses or streams generated tokens back to the client.</p>
+<h2 id="2-if-you-come-from-java">2. If You Come from Java</h2>
+<p>If you have experience with Java web development, FastAPI will feel surprisingly familiar. Many of its core ideas have direct counterparts in the Java ecosystem.</p>
+<table>
+<thead>
+<tr>
+<th>Python / FastAPI</th>
+<th>Java Ecosystem</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FastAPI</td>
+<td>Spring MVC / Spring Boot Web</td>
+</tr>
+<tr>
+<td>Uvicorn</td>
+<td>Tomcat / Jetty</td>
+</tr>
+<tr>
+<td>ASGI</td>
+<td>Servlet Specification</td>
+</tr>
+<tr>
+<td>Request Handler</td>
+<td><code>@RestController</code> Method</td>
+</tr>
+<tr>
+<td>Pydantic Model</td>
+<td>DTO + Jackson + Bean Validation</td>
+</tr>
+<tr>
+<td>Dependency Injection</td>
+<td>Spring IoC</td>
+</tr>
+<tr>
+<td>Type Hints</td>
+<td>Java Types + Annotations</td>
+</tr>
+<tr>
+<td>JSON Serialization</td>
+<td>Jackson</td>
+</tr>
+<tr>
+<td>StreamingResponse</td>
+<td>StreamingResponseBody / SSE</td>
+</tr>
+<tr>
+<td>OpenAPI Generation</td>
+<td>SpringDoc / Swagger</td>
+</tr>
+</tbody>
+</table>
+<p>The biggest conceptual difference is concurrency.</p>
+<p>Traditional Java web servers typically use a <strong>thread-per-request</strong> model, where each request is handled by a dedicated thread. FastAPI, built on ASGI and <code>asyncio</code>, uses <strong>asynchronous I/O</strong>, allowing many requests to make progress within a small number of threads while they are waiting for network or disk operations.</p>
+<p>For an LLM serving system, however, this difference is less dramatic than it first appears. GPU inference remains the dominant bottleneck, so FastAPI's asynchronous model mainly improves request handling, streaming, and resource utilization around the model rather than accelerating the model computation itself.</p>
+<p><strong>Mental Model</strong></p>
+<p>Think of FastAPI as the Python equivalent of a Spring Boot web application, and Uvicorn as the embedded servlet container that runs it.</p>
+<h2 id="3-core-concepts">3. Core Concepts</h2>
+<h3 id="path-operation">Path Operation</h3>
+<p>A Python function exposed as an HTTP endpoint.</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/generate&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">():</span>
+    <span class="o">...</span>
+</code></pre></div>
+<p>Think of it as:</p>
+<blockquote>
+<p>HTTP Request → Python Function</p>
+</blockquote>
+<h3 id="request-response">Request &amp; Response</h3>
+<p>A <strong>Request</strong> contains everything sent by the client:</p>
+<ul>
+<li>URL</li>
+<li>HTTP method</li>
+<li>headers</li>
+<li>body</li>
+</ul>
+<p>A <strong>Response</strong> is what FastAPI sends back:</p>
+<ul>
+<li>JSON</li>
+<li>Streaming response</li>
+<li>File</li>
+<li>Error</li>
+</ul>
+<h3 id="pydantic-model">Pydantic Model</h3>
+<p>FastAPI uses type-annotated models to define request and response schemas.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">GenerateRequest</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">max_tokens</span><span class="p">:</span> <span class="nb">int</span>
+</code></pre></div>
+<p>Pydantic automatically:</p>
+<ul>
+<li>parses JSON</li>
+<li>validates types</li>
+<li>reports validation errors</li>
+<li>generates API schemas</li>
+</ul>
+<h3 id="dependency-injection">Dependency Injection</h3>
+<p>Reusable components (authentication, configuration, database connections, etc.) can be declared as dependencies rather than manually created inside every endpoint.</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">root</span><span class="p">(</span><span class="n">config</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_config</span><span class="p">)):</span>
+    <span class="o">...</span>
+</code></pre></div>
+<h3 id="async-endpoint">Async Endpoint</h3>
+<p>Endpoints are typically asynchronous.</p>
+<div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+</code></pre></div>
+<p>This allows the server to handle many concurrent requests efficiently.</p>
+<h3 id="router">Router</h3>
+<p>Routers organize related endpoints into modules.</p>
+<p>Instead of placing every API in one file:</p>
+<div class="highlight"><pre><span></span><code>app.py
+</code></pre></div>
+<p>you typically organize them as:</p>
+<div class="highlight"><pre><span></span><code>routers/
+    chat.py
+    embeddings.py
+    health.py
+</code></pre></div>
+<h3 id="asgi-application">ASGI Application</h3>
+<p>FastAPI is <strong>not</strong> an HTTP server.</p>
+<p>It is an <strong>ASGI application</strong> executed by an ASGI server such as Uvicorn.</p>
+<div class="highlight"><pre><span></span><code>Client
+    ↓
+Uvicorn
+    ↓
+FastAPI
+    ↓
+Your Python Code
+</code></pre></div>
+<h2 id="4-minimal-example">4. Minimal Example</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseModel</span>
 
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
 
+<span class="k">class</span><span class="w"> </span><span class="nc">GenerateRequest</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/generate&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="n">req</span><span class="p">:</span> <span class="n">GenerateRequest</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Received: </span><span class="si">{</span><span class="n">req</span><span class="o">.</span><span class="n">prompt</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">}</span>
+</code></pre></div>
+<p>This example demonstrates FastAPI's core workflow:</p>
+<ul>
+<li>expose an endpoint</li>
+<li>parse JSON automatically</li>
+<li>validate input</li>
+<li>return JSON</li>
+</ul>
+<h2 id="5-common-patterns">5. Common Patterns</h2>
+<h3 id="request-models">Request Models</h3>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Request</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+<h3 id="path-operations">Path Operations</h3>
+<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="dependency-injection_1">Dependency Injection</h3>
+<div class="highlight"><pre><span></span><code><span class="n">Depends</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="streaming-responses">Streaming Responses</h3>
+<div class="highlight"><pre><span></span><code><span class="n">StreamingResponse</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</code></pre></div>
+<p>Used extensively for token-by-token LLM generation.</p>
+<h3 id="background-tasks">Background Tasks</h3>
+<div class="highlight"><pre><span></span><code><span class="n">BackgroundTasks</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</code></pre></div>
+<p>Run work after returning a response (logging, cleanup, metrics).</p>
+<h3 id="routers">Routers</h3>
+<div class="highlight"><pre><span></span><code><span class="n">APIRouter</span><span class="p">()</span>
+</code></pre></div>
+<p>Organize APIs into reusable modules.</p>
+<h2 id="6-why-it-matters-for-llm-serving">6. Why It Matters for LLM Serving</h2>
+<div class="highlight"><pre><span></span><code>Client
+    ↓
+HTTP
+    ↓
+Uvicorn
+    ↓
+FastAPI
+    ↓
+Request Validation
+    ↓
+LLM Engine (vLLM / SGLang)
+    ↓
+Streaming Tokens
+    ↓
+Client
+</code></pre></div>
+<p>FastAPI is responsible for the <strong>application layer</strong>, not the inference layer.</p>
+<p>Typical responsibilities include:</p>
+<ul>
+<li>receiving generation requests</li>
+<li>validating request parameters</li>
+<li>calling the inference engine</li>
+<li>streaming generated tokens</li>
+<li>exposing health and metrics endpoints</li>
+</ul>
+<p>Without understanding FastAPI, it is difficult to understand how serving frameworks connect HTTP requests to the underlying inference engine.</p>
+<h2 id="7-common-misconceptions">7. Common Misconceptions</h2>
+<h3 id="fastapi-uvicorn">FastAPI = Uvicorn ❌</h3>
+<p>FastAPI is an application.</p>
+<p>Uvicorn is the server that runs it.</p>
+<h3 id="fastapi-performs-inference">FastAPI performs inference ❌</h3>
+<p>FastAPI only orchestrates request handling.</p>
+<p>The model runs elsewhere (PyTorch, vLLM, TensorRT-LLM, etc.).</p>
+<h3 id="type-hints-are-only-for-ides">Type hints are only for IDEs ❌</h3>
+<p>In FastAPI, type hints are part of the framework itself.</p>
+<p>They drive:</p>
+<ul>
+<li>validation</li>
+<li>serialization</li>
+<li>API documentation</li>
+</ul>
+<h3 id="async-automatically-makes-code-faster">Async automatically makes code faster ❌</h3>
+<p><code>async</code> improves concurrency for I/O-bound workloads.</p>
+<p>Model inference remains dominated by GPU computation.</p>
+<h2 id="8-key-takeaways">8. Key Takeaways</h2>
+<ul>
+<li>FastAPI is an <strong>ASGI application</strong>, not an HTTP server.</li>
+<li>Think of FastAPI as the <strong>API layer</strong> sitting in front of the LLM engine.</li>
+<li>Type hints are executable framework metadata, not just documentation.</li>
+<li>Pydantic converts JSON into validated Python objects automatically.</li>
+<li>Streaming responses are essential for token-by-token generation.</li>
+<li>FastAPI manages request handling; the inference engine manages model execution.</li>
+</ul>
+<h2 id="9-further-reading">9. Further Reading</h2>
+<h3 id="official">Official</h3>
+<ul>
+<li><a href="https://fastapi.tiangolo.com/">FastAPI Documentation</a></li>
+<li><a href="https://docs.pydantic.dev/">Pydantic Documentation</a></li>
+<li><a href="https://asgi.readthedocs.io/">ASGI Specification</a></li>
+</ul>
+<h3 id="deep-dive">Deep Dive</h3>
+<ul>
+<li><a href="https://www.starlette.io/">Starlette Documentation</a> (FastAPI is built on Starlette)</li>
+<li><a href="https://fastapi.tiangolo.com/advanced/">FastAPI Advanced User Guide</a></li>
+</ul>
+<h3 id="source-code">Source Code</h3>
+<ul>
+<li><a href="https://github.com/fastapi/fastapi">FastAPI</a></li>
+<li><a href="https://github.com/encode/starlette">Starlette</a></li>
+<li><a href="https://github.com/encode/uvicorn">Uvicorn</a></li>
+<li><a href="https://github.com/vllm-project/vllm">vLLM</a></li>
+</ul>
+<h3 id="recommended-books">Recommended Books</h3>
+<p>FastAPI: Modern Python Web Development (if a book is desired)</p>
+<h2 id="notes">Notes</h2>
+<p>按照 <strong>Essentials Writing Guide</strong> 来衡量，这篇基本符合目标：</p>
+<ul>
+<li><strong>长度</strong>：约 2 页 A4，可在 10 分钟内读完。</li>
+<li><strong>重点</strong>：解释 FastAPI 的角色，而不是教授 FastAPI 开发。</li>
+<li><strong>LLM Serving 导向</strong>：所有概念都围绕「FastAPI 在 Serving Stack 中的位置」展开。</li>
+<li><strong>心理模型优先</strong>：强调 <em>ASGI Application</em>、<em>API Layer</em>、<em>Type Hints Drive Framework Behavior</em>，避免陷入 API 细节。</li>
+<li><strong>为后续 Essentials 铺路</strong>：阅读 Asyncio、Uvicorn、ASGI、Pydantic Essentials 时，能够自然衔接，不会重复大量内容。</li>
+</ul>
 
 
 
