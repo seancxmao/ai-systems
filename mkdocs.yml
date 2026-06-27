@@ -79,16 +79,19 @@ nav:
       - Security: foundation/system/security.md
 
   - Essentials:
-    - Programming:
-      - asyncio Essentials: essentials/programming/asyncio-essentials.md
-      - FastAPI Essentials: essentials/programming/fastapi-essentials.md
-      - Uvicorn Essnetials: essentials/programming/uvicorn-essentials.md
-      - Pydantic Essentials: essentials/programming/pydantic-essentials.md
-    - Engineering:
-      - Git Essentials: essentials/engineering/git.md
+    - Functional:
+      - FastAPI Essentials: essentials/functional/fastapi-essentials.md
+      - Uvicorn Essnetials: essentials/functional/uvicorn-essentials.md
+      - Pydantic Essentials: essentials/functional/pydantic-essentials.md
+    - Non-Functional:
+      - asyncio Essentials: essentials/non-functional/asyncio-essentials.md
+      - multiprocessing Essentials: essentials/non-functional/multiprocessing-essentials.md
+    - Engineering Tools:
+      - Git Essentials: essentials/engineering-tools/git-essentials.md
+      - pytest Essentials: essentials/engineering-tools/pytest-essentials.md
 
   - KM:
     - Knowledge Structure: km/knowledge-structure.md
-    - Essentials Writing Guide: km/essentials-writing-guide.md
+    - Functional Essentials Guide: km/functional-essentials-guide.md
     - Tool:
       - GitHub MkDocs: km/tool/github-mkdocs.md
