@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../../programming/pydantic-essentials/">
+        <link rel="prev" href="../../functional/pydantic-essentials/">
       
       
-        <link rel="next" href="../../../km/knowledge-structure/">
+        <link rel="next" href="../multiprocessing-essentials/">
       
       
         
@@ -23,7 +23,7 @@
     
     
       
-        <title>Git Essentials - AI Systems</title>
+        <title>asyncio Essentials - AI Systems</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#git" class="md-skip">
+        <a href="#asyncio-essentials" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Git Essentials
+              asyncio Essentials
             
           </span>
         </div>
@@ -2529,7 +2529,7 @@
   <span class="md-ellipsis">
     
   
-    Programming
+    Functional
   
 
     
@@ -2545,7 +2545,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Programming
+    Functional
   
 
           </label>
@@ -2558,35 +2558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../programming/asyncio-essentials/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    asyncio Essentials
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../programming/fastapi-essentials/" class="md-nav__link">
+      <a href="../../functional/fastapi-essentials/" class="md-nav__link">
         
   
   
@@ -2614,7 +2586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../programming/uvicorn-essentials/" class="md-nav__link">
+      <a href="../../functional/uvicorn-essentials/" class="md-nav__link">
         
   
   
@@ -2642,7 +2614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../programming/pydantic-essentials/" class="md-nav__link">
+      <a href="../../functional/pydantic-essentials/" class="md-nav__link">
         
   
   
@@ -2698,7 +2670,7 @@
   <span class="md-ellipsis">
     
   
-    Engineering
+    Non-Functional
   
 
     
@@ -2714,7 +2686,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Engineering
+    Non-Functional
   
 
           </label>
@@ -2743,7 +2715,7 @@
   <span class="md-ellipsis">
     
   
-    Git Essentials
+    asyncio Essentials
   
 
     
@@ -2761,7 +2733,7 @@
   <span class="md-ellipsis">
     
   
-    Git Essentials
+    asyncio Essentials
   
 
     
@@ -2787,22 +2759,99 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#github" class="md-nav__link">
+  <a href="#1-what-problem-does-it-solve" class="md-nav__link">
     <span class="md-ellipsis">
       
-        GitHub
+        1. What Problem Does It Solve?
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="GitHub">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-if-you-come-from-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. If You Come from Java
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Core Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Core Concepts">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ssh" class="md-nav__link">
+  <a href="#event-loop" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SSH
+        Event Loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coroutine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coroutine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#await" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        await
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Future
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Queue
       
     </span>
   </a>
@@ -2815,10 +2864,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#4-minimal-example" class="md-nav__link">
     <span class="md-ellipsis">
       
-        常用命令
+        4. Minimal Example
       
     </span>
   </a>
@@ -2826,22 +2875,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#5-common-patterns" class="md-nav__link">
     <span class="md-ellipsis">
       
-        维护生产系统
+        5. Common Patterns
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="维护生产系统">
+    <nav class="md-nav" aria-label="5. Common Patterns">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-cherry-pick" class="md-nav__link">
+  <a href="#run-an-event-loop" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Cherry-pick
+        Run an Event Loop
       
     </span>
   </a>
@@ -2849,10 +2898,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-tag" class="md-nav__link">
+  <a href="#await-a-coroutine" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Tag
+        Await a Coroutine
       
     </span>
   </a>
@@ -2860,10 +2909,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-revert" class="md-nav__link">
+  <a href="#create-a-background-task" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Revert
+        Create a Background Task
       
     </span>
   </a>
@@ -2871,10 +2920,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-blame" class="md-nav__link">
+  <a href="#wait-for-multiple-tasks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Blame（查锅）
+        Wait for Multiple Tasks
       
     </span>
   </a>
@@ -2882,10 +2931,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-bisect" class="md-nav__link">
+  <a href="#asynchronous-queue" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Bisect（神兵利器）
+        Asynchronous Queue
       
     </span>
   </a>
@@ -2893,10 +2942,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#6-format-patch" class="md-nav__link">
+  <a href="#asynchronous-sleep" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Format-patch（传统大厂常见）
+        Asynchronous Sleep
       
     </span>
   </a>
@@ -2909,22 +2958,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#6-why-it-matters-for-llm-serving" class="md-nav__link">
     <span class="md-ellipsis">
       
-        常见的实际问题
+        6. Why It Matters for LLM Serving
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="常见的实际问题">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-common-misconceptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Common Misconceptions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Common Misconceptions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#asyncio-parallelism" class="md-nav__link">
     <span class="md-ellipsis">
       
-        问题1：线上版本不能升级
+        Asyncio = Parallelism ❌
       
     </span>
   </a>
@@ -2932,10 +2992,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
+  <a href="#async-makes-code-faster" class="md-nav__link">
     <span class="md-ellipsis">
       
-        问题2：某优化导致性能下降
+        async Makes Code Faster ❌
       
     </span>
   </a>
@@ -2943,10 +3003,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
+  <a href="#calling-an-async-function-executes-it" class="md-nav__link">
     <span class="md-ellipsis">
       
-        问题3：客户要求恢复旧行为
+        Calling an async Function Executes It ❌
       
     </span>
   </a>
@@ -2954,10 +3014,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
+  <a href="#await-blocks-the-entire-program" class="md-nav__link">
     <span class="md-ellipsis">
       
-        问题4：需要精确复现线上环境
+        await Blocks the Entire Program ❌
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asyncio-replaces-multi-threading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asyncio Replaces Multi-threading ❌
       
     </span>
   </a>
@@ -2970,13 +3041,74 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
+  <a href="#8-key-takeaways" class="md-nav__link">
     <span class="md-ellipsis">
       
-        References
+        8. Key Takeaways
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Further Reading
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Further Reading">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#official" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Official
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep-dive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deep Dive
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommended-books" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended Books
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2984,6 +3116,145 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multiprocessing-essentials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    multiprocessing Essentials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Engineering Tools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Engineering Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../engineering-tools/git-essentials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git Essentials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../engineering-tools/pytest-essentials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pytest Essentials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -3086,14 +3357,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../km/essentials-writing-guide/" class="md-nav__link">
+      <a href="../../../km/functional-essentials-guide/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Essentials Writing Guide
+    Functional Essentials Guide
   
 
     
@@ -3224,22 +3495,99 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#github" class="md-nav__link">
+  <a href="#1-what-problem-does-it-solve" class="md-nav__link">
     <span class="md-ellipsis">
       
-        GitHub
+        1. What Problem Does It Solve?
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="GitHub">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-if-you-come-from-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. If You Come from Java
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Core Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Core Concepts">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ssh" class="md-nav__link">
+  <a href="#event-loop" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SSH
+        Event Loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coroutine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coroutine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#await" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        await
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Future
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Queue
       
     </span>
   </a>
@@ -3252,10 +3600,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#4-minimal-example" class="md-nav__link">
     <span class="md-ellipsis">
       
-        常用命令
+        4. Minimal Example
       
     </span>
   </a>
@@ -3263,22 +3611,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#5-common-patterns" class="md-nav__link">
     <span class="md-ellipsis">
       
-        维护生产系统
+        5. Common Patterns
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="维护生产系统">
+    <nav class="md-nav" aria-label="5. Common Patterns">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-cherry-pick" class="md-nav__link">
+  <a href="#run-an-event-loop" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Cherry-pick
+        Run an Event Loop
       
     </span>
   </a>
@@ -3286,10 +3634,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-tag" class="md-nav__link">
+  <a href="#await-a-coroutine" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Tag
+        Await a Coroutine
       
     </span>
   </a>
@@ -3297,10 +3645,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-revert" class="md-nav__link">
+  <a href="#create-a-background-task" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Revert
+        Create a Background Task
       
     </span>
   </a>
@@ -3308,10 +3656,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-blame" class="md-nav__link">
+  <a href="#wait-for-multiple-tasks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Blame（查锅）
+        Wait for Multiple Tasks
       
     </span>
   </a>
@@ -3319,10 +3667,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-bisect" class="md-nav__link">
+  <a href="#asynchronous-queue" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Bisect（神兵利器）
+        Asynchronous Queue
       
     </span>
   </a>
@@ -3330,10 +3678,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#6-format-patch" class="md-nav__link">
+  <a href="#asynchronous-sleep" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Format-patch（传统大厂常见）
+        Asynchronous Sleep
       
     </span>
   </a>
@@ -3346,22 +3694,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#6-why-it-matters-for-llm-serving" class="md-nav__link">
     <span class="md-ellipsis">
       
-        常见的实际问题
+        6. Why It Matters for LLM Serving
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="常见的实际问题">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-common-misconceptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Common Misconceptions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Common Misconceptions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#asyncio-parallelism" class="md-nav__link">
     <span class="md-ellipsis">
       
-        问题1：线上版本不能升级
+        Asyncio = Parallelism ❌
       
     </span>
   </a>
@@ -3369,10 +3728,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
+  <a href="#async-makes-code-faster" class="md-nav__link">
     <span class="md-ellipsis">
       
-        问题2：某优化导致性能下降
+        async Makes Code Faster ❌
       
     </span>
   </a>
@@ -3380,10 +3739,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
+  <a href="#calling-an-async-function-executes-it" class="md-nav__link">
     <span class="md-ellipsis">
       
-        问题3：客户要求恢复旧行为
+        Calling an async Function Executes It ❌
       
     </span>
   </a>
@@ -3391,10 +3750,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
+  <a href="#await-blocks-the-entire-program" class="md-nav__link">
     <span class="md-ellipsis">
       
-        问题4：需要精确复现线上环境
+        await Blocks the Entire Program ❌
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asyncio-replaces-multi-threading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asyncio Replaces Multi-threading ❌
       
     </span>
   </a>
@@ -3407,13 +3777,74 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
+  <a href="#8-key-takeaways" class="md-nav__link">
     <span class="md-ellipsis">
       
-        References
+        8. Key Takeaways
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Further Reading
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Further Reading">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#official" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Official
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep-dive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deep Dive
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommended-books" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended Books
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3434,357 +3865,222 @@
 
 
 
-<h1 id="git">Git</h1>
-<h2 id="github">GitHub</h2>
-<h3 id="ssh">SSH</h3>
-<p>生成公钥和私钥对：</p>
-<div class="highlight"><pre><span></span><code>&gt; ssh-keygen -t ed25519 -C &quot;seancxmao@gmail.com&quot;
-
-&gt; ls ~/.ssh
-id_ed25519     id_ed25519.pub
-</code></pre></div>
-<p>把公钥放到GitHub上：</p>
-<div class="highlight"><pre><span></span><code>cat ~/.ssh/id_ed25519.pub
-</code></pre></div>
-<p>测试：</p>
-<div class="highlight"><pre><span></span><code>ssh -T git@github.com
-</code></pre></div>
-<ul>
-<li><code>-T</code>：禁用伪终端（pseudo-terminal）分配（Disable pseudo-terminal allocation）</li>
-<li>为什么 GitHub 要用 -T：当你测试 SSH 密钥是否配置正确时，GitHub 并不会给你一个交互式 Shell（终端会话），而只是验证你的身份。</li>
-</ul>
-<h2 id="_1">常用命令</h2>
-<p>以「Fork + PR」方式参与日常开发，90% 时间其实都在用下面这些命令。</p>
+<h1 id="asyncio-essentials">Asyncio Essentials</h1>
+<h2 id="1-what-problem-does-it-solve">1. What Problem Does It Solve?</h2>
+<p><code>asyncio</code> is Python's standard library for <strong>asynchronous I/O and cooperative concurrency</strong>. It allows a single thread to manage many I/O-bound operations efficiently without blocking.</p>
+<p>Without <code>asyncio</code>, whenever a program waits for a network request, file operation, timer, or other I/O event, the executing thread remains idle until the operation completes. Supporting many concurrent connections therefore requires creating many threads or processes, increasing memory usage and scheduling overhead.</p>
+<p><code>asyncio</code> solves this by allowing a task to voluntarily suspend while waiting for I/O, giving other tasks an opportunity to run. Instead of many threads taking turns, a single event loop coordinates many coroutines.</p>
+<p>For LLM serving, <code>asyncio</code> is <strong>not responsible for GPU inference</strong>. Its role is to orchestrate everything around inference: accepting requests, streaming generated tokens, communicating with other services, scheduling background work, and keeping the server responsive while waiting for I/O.</p>
+<h2 id="2-if-you-come-from-java">2. If You Come from Java</h2>
+<p>If you have experience with Java, <code>asyncio</code> is conceptually closest to Java's asynchronous programming APIs.</p>
 <table>
 <thead>
 <tr>
-<th>命令</th>
-<th>vLLM场景</th>
-<th>本质（直觉）</th>
+<th>Python</th>
+<th>Java Ecosystem</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>git clone</code></td>
-<td>第一次把 vLLM 拉到本地</td>
-<td>复制整个仓库</td>
+<td>Coroutine (<code>async def</code>)</td>
+<td><code>CompletableFuture</code> Task</td>
 </tr>
 <tr>
-<td><code>git remote -v</code></td>
-<td>查看 origin/upstream 是否配置正确</td>
-<td>看仓库之间的连接关系</td>
+<td><code>await</code></td>
+<td><code>future.get()</code> / asynchronous continuation</td>
 </tr>
 <tr>
-<td><code>git fetch upstream</code></td>
-<td>查看官方最近有没有新提交</td>
-<td>把远程信息抄到本地，但不动你的代码</td>
+<td>Event Loop</td>
+<td>Executor + Event Dispatcher (conceptually)</td>
 </tr>
 <tr>
-<td><code>git checkout main</code></td>
-<td>切回主分支同步代码</td>
-<td>切换工作区</td>
+<td><code>asyncio.create_task()</code></td>
+<td><code>ExecutorService.submit()</code></td>
 </tr>
 <tr>
-<td><code>git checkout -b fix-metal-bug</code></td>
-<td>开发一个 Metal Bug Fix</td>
-<td>从当前提交切出实验分支</td>
+<td><code>asyncio.Queue</code></td>
+<td><code>BlockingQueue</code> (conceptually)</td>
 </tr>
 <tr>
-<td><code>git rebase upstream/main</code></td>
-<td>官方 main 更新了几百个 commit</td>
-<td>把你的提交搬到最新主线后面</td>
-</tr>
-<tr>
-<td><code>git merge xxx</code></td>
-<td>偶尔合并别的分支</td>
-<td>把两条历史接起来</td>
-</tr>
-<tr>
-<td><code>git status</code></td>
-<td>开发过程中最常用</td>
-<td>查看工作区状态</td>
-</tr>
-<tr>
-<td><code>git diff</code></td>
-<td>看自己改了什么</td>
-<td>查看代码差异</td>
-</tr>
-<tr>
-<td><code>git add file.py</code></td>
-<td>修改完成准备提交</td>
-<td>把改动放进暂存区</td>
-</tr>
-<tr>
-<td><code>git commit -m "..."</code></td>
-<td>保存一个逻辑变更</td>
-<td>创建历史快照</td>
-</tr>
-<tr>
-<td><code>git log --oneline</code></td>
-<td>查看提交历史</td>
-<td>看时间线</td>
-</tr>
-<tr>
-<td><code>git push origin fix-metal-bug</code></td>
-<td>推送分支准备 PR</td>
-<td>上传提交到 GitHub</td>
-</tr>
-<tr>
-<td><code>git pull</code></td>
-<td>自己的小仓库同步</td>
-<td>fetch + merge</td>
-</tr>
-<tr>
-<td><code>git stash</code></td>
-<td>临时切任务</td>
-<td>把未提交修改塞进抽屉</td>
-</tr>
-<tr>
-<td><code>git stash pop</code></td>
-<td>回来继续开发</td>
-<td>从抽屉拿出来</td>
-</tr>
-<tr>
-<td><code>git reset --soft HEAD~1</code></td>
-<td>commit 写错了</td>
-<td>撤销快照，保留改动</td>
-</tr>
-<tr>
-<td><code>git restore file.py</code></td>
-<td>改坏一个文件</td>
-<td>恢复到上次状态</td>
+<td><code>asyncio.sleep()</code></td>
+<td>Scheduled asynchronous delay</td>
 </tr>
 </tbody>
 </table>
-<p>如果按频率排序，最核心的是：</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>status
-git<span class="w"> </span>diff
+<p>The important difference is that Java asynchronous programming is typically built on <strong>multiple threads</strong>, while <code>asyncio</code> usually runs many coroutines on <strong>a single thread</strong>.</p>
+<p>Another key distinction is scheduling. In Java, the operating system schedules threads preemptively. In <code>asyncio</code>, coroutines cooperate by yielding control whenever they execute an <code>await</code>.</p>
+<p><strong>Mental Model</strong></p>
+<p>Think of <code>asyncio</code> as a lightweight task scheduler. Instead of managing many threads, it manages many coroutines that voluntarily take turns running.</p>
+<h2 id="3-core-concepts">3. Core Concepts</h2>
+<h3 id="event-loop">Event Loop</h3>
+<p>The event loop is the scheduler at the heart of <code>asyncio</code>.</p>
+<p>It repeatedly checks which tasks are ready to run and resumes them.</p>
+<div class="highlight"><pre><span></span><code>Coroutine A
+      │
+Coroutine B
+      │
+Coroutine C
+      │
+      ▼
+  Event Loop
+</code></pre></div>
+<p>Every asynchronous application has an event loop driving execution.</p>
+<h3 id="coroutine">Coroutine</h3>
+<p>A coroutine is a function defined with <code>async def</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">():</span>
+    <span class="o">...</span>
+</code></pre></div>
+<p>Calling a coroutine does <strong>not</strong> execute it immediately.</p>
+<p>It creates a coroutine object that must later be awaited or scheduled.</p>
+<h3 id="await">await</h3>
+<p><code>await</code> suspends the current coroutine until another asynchronous operation completes.</p>
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">fetch_data</span><span class="p">()</span>
+</code></pre></div>
+<p>While waiting, the event loop can execute other coroutines.</p>
+<h3 id="task">Task</h3>
+<p>A Task wraps a coroutine so that the event loop can schedule it independently.</p>
+<div class="highlight"><pre><span></span><code><span class="n">task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">worker</span><span class="p">())</span>
+</code></pre></div>
+<p>Tasks enable multiple coroutines to make progress concurrently.</p>
+<h3 id="future">Future</h3>
+<p>A Future represents the result of an operation that has not completed yet.</p>
+<p>Most application code rarely creates Futures directly.</p>
+<p>Instead, they are used internally by <code>asyncio</code> and many asynchronous libraries.</p>
+<h3 id="queue">Queue</h3>
+<p><code>asyncio.Queue</code> allows coroutines to communicate safely.</p>
+<p>One coroutine produces work while another consumes it.</p>
+<div class="highlight"><pre><span></span><code><span class="n">Producer</span>
+    <span class="err">│</span>
+<span class="n">Queue</span>
+    <span class="err">│</span>
+<span class="n">Consumer</span>
+</code></pre></div>
+<p>Queues are common building blocks for asynchronous pipelines.</p>
+<h2 id="4-minimal-example">4. Minimal Example</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 
-git<span class="w"> </span>fetch<span class="w"> </span>upstream
-git<span class="w"> </span>rebase<span class="w"> </span>upstream/main
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">worker</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Start&quot;</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done&quot;</span><span class="p">)</span>
 
-git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="k">await</span> <span class="n">worker</span><span class="p">()</span>
 
-git<span class="w"> </span>add<span class="w"> </span>.
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;...&quot;</span>
-
-git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feature
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
 </code></pre></div>
-<p>可以把它们理解成：</p>
-<div class="highlight"><pre><span></span><code>status    看现场
-diff      看改动
-
-fetch     打听官方最新消息
-rebase    跟上主线
-
-checkout  开新任务
-add       装箱
-commit    存档
-push      上传
-</code></pre></div>
-<p>对于日常开发，这套心智模型基本够用了。真正需要深入理解的只有两个概念：</p>
-<div class="highlight"><pre><span></span><code>工作区 (Working Tree)
-    ↓ add
-暂存区 (Index)
-    ↓ commit
-提交历史 (Commit Graph)
-</code></pre></div>
-<p>几乎所有 Git 命令，本质上都在这三层之间搬东西。</p>
-<h2 id="_2">维护生产系统</h2>
-<p>在公司里，除了日常的 <code>fetch/rebase/commit/push</code>，最常见的是下面这些。</p>
-<table>
-<thead>
-<tr>
-<th>场景</th>
-<th>命令</th>
-<th>本质</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>给线上版本打补丁</td>
-<td><code>git cherry-pick</code></td>
-<td>把某个提交搬到另一条分支</td>
-</tr>
-<tr>
-<td>发布版本</td>
-<td><code>git tag v1.2.3</code></td>
-<td>给某个提交贴标签</td>
-</tr>
-<tr>
-<td>紧急修复线上问题</td>
-<td><code>git checkout release-x.y</code></td>
-<td>切到发布分支修 Bug</td>
-</tr>
-<tr>
-<td>回滚事故</td>
-<td><code>git revert &lt;commit&gt;</code></td>
-<td>用新提交撤销旧提交</td>
-</tr>
-<tr>
-<td>查看谁改坏了代码</td>
-<td><code>git blame file.py</code></td>
-<td>查责任提交</td>
-</tr>
-<tr>
-<td>定位 Bug 来源</td>
-<td><code>git bisect</code></td>
-<td>二分查找引入 Bug 的提交</td>
-</tr>
-<tr>
-<td>长期维护多个版本</td>
-<td>branch 管理</td>
-<td>一条主线多个发行版</td>
-</tr>
-<tr>
-<td>给客户交付 Patch</td>
-<td><code>git format-patch</code></td>
-<td>导出提交为补丁文件</td>
-</tr>
-<tr>
-<td>应用外部 Patch</td>
-<td><code>git apply</code> / <code>git am</code></td>
-<td>导入补丁</td>
-</tr>
-</tbody>
-</table>
-<h3 id="1-cherry-pick">1. Cherry-pick</h3>
-<p>假设：</p>
-<div class="highlight"><pre><span></span><code>main
- ├─A─B─C─D
-release/1.0
- └─A─B
-</code></pre></div>
-<p>线上 1.0 出 Bug。</p>
-<p>你在 main 修好：</p>
-<div class="highlight"><pre><span></span><code>main
- ├─A─B─C─D─E
-</code></pre></div>
-<p>只想把 E 搬过去：</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>release/1.0
-git<span class="w"> </span>cherry-pick<span class="w"> </span>E
-</code></pre></div>
-<p>结果：</p>
-<div class="highlight"><pre><span></span><code>release/1.0
- └─A─B─E&#39;
-</code></pre></div>
-<p>直觉：</p>
-<div class="highlight"><pre><span></span><code>复制一个提交
-而不是复制整个分支
-</code></pre></div>
-<h3 id="2-tag">2. Tag</h3>
-<p>发布：</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>tag<span class="w"> </span>v0.9.0
-git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>v0.9.0
-</code></pre></div>
-<p>以后：</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>v0.9.0
-</code></pre></div>
-<p>就能回到当时的代码。</p>
-<p>直觉：</p>
-<div class="highlight"><pre><span></span><code>给某个历史快照起名字
-</code></pre></div>
-<h3 id="3-revert">3. Revert</h3>
-<p>某提交导致服务崩溃：</p>
-<div class="highlight"><pre><span></span><code>A-B-C-D-E
-      ↑
-      坏提交
-</code></pre></div>
-<p>不要：</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>reset
-</code></pre></div>
-<p>因为别人已经同步了。</p>
-<p>应该：</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>revert<span class="w"> </span>D
-</code></pre></div>
-<p>变成：</p>
-<div class="highlight"><pre><span></span><code>A-B-C-D-E-F
-        ↑
-    撤销D
-</code></pre></div>
-<p>直觉：</p>
-<div class="highlight"><pre><span></span><code>历史不能删
-只能增加一个反向操作
-</code></pre></div>
-<h3 id="4-blame">4. Blame（查锅）</h3>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>blame<span class="w"> </span>scheduler.py
-</code></pre></div>
-<p>看到：</p>
-<div class="highlight"><pre><span></span><code>abc123 Sean
-def456 Alice
-</code></pre></div>
-<p>知道是谁改的。</p>
-<p>直觉：</p>
-<div class="highlight"><pre><span></span><code>代码考古
-</code></pre></div>
-<h3 id="5-bisect">5. Bisect（神兵利器）</h3>
-<p>现象：</p>
-<div class="highlight"><pre><span></span><code>v1.0 正常
-v1.8 崩了
-</code></pre></div>
-<p>中间：</p>
-<div class="highlight"><pre><span></span><code>1000 个 commit
-</code></pre></div>
-<p>不用一个个看：</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>bisect<span class="w"> </span>start
-git<span class="w"> </span>bisect<span class="w"> </span>bad
-git<span class="w"> </span>bisect<span class="w"> </span>good<span class="w"> </span>v1.0
-</code></pre></div>
-<p>Git 自动二分。</p>
-<div class="highlight"><pre><span></span><code>1000 commit
-↓
-约10次测试
-↓
-定位元凶
-</code></pre></div>
-<p>直觉：</p>
-<div class="highlight"><pre><span></span><code>Git 帮你做二分查找
-</code></pre></div>
-<h3 id="6-format-patch">6. Format-patch（传统大厂常见）</h3>
-<p>导出：</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>format-patch<span class="w"> </span>-1<span class="w"> </span>HEAD
-</code></pre></div>
-<p>得到：</p>
-<div class="highlight"><pre><span></span><code>0001-fix-metal.patch
-</code></pre></div>
-<p>别人：</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>am<span class="w"> </span><span class="m">0001</span>-fix-metal.patch
-</code></pre></div>
-<p>应用。</p>
-<p>Linux Kernel 现在仍大量使用这种模式。</p>
-<p>直觉：</p>
-<div class="highlight"><pre><span></span><code>提交 = 邮件附件
-</code></pre></div>
-<h2 id="_3">常见的实际问题</h2>
-<h3 id="1">问题1：线上版本不能升级</h3>
-<div class="highlight"><pre><span></span><code>main
-  ↑ 每天变化
-prod-2026.06
-  ↑ 正在服务用户
-</code></pre></div>
-<p>解决：</p>
-<div class="highlight"><pre><span></span><code>release branch
-+ cherry-pick
-</code></pre></div>
-<h3 id="2">问题2：某优化导致性能下降</h3>
-<p>解决：</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>bisect
-</code></pre></div>
-<p>找到引入问题的 commit。</p>
-<h3 id="3">问题3：客户要求恢复旧行为</h3>
-<p>解决：</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>revert
-</code></pre></div>
-<h3 id="4">问题4：需要精确复现线上环境</h3>
-<p>解决：</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>v2.3.7
-</code></pre></div>
-<p>(tag)</p>
-<h2 id="references">References</h2>
+<p>This example demonstrates the basic execution flow:</p>
 <ul>
-<li>https://git-scm.com/</li>
-<li>https://git-scm.com/book/en/v2</li>
+<li>create a coroutine</li>
+<li>execute it with an event loop</li>
+<li>suspend during <code>await</code></li>
+<li>resume when the operation completes</li>
 </ul>
+<h2 id="5-common-patterns">5. Common Patterns</h2>
+<h3 id="run-an-event-loop">Run an Event Loop</h3>
+<div class="highlight"><pre><span></span><code><span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</code></pre></div>
+<p>Entry point for most asynchronous applications.</p>
+<h3 id="await-a-coroutine">Await a Coroutine</h3>
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">worker</span><span class="p">()</span>
+</code></pre></div>
+<p>Wait for another coroutine to complete.</p>
+<h3 id="create-a-background-task">Create a Background Task</h3>
+<div class="highlight"><pre><span></span><code><span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">worker</span><span class="p">())</span>
+</code></pre></div>
+<p>Run work concurrently without blocking the current coroutine.</p>
+<h3 id="wait-for-multiple-tasks">Wait for Multiple Tasks</h3>
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span>
+    <span class="n">task1</span><span class="p">(),</span>
+    <span class="n">task2</span><span class="p">(),</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Execute several coroutines concurrently and wait for all of them.</p>
+<h3 id="asynchronous-queue">Asynchronous Queue</h3>
+<div class="highlight"><pre><span></span><code><span class="n">queue</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Queue</span><span class="p">()</span>
+</code></pre></div>
+<p>Useful for producer-consumer pipelines.</p>
+<h3 id="asynchronous-sleep">Asynchronous Sleep</h3>
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<p>Suspend without blocking the event loop.</p>
+<p>Unlike <code>time.sleep()</code>, other coroutines can continue running.</p>
+<h2 id="6-why-it-matters-for-llm-serving">6. Why It Matters for LLM Serving</h2>
+<div class="highlight"><pre><span></span><code>Client
+    ↓
+Uvicorn
+    ↓
+FastAPI
+    ↓
+asyncio Event Loop
+    ├── Request A
+    ├── Request B
+    ├── Token Streaming
+    ├── Metrics
+    └── Background Tasks
+            ↓
+      LLM Engine
+</code></pre></div>
+<p><code>asyncio</code> provides the concurrency infrastructure around the inference engine.</p>
+<p>Typical responsibilities include:</p>
+<ul>
+<li>handling many concurrent client requests</li>
+<li>streaming generated tokens asynchronously</li>
+<li>communicating with external services</li>
+<li>scheduling background work</li>
+<li>preventing I/O operations from blocking the server</li>
+</ul>
+<p>Without understanding <code>asyncio</code>, it is difficult to understand how modern Python serving frameworks remain responsive while many requests are in progress.</p>
+<h2 id="7-common-misconceptions">7. Common Misconceptions</h2>
+<h3 id="asyncio-parallelism">Asyncio = Parallelism ❌</h3>
+<p><code>asyncio</code> provides <strong>concurrency</strong>, not parallel execution.</p>
+<p>Most coroutines run on the same thread.</p>
+<h3 id="async-makes-code-faster">async Makes Code Faster ❌</h3>
+<p><code>async</code> does not accelerate CPU or GPU computation.</p>
+<p>It improves resource utilization while waiting for I/O.</p>
+<h3 id="calling-an-async-function-executes-it">Calling an async Function Executes It ❌</h3>
+<div class="highlight"><pre><span></span><code><span class="n">worker</span><span class="p">()</span>
+</code></pre></div>
+<p>creates a coroutine object.</p>
+<p>Execution begins only after it is awaited or scheduled.</p>
+<h3 id="await-blocks-the-entire-program">await Blocks the Entire Program ❌</h3>
+<p><code>await</code> pauses only the current coroutine.</p>
+<p>Other coroutines continue running.</p>
+<h3 id="asyncio-replaces-multi-threading">Asyncio Replaces Multi-threading ❌</h3>
+<p><code>asyncio</code> is excellent for I/O-bound workloads.</p>
+<p>CPU-bound work may still require threads or processes.</p>
+<h2 id="8-key-takeaways">8. Key Takeaways</h2>
+<ul>
+<li><code>asyncio</code> is Python's asynchronous concurrency framework.</li>
+<li>The event loop schedules coroutines cooperatively.</li>
+<li>Coroutines do nothing until they are awaited or scheduled.</li>
+<li><code>await</code> yields control instead of blocking the thread.</li>
+<li><code>asyncio</code> manages the serving infrastructure around inference, not GPU inference itself.</li>
+<li>Think of the event loop as a scheduler, not a worker.</li>
+</ul>
+<h2 id="9-further-reading">9. Further Reading</h2>
+<h3 id="official">Official</h3>
+<ul>
+<li>Python <code>asyncio</code> Documentation</li>
+<li>Python Coroutines and Tasks Documentation</li>
+</ul>
+<h3 id="deep-dive">Deep Dive</h3>
+<ul>
+<li>PEP 3156 — Asynchronous IO Support Rebooted</li>
+<li>Python Asyncio Conceptual Overview</li>
+</ul>
+<h3 id="source-code">Source Code</h3>
+<ul>
+<li>Python <code>asyncio</code></li>
+<li>Uvicorn</li>
+<li>FastAPI</li>
+<li>vLLM</li>
+</ul>
+<h3 id="recommended-books">Recommended Books</h3>
+<ul>
+<li><em>Python Concurrency with asyncio</em> — Matthew Fowler</li>
+</ul>
+<p>This is one of the best books for building a solid mental model of <code>asyncio</code>, although reading the official documentation is sufficient before diving into LLM serving frameworks.</p>
 
 
 
