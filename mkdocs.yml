@@ -1,4 +1,5 @@
-site_name: AI Systems
+site_name: Chenxiao Mao
+site_description: Notes on AI Systems, LLM Inference & Serving, Distributed Systems, and Modern AI.
 
 theme:
   name: material
